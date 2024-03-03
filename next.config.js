@@ -12,6 +12,11 @@ const nextConfig = {
     NEXT_PUBLIC_THEME_MODE: 'light',
     NEXT_PUBLIC_NAV_STYLE: 'default',
     NEXT_PUBLIC_LAYOUT_TYPE: 'full-width',
+    BASE_URL: process.env.BASE_URL,
+    BASE_SSO_URL: process.env.BASE_SSO_URL,
+    REACT_APP_SSO_CLIENT_ID: process.env.REACT_APP_SSO_CLIENT_ID,
+    REACT_APP_SSO_APP_CODE: process.env.REACT_APP_SSO_APP_CODE,
+    REACT_APP_SSO_SERVER_URL: process.env.REACT_APP_SSO_SERVER_URL,
   },
 };
 

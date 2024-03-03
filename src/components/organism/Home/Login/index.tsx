@@ -24,6 +24,7 @@ const HomeLogin = () => {
     localStorage.setItem('codeVerifier', codeVerifier);
     const codeChallenge = challenge.code_challenge;
     const url = `${REACT_APP_SSO_SERVER_URL}?redirectTo=${redirectTo}&appCode=${APP_CODE}&clientId=${CLIENT_ID}&codeChallenge=${codeChallenge}`;
+    console.log(url);
     router.push(url);
   };
   return (
