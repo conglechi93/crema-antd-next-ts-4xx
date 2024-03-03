@@ -14,7 +14,6 @@ const HomeComponent = () => {
   const { isAuthenticated } = useSelector<AppState, AppState['auth']>(
     ({ auth }) => auth,
   );
-  console.log('isAuthenticated', isAuthenticated);
   return (
     <div
       className={styles.home_page}

@@ -42,7 +42,6 @@ export class AxiosRequestCancleToken {
 
 const useRequestInterceptor = () => {
   const dispatch = useDispatch();
-  console.log('useRequestInterceptor');
   const [ready, setReady] = useState(false);
   const store = useStore();
   useEffect(() => {

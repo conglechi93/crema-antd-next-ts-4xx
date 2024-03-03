@@ -15,7 +15,7 @@ import {
 } from 'redux/actions/Auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '@auth0/auth0-react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { initialUrl } from 'shared/constants/AppConst';
 import EmptyAvatar from 'assets/profile/empty-avatar.svg';
 import IntlMessages from '@crema/utility/IntlMessages';

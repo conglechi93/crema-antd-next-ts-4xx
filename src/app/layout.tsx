@@ -19,10 +19,17 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from '../redux/store';
 import '../styles/all.scss';
+import AuthProvider from '@crema/utility/AuthProvider';
+import { BrowserRouter } from 'react-router-dom';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({ children }: any) {
+  const [isBrowser, setIsBrowser] = React.useState(false);
+  React.useEffect(() => {
+    setIsBrowser(true);
+  }, []);
+  console.log('isBrowser', isBrowser);
   return (
     <html lang='en'>
       <head>
@@ -41,28 +48,34 @@ export default function RootLayout({ children }: any) {
         />
       </head>
       <body>
-        <AppContextProvider>
-          <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-              <AppThemeProvider>
-                <AppLocaleProvider>
-                  <InfoViewContextProvider>
-                    <RequestInterceptor>
-                      <AppAuthProvider>
-                        <AuthRoutes>
-                          <AppPageMeta />
-                          <GlobalStyles />
-                          <Normalize />
-                          {children}
-                        </AuthRoutes>
-                      </AppAuthProvider>
-                    </RequestInterceptor>
-                  </InfoViewContextProvider>
-                </AppLocaleProvider>
-              </AppThemeProvider>
-            </PersistGate>
-          </Provider>
-        </AppContextProvider>
+        {isBrowser && (
+          <AppContextProvider>
+            <BrowserRouter>
+              <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+                  <AppThemeProvider>
+                    <AppLocaleProvider>
+                      <InfoViewContextProvider>
+                        <RequestInterceptor>
+                          <AuthProvider>
+                            <AppAuthProvider>
+                              <AuthRoutes>
+                                <AppPageMeta />
+                                <GlobalStyles />
+                                <Normalize />
+                                {children}
+                              </AuthRoutes>
+                            </AppAuthProvider>
+                          </AuthProvider>
+                        </RequestInterceptor>
+                      </InfoViewContextProvider>
+                    </AppLocaleProvider>
+                  </AppThemeProvider>
+                </PersistGate>
+              </Provider>
+            </BrowserRouter>
+          </AppContextProvider>
+        )}
       </body>
     </html>
   );

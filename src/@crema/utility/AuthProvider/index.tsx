@@ -79,6 +79,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       isLoading: true,
     });
     const authCode = searchParams.get('authCode');
+    console.log('authCode: ', authCode);
     if (authCode && !accessToken) {
       const codeVerifier = localStorage.getItem('codeVerifier');
       const codeChallengePayload = {

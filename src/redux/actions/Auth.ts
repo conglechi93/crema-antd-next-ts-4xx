@@ -90,12 +90,14 @@ export const onSetAccessToken = (
 ) => {
   return async (dispatch: Dispatch<AppActions>) => {
     dispatch(fetchStart());
+
     const reqParams = {
       ...codeChallengePayload,
       appCode: process.env.REACT_APP_SSO_APP_CODE,
       clientId: process.env.REACT_APP_SSO_CLIENT_ID,
       clientSecret: process.env.REACT_APP_SSO_CLIENT_SECRET,
     };
+    console.log('reqParams', reqParams);
     const config = {
       baseURL: process.env.BASE_SSO_URL,
     };
