@@ -1,8 +1,8 @@
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppPopConfirm from 'components/atoms/AppPopConfirm';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import SearchImg from 'assets/icon/search.png';
 import AppSearch from 'components/atoms/AppSearch';
 import IntlMessages from '@crema/utility/IntlMessages';
@@ -12,7 +12,7 @@ type WorkFlowFilterProps = {
   handleChangeSearchParams: (params: any, resetRecord?: boolean) => void;
 };
 const WorkFlowFilter = (props: WorkFlowFilterProps) => {
-  const {handleChangeSearchParams} = props;
+  const { handleChangeSearchParams } = props;
 
   const {
     form,
@@ -24,7 +24,7 @@ const WorkFlowFilter = (props: WorkFlowFilterProps) => {
     handleCancelPop,
     statusOptions,
   } = useWorkFlowFilter(handleChangeSearchParams);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
 
   return (
     <Row gutter={[16, 0]} align={'bottom'} justify={'center'}>
@@ -40,7 +40,7 @@ const WorkFlowFilter = (props: WorkFlowFilterProps) => {
               <AppForm form={form}>
                 <AppFormItem
                   name='searchText'
-                  label={messages['common.search']}
+                  label={messages['common.search'] as string}
                 >
                   <AppSearch
                     // onSearch={(e) => handleSearch(e)}

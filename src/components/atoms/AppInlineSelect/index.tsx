@@ -1,9 +1,9 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
-import {jsx} from '@emotion/react';
+import { jsx } from '@emotion/react';
 
-import {Box, xcss} from '@atlaskit/primitives';
-import {ValueType} from '@atlaskit/select';
+import { Box, xcss } from '@atlaskit/primitives';
+import { ValueType } from '@atlaskit/select';
 import Tag from '@atlaskit/tag';
 import Group from '@atlaskit/tag-group';
 import {
@@ -15,7 +15,7 @@ import styles from './style.module.scss';
 
 import InlineEdit from '@atlaskit/inline-edit';
 import AppFormItem from 'components/atoms/AppFormItem';
-import {Select} from 'antd';
+import { Select } from 'antd';
 interface OptionType {
   label: string;
   value: string;
@@ -43,7 +43,7 @@ const editViewContainerStyles = xcss({
   position: 'relative',
   zIndex: 'dialog',
 });
-const tagGroupContainerStyles = xcss({padding: 'space.050'});
+const tagGroupContainerStyles = xcss({ padding: 'space.050' });
 interface Props {
   fieldName?: string;
   editValue: ValueType<OptionType, true>;

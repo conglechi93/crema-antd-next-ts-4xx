@@ -1,15 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {StyledQueueAnim} from './index.styled';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import {Skeleton, Table} from 'antd';
+import { Skeleton, Table } from 'antd';
 import styles from './style.module.scss';
-import {TableProps} from 'antd/lib';
-import {Resizable} from 'react-resizable';
-import type {ColumnsType} from 'antd/es/table';
-import type {ResizeCallbackData} from 'react-resizable';
+import { TableProps } from 'antd/lib';
+import { Resizable } from 'react-resizable';
+import type { ColumnsType } from 'antd/es/table';
+import type { ResizeCallbackData } from 'react-resizable';
 import AppNotFound from 'components/molecules/AppNotFound';
-import {useIntl} from 'react-intl';
-import {RowSelectionType, TableRowSelection} from 'antd/es/table/interface';
+import { useIntl } from 'react-intl';
+import { RowSelectionType, TableRowSelection } from 'antd/es/table/interface';
 interface DataType {
   key: React.Key;
   date: string;
@@ -27,7 +26,7 @@ const ResizableTitle = (
     width: number;
   },
 ) => {
-  const {onResize, width, ...restProps} = props;
+  const { onResize, width, ...restProps } = props;
 
   if (!width) {
     return <th {...restProps} />;
@@ -46,7 +45,7 @@ const ResizableTitle = (
         />
       }
       onResize={onResize}
-      draggableOpts={{enableUserSelectHack: false}}
+      draggableOpts={{ enableUserSelectHack: false }}
     >
       <th {...restProps} />
     </Resizable>
@@ -79,7 +78,7 @@ interface AppTableContainerProps {
 }
 
 const AppTableContainer = (props: AppTableContainerProps & TableProps<any>) => {
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const {
     dataSource,
     isSearchAll = false,
@@ -131,7 +130,7 @@ const AppTableContainer = (props: AppTableContainerProps & TableProps<any>) => {
 
   const handleResize: Function =
     (index: number) =>
-    (_: React.SyntheticEvent<Element>, {size}: ResizeCallbackData) => {
+    (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
       const newColumns = [...columnsData];
       newColumns[index] = {
         ...newColumns[index],

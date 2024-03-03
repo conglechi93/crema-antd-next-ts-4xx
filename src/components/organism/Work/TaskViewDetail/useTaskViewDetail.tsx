@@ -1,13 +1,13 @@
 import IntlMessages from '@crema/utility/IntlMessages';
-import {Col, Form, Row} from 'antd';
+import { Col, Form, Row } from 'antd';
 import AppTypo from 'components/atoms/AppTypo';
-import {onDownloadFile} from 'redux/actions/Files';
+import { onDownloadFile } from 'redux/actions/Files';
 import ActivitiesTabs from './ActivitiesTabs';
 import AppButton from 'components/atoms/AppButton';
-import {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import imgExcel from 'assets/image/Excel.png';
-import {onGetProjectDetail} from 'redux/actions/ProjectManagement';
+import { onGetProjectDetail } from 'redux/actions/ProjectManagement';
 
 const useTaskViewDetail = (
   detailInfo: any,
@@ -41,20 +41,25 @@ const useTaskViewDetail = (
       children: (
         <>
           {detailInfo?.fileAttachments ? (
-            detailInfo?.fileAttachments?.map((item: any) => {
+            detailInfo?.fileAttachments?.map((item: any, index: number) => {
               return (
                 <Row
+                  key={index}
                   gutter={[8, 8]}
                   align={'middle'}
-                  style={{marginTop: '10px'}}
+                  style={{ marginTop: '10px' }}
                 >
                   <Col>
-                    <img style={{display: 'flex'}} src={imgExcel.src} alt='' />
+                    <img
+                      style={{ display: 'flex' }}
+                      src={imgExcel.src}
+                      alt=''
+                    />
                   </Col>
                   <Col>
                     <span
                       onClick={() => handleDownloadFile(item)}
-                      style={{cursor: 'pointer'}}
+                      style={{ cursor: 'pointer' }}
                     >
                       {item?.fileName}
                     </span>
