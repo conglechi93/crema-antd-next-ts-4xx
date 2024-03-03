@@ -1,44 +1,6 @@
 import React from 'react';
-import { HiOutlineAcademicCap, HiOutlineChartSquareBar } from 'react-icons/hi';
-import {
-  RiBarChart2Line,
-  RiCustomerService2Line,
-  RiDashboardLine,
-  RiShieldUserLine,
-  RiTodoLine,
-} from 'react-icons/ri';
-import {
-  BiBookReader,
-  BiCartAlt,
-  BiDollar,
-  BiErrorCircle,
-  BiRss,
-  BiTask,
-} from 'react-icons/bi';
-import {
-  MdInvertColors,
-  MdOutlineAnalytics,
-  MdOutlineContactPhone,
-  MdOutlineContactSupport,
-  MdOutlineDns,
-  MdOutlineManageAccounts,
-  MdTimeline,
-} from 'react-icons/md';
-import {
-  BsBriefcase,
-  BsCart4,
-  BsChatDots,
-  BsCurrencyBitcoin,
-  BsQuestionDiamond,
-} from 'react-icons/bs';
-import { FaRegCalendarAlt, FaRegHospital, FaRegImages } from 'react-icons/fa';
-import { CgAttachment, CgFeed, CgUserList } from 'react-icons/cg';
-import { FiMail, FiMap, FiUsers } from 'react-icons/fi';
-import { IoMdNotificationsOutline } from 'react-icons/io';
-import { DiHtml5Multimedia } from 'react-icons/di';
-import { RoutePermittedRole } from '@crema/constants/AppEnums';
-import { GrUserAdmin } from 'react-icons/gr';
-import { TbFileInvoice } from 'react-icons/tb';
+import { MdOutlineDns } from 'react-icons/md';
+import { BsCurrencyBitcoin } from 'react-icons/bs';
 
 const routesConfig = [
   {
