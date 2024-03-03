@@ -1,15 +1,16 @@
-import {Card, Col, Divider, Row} from 'antd';
+'use client';
+import { Card, Col, Divider, Row } from 'antd';
 import styles from './style.module.scss';
 import AppTypo from 'components/atoms/AppTypo';
 import AppTag from 'components/atoms/AppTag';
-import AvatarList from 'ant-design-pro/lib/AvatarList';
+// import AvatarList from 'ant-design-pro/lib/AvatarList';
 import EmptyAvatar from 'assets/profile/empty-avatar.svg';
 import 'ant-design-pro/dist/ant-design-pro.css';
-import {memo} from 'react';
+import { memo } from 'react';
 import clsx from 'clsx';
 
 const BoardCard = (props: any) => {
-  const {startDate, endDate, priority, onClick} = props;
+  const { startDate, endDate, priority, onClick } = props;
   console.log('props', props);
   const assignees: Array<any> = props?.assignees ?? [];
 
@@ -17,7 +18,7 @@ const BoardCard = (props: any) => {
     <Card
       title={props?.title}
       bordered={false}
-      style={{width: 300, cursor: 'pointer'}}
+      style={{ width: 300, cursor: 'pointer' }}
       className={clsx({
         [styles.board_card]: true,
         [styles.isExpired]: props?.isExpired,
@@ -26,7 +27,7 @@ const BoardCard = (props: any) => {
     >
       <Row gutter={[0, 8]}>
         <Col xs={24}>
-          <div dangerouslySetInnerHTML={{__html: props?.description}}></div>
+          <div dangerouslySetInnerHTML={{ __html: props?.description }}></div>
         </Col>
         <Col xs={24}>
           <Row gutter={[0, 8]}>
@@ -48,8 +49,8 @@ const BoardCard = (props: any) => {
             color={`#${priority?.color ?? 'bdbdbd'}`}
           />
         </Col>
-        <Divider style={{padding: 0, margin: 0}} />
-        <Col xs={24}>
+        <Divider style={{ padding: 0, margin: 0 }} />
+        {/* <Col xs={24}>
           <AvatarList>
             {assignees?.map((item: any) => (
               <AvatarList.Item
@@ -59,7 +60,7 @@ const BoardCard = (props: any) => {
               />
             ))}
           </AvatarList>
-        </Col>
+        </Col> */}
       </Row>
     </Card>
   );

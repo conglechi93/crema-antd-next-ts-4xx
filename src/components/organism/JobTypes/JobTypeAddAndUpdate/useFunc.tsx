@@ -1,7 +1,7 @@
-import {debounce} from '@mui/material';
-import {FormInstance} from 'antd';
-import {useCallback} from 'react';
-import {checkValidateForm} from 'utils/FormUtils';
+import { debounce } from 'lodash';
+import { FormInstance } from 'antd';
+import { useCallback } from 'react';
+import { checkValidateForm } from 'utils/FormUtils';
 
 const useJobTypesAddAndUpdate = (
   form: FormInstance,
@@ -21,7 +21,7 @@ const useJobTypesAddAndUpdate = (
     debounce((e) => handleFieldsChangeDebound(), 100),
     [],
   );
-  return {handleFieldsChange};
+  return { handleFieldsChange };
 };
 
 export default useJobTypesAddAndUpdate;

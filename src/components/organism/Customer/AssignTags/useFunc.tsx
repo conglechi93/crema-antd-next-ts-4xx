@@ -1,9 +1,9 @@
-import {debounce} from '@mui/material';
-import {Form} from 'antd';
-import {FormInstance} from 'antd/lib';
-import {useCallback, useEffect, useState} from 'react';
-import {pageSize} from 'shared/constants/AppConst';
-import {checkValidateForm} from 'utils/FormUtils';
+import { debounce } from 'lodash';
+import { Form } from 'antd';
+import { FormInstance } from 'antd/lib';
+import { useCallback, useEffect, useState } from 'react';
+import { pageSize } from 'shared/constants/AppConst';
+import { checkValidateForm } from 'utils/FormUtils';
 
 const useAssignTags = (
   form: FormInstance,
@@ -27,7 +27,7 @@ const useAssignTags = (
   const handleFieldsChangeDebound = () => {
     const optionalFields = [];
     const isValid = checkValidateForm(form, optionalFields);
-    handleChangeModalInfo({disabled: !isValid});
+    handleChangeModalInfo({ disabled: !isValid });
   };
 
   const handleFieldsChange = useCallback(

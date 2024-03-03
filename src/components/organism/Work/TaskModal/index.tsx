@@ -1,7 +1,7 @@
 import AppModal from 'components/molecules/AppModal';
 import usePickListModal from './useTaskModal';
-import {ActionType} from 'shared/constants/AppVariables';
-import React, {memo} from 'react';
+import { ActionType } from 'shared/constants/AppVariables';
+import React, { memo } from 'react';
 import TaskAddAndUpdate from '../TaskAddAndUpdate';
 import WorkViewDetail from '../TaskViewDetail';
 
@@ -14,7 +14,7 @@ type PropsTypes = {
 };
 
 const TaskModal = (props: PropsTypes) => {
-  const {info, isOpen, setIsOpen} = props;
+  const { info, isOpen, setIsOpen } = props;
   const {
     form,
     modalInfo,
@@ -30,7 +30,7 @@ const TaskModal = (props: PropsTypes) => {
     setFileAttachments,
   } = usePickListModal(info, setIsOpen);
   const renderViewComponent = () => {
-    const {type} = info;
+    const { type } = info;
     switch (type) {
       case ActionType.VIEW: {
         return (

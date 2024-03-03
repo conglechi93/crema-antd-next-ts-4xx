@@ -1,31 +1,31 @@
-import {debounce} from '@mui/material';
-import {Form} from 'antd';
-import {FormInstance} from 'antd/lib';
-import {useCallback, useEffect, useState} from 'react';
-import {useIntl} from 'react-intl';
-import {useDispatch} from 'react-redux';
+import { debounce } from 'lodash';
+import { Form } from 'antd';
+import { FormInstance } from 'antd/lib';
+import { useCallback, useEffect, useState } from 'react';
+import { useIntl } from 'react-intl';
+import { useDispatch } from 'react-redux';
 import {
   onCreateCustomer,
   onGetCustomerDetailByCode,
   onUpdateCustomer,
 } from 'redux/actions/Customer';
-import {onGetFormDetail} from 'redux/actions/Form';
-import {dateTimeFormat} from 'shared/constants/AppConst';
-import {ActionType, PropertyType} from 'shared/constants/AppVariables';
-import {checkValidateForm} from 'utils/FormUtils';
-import {loadState, removeState, saveState} from 'utils/LocalStore';
+import { onGetFormDetail } from 'redux/actions/Form';
+import { dateTimeFormat } from 'shared/constants/AppConst';
+import { ActionType, PropertyType } from 'shared/constants/AppVariables';
+import { checkValidateForm } from 'utils/FormUtils';
+import { loadState, removeState, saveState } from 'utils/LocalStore';
 import dayjs from 'dayjs';
 import AppTitleLable from 'components/atoms/AppTitleLable';
-import {createImageJson} from 'utils/FileHelper';
+import { createImageJson } from 'utils/FileHelper';
 
 const usePropertyModal = (
   info: any,
   isOpen: boolean,
   setIsOpen: (isOpen: boolean) => void,
 ) => {
-  const {type} = info;
+  const { type } = info;
   const dispatch = useDispatch();
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const [form] = Form.useForm();
 
   const [propertyList, setPropertyList] = useState<
@@ -108,9 +108,9 @@ const usePropertyModal = (
     setModalData(modalData[type]);
   };
 
-  const handleSetFormData = (dataItems: Array<{key: string; value: any}>) => {
-    const {draftString} = info;
-    let dataDraft = {...loadState(draftString)};
+  const handleSetFormData = (dataItems: Array<{ key: string; value: any }>) => {
+    const { draftString } = info;
+    let dataDraft = { ...loadState(draftString) };
     let submitFormData = dataDraft?.submitFormData || {};
     dataItems?.forEach((item) => {
       submitFormData = {
@@ -167,7 +167,7 @@ const usePropertyModal = (
           isMultiChoice: item?.isMultiChoice ? true : false,
         },
       };
-      data = {...data, ...propertyJS};
+      data = { ...data, ...propertyJS };
     });
     setPropertyList(configProperties);
     if (isFisrtRender) {
@@ -251,7 +251,7 @@ const usePropertyModal = (
       if (type === ActionType.EDIT) {
         const fileAttachment: Array<any> = res?.fileAttachments ?? [];
         fileAttachment?.map((item: any) => {
-          const {id, url, fileName, extension, type} = item;
+          const { id, url, fileName, extension, type } = item;
           newFileAttachments?.push(
             createImageJson(id, url, fileName, extension, type),
           );
@@ -317,7 +317,7 @@ const usePropertyModal = (
           isMultiChoice: item?.isMultiChoice ? true : false,
         },
       };
-      data = {...data, ...propertyJS};
+      data = { ...data, ...propertyJS };
       form.setFieldsValue({
         [item?.configProperty?.code]: fieldsValue ? fieldsValue : undefined,
       });
@@ -335,7 +335,7 @@ const usePropertyModal = (
 
   useEffect(() => {
     if (info && isOpen) {
-      const {draftString, type, record, action} = info;
+      const { draftString, type, record, action } = info;
       handleSetModalData(type);
       const dataSource = loadState(draftString);
       const submitFormData = dataSource?.submitFormData || {};
@@ -352,7 +352,7 @@ const usePropertyModal = (
   }, [info, isOpen]);
 
   const handleSubmit = async (): Promise<void> => {
-    const {draftString, type, record} = info;
+    const { draftString, type, record } = info;
     setLoading(true);
     let res: any = null;
     switch (type) {
@@ -388,7 +388,7 @@ const usePropertyModal = (
 
   const handleRemoveState = (): void => {
     form.resetFields();
-    const {draftString} = info;
+    const { draftString } = info;
     removeState([draftString]);
     setThumbnailAvatar(null);
     setFileList([]);
@@ -419,7 +419,7 @@ const usePropertyModal = (
           ...prevState,
           code: value,
         }));
-        const {formCode} = wardInfo;
+        const { formCode } = wardInfo;
         form.setFieldsValue({
           [formCode]: null,
         });
@@ -462,12 +462,12 @@ const usePropertyModal = (
 
   const handleFieldsChangeDebound = (e: any) => {
     const fieldInfo = e[0];
-    const {name, value} = fieldInfo;
+    const { name, value } = fieldInfo;
     const property: any = propertyList.find((item) => item.code === name[0]);
     const configDataType = property?.configDataType;
     let data: any;
     if (property) {
-      const {draftString} = info;
+      const { draftString } = info;
       const source = loadState(draftString);
       const propertyList: any = source?.submitFormData?.propertyList || [];
       const fieldsValue = getFieldsValueFormItem(property, value, form);

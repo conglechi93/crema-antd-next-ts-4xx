@@ -50,30 +50,6 @@ const routesConfig = [
   },
   {
     id: 'sales-management',
-    title: 'sales-management',
-    messageId: 'navbar.salesManagement',
-    type: 'group',
-    children: [
-      {
-        id: 'sales-program',
-        title: 'Chương trình bán hàng',
-        messageId: 'common.salesProgram',
-        type: 'item',
-        path: '/sales-management/sales-program',
-        icon: <MdOutlineDns />,
-      },
-      {
-        id: 'transaction-management',
-        title: 'Quản lý giao dịch',
-        messageId: 'common.transactionManagement',
-        type: 'item',
-        path: '/sales-management/transaction-management',
-        icon: <MdOutlineDns />,
-      },
-    ],
-  },
-  {
-    id: 'sales-management',
     title: 'Quản lý bán hàng',
     messageId: 'navbar.salesManagement',
     type: 'group',

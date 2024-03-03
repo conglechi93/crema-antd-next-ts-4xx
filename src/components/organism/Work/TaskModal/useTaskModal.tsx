@@ -1,19 +1,23 @@
-import {debounce} from '@mui/material';
-import {Form} from 'antd';
+import { debounce } from 'lodash';
+import { Form } from 'antd';
 import AppTitleLable from 'components/atoms/AppTitleLable';
-import {useCallback, useEffect, useState} from 'react';
-import {useIntl} from 'react-intl';
-import {useDispatch} from 'react-redux';
-import {onCreateTask, onGetTasksDetail, onUpdateTask} from 'redux/actions/Task';
-import {dateTimeFormat} from 'shared/constants/AppConst';
-import {ActionType} from 'shared/constants/AppVariables';
-import {checkValidateForm} from 'utils/FormUtils';
+import { useCallback, useEffect, useState } from 'react';
+import { useIntl } from 'react-intl';
+import { useDispatch } from 'react-redux';
+import {
+  onCreateTask,
+  onGetTasksDetail,
+  onUpdateTask,
+} from 'redux/actions/Task';
+import { dateTimeFormat } from 'shared/constants/AppConst';
+import { ActionType } from 'shared/constants/AppVariables';
+import { checkValidateForm } from 'utils/FormUtils';
 
 const useTaskModal = (info: any, setIsOpen: (isOpen: boolean) => void) => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
-  const {type, record, action} = info;
-  const {messages} = useIntl();
+  const { type, record, action } = info;
+  const { messages } = useIntl();
   const [disabled, setDisabled] = useState<boolean>(false);
   const [description, setDescription] = useState<string>('');
   const [detailInfo, setDetailInfo] = useState<any>(null);
@@ -37,24 +41,24 @@ const useTaskModal = (info: any, setIsOpen: (isOpen: boolean) => void) => {
         } = form.getFieldsValue();
         const reqParams = {
           name,
-          project: project ? {code: project.toString()} : null,
+          project: project ? { code: project.toString() } : null,
           progress: progress,
           workflowStatus: workflowStatus
-            ? {code: workflowStatus.toString()}
+            ? { code: workflowStatus.toString() }
             : null,
-          parentTask: parentTask ? {code: parentTask.toString()} : null,
+          parentTask: parentTask ? { code: parentTask.toString() } : null,
           startDate: startDate ? startDate?.format(dateTimeFormat[1]) : null,
           endDate: endDate ? endDate?.format(dateTimeFormat[1]) : null,
-          jobType: jobType ? {code: jobType.toString()} : null,
-          priority: priority ? {code: priority.toString()} : null,
+          jobType: jobType ? { code: jobType.toString() } : null,
+          priority: priority ? { code: priority.toString() } : null,
           reporters: reporters
             ? reporters?.map((code: string) => {
-                return {code: code};
+                return { code: code };
               })
             : [],
           assignees: assignees
             ? assignees.map((code: string) => {
-                return {code: code};
+                return { code: code };
               })
             : [],
           description: description,
@@ -84,24 +88,24 @@ const useTaskModal = (info: any, setIsOpen: (isOpen: boolean) => void) => {
         const reqParams = {
           code: record.code,
           name,
-          project: project ? {code: project.toString()} : null,
+          project: project ? { code: project.toString() } : null,
           progress: progress,
           workflowStatus: workflowStatus
-            ? {code: workflowStatus.toString()}
+            ? { code: workflowStatus.toString() }
             : null,
-          parentTask: parentTask ? {code: parentTask.toString()} : null,
+          parentTask: parentTask ? { code: parentTask.toString() } : null,
           startDate: startDate ? startDate?.format(dateTimeFormat[1]) : null,
           endDate: endDate ? endDate?.format(dateTimeFormat[1]) : null,
-          jobType: jobType ? {code: jobType.toString()} : null,
-          priority: priority ? {code: priority.toString()} : null,
+          jobType: jobType ? { code: jobType.toString() } : null,
+          priority: priority ? { code: priority.toString() } : null,
           reporters: reporters
             ? reporters?.map((code: string) => {
-                return {code: code};
+                return { code: code };
               })
             : [],
           assignees: assignees
             ? assignees.map((code: string) => {
-                return {code: code};
+                return { code: code };
               })
             : [],
           description: description,
@@ -195,13 +199,13 @@ const useTaskModal = (info: any, setIsOpen: (isOpen: boolean) => void) => {
     handleSetAppModalConfig(type, res);
   };
   useEffect(() => {
-    const {record} = info;
+    const { record } = info;
     const code = record?.code;
     fetchTaskDetails(code);
   }, [info]);
 
   useEffect(() => {
-    const {type, record} = info;
+    const { type, record } = info;
     handleSetAppModalConfig(type, record);
   }, [info]);
 
