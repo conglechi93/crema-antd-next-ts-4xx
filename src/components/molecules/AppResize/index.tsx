@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import {Panel, PanelGroup} from 'react-resizable-panels';
+import { useState } from 'react';
+import { Panel, PanelGroup } from 'react-resizable-panels';
 import ResizeHandle from './ResizeHandle';
 import styles from './styles.module.css';
 import * as ReactIs from 'react-is';
@@ -9,7 +9,7 @@ type AppResizeProp = {
   secondChild: React.ReactNode | React.ReactFragment;
 };
 const AppResize = (prop: AppResizeProp) => {
-  const {hiddenSecondChild, firstChild, secondChild} = prop;
+  const { hiddenSecondChild, firstChild, secondChild } = prop;
   return (
     <div className={styles.Container}>
       <div className={styles.BottomRow}>

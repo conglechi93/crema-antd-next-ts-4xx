@@ -1,7 +1,7 @@
-import {Col, Row, Skeleton} from 'antd';
-import React, {useEffect, useState} from 'react';
-import {pageSize} from 'shared/constants/AppConst';
-import {AppTableContainer} from '@crema';
+import { Col, Row, Skeleton } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { pageSize } from 'shared/constants/AppConst';
+import AppTableContainer from '@crema/AppTableContainer';
 import useFunc from './useFunc';
 import AppModal from 'components/molecules/AppModal';
 import FilterTab2 from './Fillter';
@@ -13,7 +13,7 @@ type PropsTypes = {
   activeValue: string;
 };
 const ContentTab2 = (props: PropsTypes) => {
-  const {record, activeValue} = props;
+  const { record, activeValue } = props;
   const {
     isSearchAll,
     total,
@@ -70,7 +70,7 @@ const ContentTab2 = (props: PropsTypes) => {
             total={total}
             pageSize={pageSize.SALES_TRANSACTIONS}
             handleChangePage={handleChangeSearchParams}
-            scroll={{x: 1000, y: 250}}
+            scroll={{ x: 1000, y: 250 }}
             pagination={{
               position: ['topRight'],
             }}

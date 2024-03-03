@@ -1,12 +1,12 @@
 import AppTypo from 'components/atoms/AppTypo';
 import RecordInfo from 'components/molecules/RecordInfo';
-import {pageSize} from 'shared/constants/AppConst';
-import {Col, Row, Tooltip} from 'antd';
-import {useEffect, useState} from 'react';
-import {useIntl} from 'react-intl';
-import {onGetExcelRecordsByKey} from 'redux/actions/Inventory';
-import {AppTableContainer} from '@crema';
-import {useDispatch} from 'react-redux';
+import { pageSize } from 'shared/constants/AppConst';
+import { Col, Row, Tooltip } from 'antd';
+import { useEffect, useState } from 'react';
+import { useIntl } from 'react-intl';
+import { onGetExcelRecordsByKey } from 'redux/actions/Inventory';
+import AppTableContainer from '@crema/AppTableContainer';
+import { useDispatch } from 'react-redux';
 import iconError from 'assets/icon/DangerCircle.svg';
 import clsx from 'clsx';
 
@@ -15,9 +15,9 @@ type PropsTypes = {
   setDisabled: (value: boolean) => void;
 };
 const Step2 = (props: PropsTypes) => {
-  const {formId, setDisabled} = props;
+  const { formId, setDisabled } = props;
   const dispatch = useDispatch();
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const [columns, setColumns] = useState<Array<any>>([]);
   const [dataSource, setDataSource] = useState<Array<any> | undefined>(
     undefined,
@@ -59,12 +59,12 @@ const Step2 = (props: PropsTypes) => {
 
   useEffect(() => {
     const fetchExcelRecordsByKey = async () => {
-      const {key} = searchParams;
+      const { key } = searchParams;
       if (!key) return;
       setLoading(true);
       const res: any = await dispatch(onGetExcelRecordsByKey(searchParams));
       const excelRecordsInfo = res?.info || {};
-      const {success, total, error, duplicate} = excelRecordsInfo;
+      const { success, total, error, duplicate } = excelRecordsInfo;
       setDisabled(false);
       setExcelRecordsInfo(excelRecordsInfo);
       const tableInfo = res?.table || {};
@@ -223,7 +223,7 @@ const Step2 = (props: PropsTypes) => {
             pageSize={pageSize.INVENTORY}
             current={currentPage}
             setCurrent={setCurrentPage}
-            scroll={{x: 1000, y: 390}}
+            scroll={{ x: 1000, y: 390 }}
             className='table_custom_record'
             handleChangePage={handleChangeSearchParam}
             pagination={{

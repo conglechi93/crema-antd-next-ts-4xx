@@ -1,7 +1,7 @@
-import {AppTableContainer} from '@crema';
-import {pageSize} from 'shared/constants/AppConst';
-import {useIntl} from 'react-intl';
-import {Col, Row} from 'antd';
+import AppTableContainer from '@crema/AppTableContainer';
+import { pageSize } from 'shared/constants/AppConst';
+import { useIntl } from 'react-intl';
+import { Col, Row } from 'antd';
 import SalesProgramDetailFilter from '../SalesProgramDetailFilter';
 import AppModal from 'components/molecules/AppModal';
 import useSalesProgramDetailTable from './useSalesProgramDetailTable';
@@ -13,7 +13,7 @@ type SalesProgramDetailTableProps = {
   setIsRefreshChild: (value: boolean) => void;
 };
 const SalesProgramDetailTable = (props: SalesProgramDetailTableProps) => {
-  const {record, isRefreshChild, setIsRefreshChild} = props;
+  const { record, isRefreshChild, setIsRefreshChild } = props;
   const {
     isSearchAll,
     total,
@@ -31,7 +31,7 @@ const SalesProgramDetailTable = (props: SalesProgramDetailTableProps) => {
     isOpenConfirmTransaction,
     setIsOpenConfirmTransaction,
   } = useSalesProgramDetailTable(record, isRefreshChild, setIsRefreshChild);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
 
   return (
     <>
@@ -58,7 +58,7 @@ const SalesProgramDetailTable = (props: SalesProgramDetailTableProps) => {
           },
         }}
       />
-      <Row gutter={[0, 0]} style={{width: '100%'}}>
+      <Row gutter={[0, 0]} style={{ width: '100%' }}>
         {record && (
           <Col span={24} className='layout_box'>
             <SalesProgramDetailFilter
@@ -80,7 +80,7 @@ const SalesProgramDetailTable = (props: SalesProgramDetailTableProps) => {
             current={currentPage}
             setCurrent={setCurrentPage}
             pageSize={pageSize.SALES_PROGRAMS}
-            scroll={{x: 1000, y: 420}}
+            scroll={{ x: 1000, y: 420 }}
             handleChangePage={handleChangeSearchParams}
             pagination={{
               position: ['topRight'],

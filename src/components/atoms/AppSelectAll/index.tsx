@@ -1,10 +1,11 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
-import {Select, SelectProps, Tag} from 'antd';
+'use client';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { Select, SelectProps, Tag } from 'antd';
 
 import styles from './style.module.scss';
-import {FormInstance} from 'antd/lib';
+import { FormInstance } from 'antd/lib';
 
-const {Option} = Select;
+const { Option } = Select;
 
 type AppSelectAllProps = {
   form: FormInstance;
@@ -13,7 +14,7 @@ type AppSelectAllProps = {
 };
 
 const AppSelectAll = (props: SelectProps & AppSelectAllProps) => {
-  const {fieldName, form, initialValues, onChange, options} = props;
+  const { fieldName, form, initialValues, onChange, options } = props;
   const handleChange = (
     e: ChangeEvent<HTMLSelectElement>,
     option?: any,
@@ -79,7 +80,7 @@ const AppSelectAll = (props: SelectProps & AppSelectAllProps) => {
     }
   };
   const handleTagRender = (props: any) => {
-    const {label, value, closable, onClose} = props;
+    const { label, value, closable, onClose } = props;
     const isHasAll = optionsCurrent && optionsCurrent?.includes('');
     let options: Array<string>;
     if (isHasAll) {
@@ -92,7 +93,7 @@ const AppSelectAll = (props: SelectProps & AppSelectAllProps) => {
             color={'#bdbdbd'}
             closable={closable}
             onClose={onClose}
-            style={{marginRight: 3}}
+            style={{ marginRight: 3 }}
           >
             {label}
           </Tag>
@@ -109,7 +110,7 @@ const AppSelectAll = (props: SelectProps & AppSelectAllProps) => {
 
   return (
     <Select
-      style={{width: '100%'}}
+      style={{ width: '100%' }}
       allowClear
       showSearch
       className={styles.app_select}

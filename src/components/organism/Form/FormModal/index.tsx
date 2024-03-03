@@ -3,18 +3,18 @@ import AppModal from 'components/molecules/AppModal';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import AppTextArea from 'components/atoms/AppTextArea';
-import {Button, Col, Row} from 'antd';
+import { Button, Col, Row } from 'antd';
 import useFormModal from './useFormModal';
 import AppTypo from 'components/atoms/AppTypo';
 import IntlMessages from '@crema/utility/IntlMessages';
 import FormModalTable from '../FormModalTable';
 import AppButton from 'components/atoms/AppButton';
 import ChoosePropertyModal from '../ChoosePropertyModal';
-import {ActionType} from 'shared/constants/AppVariables';
+import { ActionType } from 'shared/constants/AppVariables';
 import FormModalDetail from '../FormModalDetail';
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 
 type PropsTypes = {
   info: any;
@@ -24,15 +24,15 @@ type PropsTypes = {
   zIndex?: number;
 };
 const FormModal = (props: PropsTypes) => {
-  const {info, isOpen, setIsOpen} = props;
-  const {type, record} = info;
+  const { info, isOpen, setIsOpen } = props;
+  const { type, record } = info;
 
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
     formatSelectRequiredMessageId: fsrm,
   } = useFormMessage();
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const {
     form,
     modalData,
@@ -81,7 +81,7 @@ const FormModal = (props: PropsTypes) => {
         {type === ActionType.VIEW ? (
           <>
             <FormModalDetail recodeDetail={record} dataSource={dataSource} />
-            <Row style={{margin: '16px 0'}}>
+            <Row style={{ margin: '16px 0' }}>
               <Col xs={24}>
                 <AppTypo variant='p-lg-semi'>
                   <IntlMessages id='common.detailInfomation' />
@@ -96,7 +96,7 @@ const FormModal = (props: PropsTypes) => {
               isShowTitle={false}
               dataSource={dataSource}
               pagination={false}
-              scroll={{x: 1000, y: 390}}
+              scroll={{ x: 1000, y: 390 }}
             />
           </>
         ) : (

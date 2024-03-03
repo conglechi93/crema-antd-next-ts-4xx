@@ -1,8 +1,8 @@
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 import React from 'react';
 import useTab1 from './useTab1';
-import {Col, Row} from 'antd';
-import {pageSize} from 'shared/constants/AppConst';
+import { Col, Row } from 'antd';
+import { pageSize } from 'shared/constants/AppConst';
 import ContentTabFilter from './contentTabFilter';
 import AppModal from 'components/molecules/AppModal';
 
@@ -72,7 +72,7 @@ const ContentTab1 = (props: PropsTypes) => {
             setCurrent={setCurrentPage}
             total={total}
             pageSize={pageSize.SALES_TRANSACTIONS}
-            scroll={{x: 1000, y: 250}}
+            scroll={{ x: 1000, y: 250 }}
             pagination={{
               position: ['topRight'],
             }}

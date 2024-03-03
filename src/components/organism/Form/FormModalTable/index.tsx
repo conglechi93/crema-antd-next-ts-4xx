@@ -1,13 +1,13 @@
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 import useFormModalTable from './useFormModalTable';
-import {pageSize} from 'shared/constants/AppConst';
+import { pageSize } from 'shared/constants/AppConst';
 type FormModalTableProps = {
   loading: boolean;
   dataSource: Array<any> | undefined;
 };
 const FormModalTable = (props: FormModalTableProps) => {
-  const {loading, dataSource} = props;
-  const {columns} = useFormModalTable();
+  const { loading, dataSource } = props;
+  const { columns } = useFormModalTable();
 
   return (
     <>
@@ -19,7 +19,7 @@ const FormModalTable = (props: FormModalTableProps) => {
         isShowTitle={false}
         dataSource={dataSource}
         pagination={false}
-        scroll={{x: 1000, y: 390}}
+        scroll={{ x: 1000, y: 390 }}
       />
     </>
   );

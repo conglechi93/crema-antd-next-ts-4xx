@@ -1,8 +1,8 @@
 import AppModal from 'components/molecules/AppModal';
 import useChoosePropertyModal from './useChoosePropertyModal';
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import ChoosePropertyFilter from '../ChoosePropertyFilter';
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 
 type ChoosePropertyModalProps = {
   isOpen: boolean;

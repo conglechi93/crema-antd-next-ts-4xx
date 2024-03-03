@@ -1,4 +1,4 @@
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 import useStep3 from './useStep3';
 
 type PropsTypes = {
@@ -8,7 +8,7 @@ type PropsTypes = {
   setTblEntries: (tblEntries: Array<any>) => void;
 };
 const Step3 = (props: PropsTypes) => {
-  const {current, customerCode, setTblLabels, setTblEntries} = props;
+  const { current, customerCode, setTblLabels, setTblEntries } = props;
   const {
     loading,
     total,
@@ -33,7 +33,7 @@ const Step3 = (props: PropsTypes) => {
         }}
         selectionType='checkbox'
         handleChangePage={handleChangeSearchParams}
-        scroll={{x: 1000, y: 250}}
+        scroll={{ x: 1000, y: 250 }}
       />
     </>
   );

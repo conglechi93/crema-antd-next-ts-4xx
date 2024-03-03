@@ -1,9 +1,9 @@
 import useTaskDetail from './useTaskDetail';
-import {Col, FormInstance, Row} from 'antd';
-import {memo, useEffect, useState} from 'react';
-import {AppTableContainer} from '@crema';
-import {EditableCell, EditableRow} from 'components/molecules/EditableRow';
-import {InlineEditableTextfield} from '@atlaskit/inline-edit';
+import { Col, FormInstance, Row } from 'antd';
+import { memo, useEffect, useState } from 'react';
+import AppTableContainer from '@crema/AppTableContainer';
+import { EditableCell, EditableRow } from 'components/molecules/EditableRow';
+import { InlineEditableTextfield } from '@atlaskit/inline-edit';
 import AppTypo from 'components/atoms/AppTypo';
 import InlineEdit from '@atlaskit/inline-edit';
 import InlineEditSelect from 'components/atoms/AppInlineSelect';
@@ -14,8 +14,8 @@ type PropsTypes = {
   form: FormInstance;
 };
 const TaskDetail = (props: PropsTypes) => {
-  const {form} = props;
-  const {columns, setColumns, dataSource, setDataSource, total, setTotal} =
+  const { form } = props;
+  const { columns, setColumns, dataSource, setDataSource, total, setTotal } =
     useTaskDetail();
 
   const components = {
@@ -45,7 +45,7 @@ const TaskDetail = (props: PropsTypes) => {
       <div>Chi tiết công việc</div>
       <AppForm form={form}>
         <Row gutter={16}>
-          <Col xs={8} style={{display: 'flex', alignItems: 'center'}}>
+          <Col xs={8} style={{ display: 'flex', alignItems: 'center' }}>
             <AppTypo variant='p-lg-semi'>Dự án </AppTypo>
           </Col>
           <Col xs={16}>
@@ -57,7 +57,7 @@ const TaskDetail = (props: PropsTypes) => {
           </Col>
         </Row>
         <Row gutter={16}>
-          <Col xs={8} style={{display: 'flex', alignItems: 'center'}}>
+          <Col xs={8} style={{ display: 'flex', alignItems: 'center' }}>
             <AppTypo variant='p-lg-semi'>Trạng thái</AppTypo>
           </Col>
           <Col xs={16} className={styles.inline_edit}>

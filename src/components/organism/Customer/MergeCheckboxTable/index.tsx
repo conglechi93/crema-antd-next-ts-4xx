@@ -1,12 +1,12 @@
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 import useMergeCheckboxTable from './useFunc';
-import {Checkbox, Col, Form, InputRef, Row, Table} from 'antd';
+import { Checkbox, Col, Form, InputRef, Row, Table } from 'antd';
 import AppTypo from 'components/atoms/AppTypo';
 import AppButton from 'components/atoms/AppButton';
 import IntlMessages from '@crema/utility/IntlMessages';
-import React, {useContext, useRef, useState} from 'react';
-import {FormInstance} from 'antd/lib';
-import {useIntl} from 'react-intl';
+import React, { useContext, useRef, useState } from 'react';
+import { FormInstance } from 'antd/lib';
+import { useIntl } from 'react-intl';
 
 type EditableTableProps = Parameters<typeof Table>[0];
 type ColumnTypes = Exclude<EditableTableProps['columns'], undefined>;
@@ -15,7 +15,7 @@ interface EditableRowProps {
   index: number;
 }
 
-const EditableRow: React.FC<EditableRowProps> = ({index, ...props}) => {
+const EditableRow: React.FC<EditableRowProps> = ({ index, ...props }) => {
   const [form] = Form.useForm();
   return (
     <Form form={form} component={false}>
@@ -46,7 +46,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
   handleSave,
   ...restProps
 }) => {
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const [editing, setEditing] = useState(false);
   const form = useContext(EditableContext)!;
   const inputRef = useRef<InputRef>(null);
@@ -57,7 +57,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
     form.setFieldsValue({
       [dataIndex]: checked,
     });
-    save({...record}, checked);
+    save({ ...record }, checked);
   };
 
   const save = async (value: any, checked: boolean) => {
@@ -78,14 +78,14 @@ const EditableCell: React.FC<EditableCellProps> = ({
   let childNode = children;
   if (editable) {
     childNode = editing ? (
-      <Form.Item style={{margin: 0}} name={dataIndex} valuePropName='checked'>
+      <Form.Item style={{ margin: 0 }} name={dataIndex} valuePropName='checked'>
         <Checkbox
           onChange={(e) => {
             const checked = e.target.checked;
             form.setFieldsValue({
               [dataIndex]: checked,
             });
-            save({...record}, checked);
+            save({ ...record }, checked);
           }}
         >
           {record[`${dataIndex}`]?.label}
@@ -108,8 +108,11 @@ type MergeCheckboxTableProps = {
   handleSave: (row: any, checked: boolean, dataIndex: number) => void;
 };
 const MergeCheckboxTable = (props: MergeCheckboxTableProps) => {
-  const {columns, dataSource, setDataSource, handleSave} = props;
-  const {handleAddPosition} = useMergeCheckboxTable(dataSource, setDataSource);
+  const { columns, dataSource, setDataSource, handleSave } = props;
+  const { handleAddPosition } = useMergeCheckboxTable(
+    dataSource,
+    setDataSource,
+  );
 
   const components = {
     body: {
@@ -144,7 +147,7 @@ const MergeCheckboxTable = (props: MergeCheckboxTableProps) => {
               <IntlMessages id='common.positionDetail' />
             </AppTypo>
           </Col>
-          <Col xs={12} style={{textAlign: 'right'}}>
+          <Col xs={12} style={{ textAlign: 'right' }}>
             <AppButton type='primary' onClick={handleAddPosition}>
               <IntlMessages id='common.add' />
             </AppButton>

@@ -1,17 +1,17 @@
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 import useEmployeeSelectTable from './useFunc';
-import {Col, Form, InputRef, Row, Table} from 'antd';
+import { Col, Form, InputRef, Row, Table } from 'antd';
 import AppTypo from 'components/atoms/AppTypo';
 import AppButton from 'components/atoms/AppButton';
 import IntlMessages from '@crema/utility/IntlMessages';
-import React, {useContext, useRef, useState} from 'react';
-import {FormInstance} from 'antd/lib';
+import React, { useContext, useRef, useState } from 'react';
+import { FormInstance } from 'antd/lib';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {pageSize} from 'shared/constants/AppConst';
-import {onGetRoles} from 'redux/actions/Roles';
-import {useIntl} from 'react-intl';
+import { pageSize } from 'shared/constants/AppConst';
+import { onGetRoles } from 'redux/actions/Roles';
+import { useIntl } from 'react-intl';
 import AppNotFound from 'components/molecules/AppNotFound';
-import {onGetEmployeeAvailableToAddDepartment} from 'redux/actions/Departments';
+import { onGetEmployeeAvailableToAddDepartment } from 'redux/actions/Departments';
 interface Item {
   key: string;
   department: string;
@@ -24,7 +24,7 @@ interface EditableRowProps {
   index: number;
 }
 
-const EditableRow: React.FC<EditableRowProps> = ({index, ...props}) => {
+const EditableRow: React.FC<EditableRowProps> = ({ index, ...props }) => {
   const [form] = Form.useForm();
   return (
     <Form form={form} component={false}>
@@ -57,7 +57,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
   departmentRecord,
   ...restProps
 }) => {
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const [editing, setEditing] = useState(false);
   const form = useContext(EditableContext)!;
   const inputRef = useRef<InputRef>(null);
@@ -88,7 +88,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
       const newValues = {
         [dataIndex]: options,
       };
-      handleSave({...record, ...newValues});
+      handleSave({ ...record, ...newValues });
     } catch (errInfo) {
       console.log('Save failed:', errInfo);
     }
@@ -98,7 +98,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
 
   if (editable) {
     childNode = editing ? (
-      <Form.Item style={{margin: 0}} name={dataIndex}>
+      <Form.Item style={{ margin: 0 }} name={dataIndex}>
         <AppSelectLoadMore
           onChange={(e, options) => {
             save(options);
@@ -129,7 +129,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
     ) : (
       <div
         className='editable-cell-value-wrap'
-        style={{paddingRight: 24}}
+        style={{ paddingRight: 24 }}
         onClick={toggleEdit}
       >
         {children}
@@ -146,8 +146,8 @@ type EmployeeSelectTableProps = {
   departmentRecord: any;
 };
 const EmployeeSelectTable = (props: EmployeeSelectTableProps) => {
-  const {dataSource, setDataSource, departmentRecord} = props;
-  const {columns, handleAddPosition, handleSave} = useEmployeeSelectTable(
+  const { dataSource, setDataSource, departmentRecord } = props;
+  const { columns, handleAddPosition, handleSave } = useEmployeeSelectTable(
     dataSource,
     setDataSource,
   );
@@ -186,7 +186,7 @@ const EmployeeSelectTable = (props: EmployeeSelectTableProps) => {
               <IntlMessages id='common.positionDetail' />
             </AppTypo>
           </Col>
-          <Col xs={12} style={{textAlign: 'right'}}>
+          <Col xs={12} style={{ textAlign: 'right' }}>
             <AppButton type='primary' onClick={handleAddPosition}>
               <IntlMessages id='common.add' />
             </AppButton>

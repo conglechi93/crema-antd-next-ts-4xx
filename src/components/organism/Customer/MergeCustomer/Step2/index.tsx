@@ -1,4 +1,4 @@
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 import useStep2 from './useStep2';
 
 type PropsTypes = {
@@ -7,7 +7,7 @@ type PropsTypes = {
   setCustomerCode: (customerCode: Array<any>) => void;
 };
 const Step2 = (props: PropsTypes) => {
-  const {current, propertyCodeConditions, setCustomerCode} = props;
+  const { current, propertyCodeConditions, setCustomerCode } = props;
   const {
     loading,
     total,
@@ -32,7 +32,7 @@ const Step2 = (props: PropsTypes) => {
         }}
         selectionType='radio'
         handleSelectChange={handleSelectChange}
-        scroll={{x: 1000, y: 250}}
+        scroll={{ x: 1000, y: 250 }}
       />
     </>
   );

@@ -1,10 +1,10 @@
-import {AppTableContainer} from '@crema';
-import {pageSize} from 'shared/constants/AppConst';
+import AppTableContainer from '@crema/AppTableContainer';
+import { pageSize } from 'shared/constants/AppConst';
 import useDepartmentDetailTable from './useFunc';
 import AppModal from 'components/molecules/AppModal';
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppNotFound from 'components/molecules/AppNotFound';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 
 type DepartmentDetailTableProps = {
   isRefreshChild: boolean;
@@ -13,7 +13,7 @@ type DepartmentDetailTableProps = {
   setIsRefresh: (isRefresh: any) => void;
 };
 const DepartmentDetailTable = (props: DepartmentDetailTableProps) => {
-  const {isRefreshChild, setIsRefreshChild, departmentRecord, setIsRefresh} =
+  const { isRefreshChild, setIsRefreshChild, departmentRecord, setIsRefresh } =
     props;
   const {
     isSearchAll,
@@ -33,7 +33,7 @@ const DepartmentDetailTable = (props: DepartmentDetailTableProps) => {
     departmentRecord,
     setIsRefresh,
   );
-  const {messages} = useIntl();
+  const { messages } = useIntl();
 
   return (
     <>
@@ -48,7 +48,7 @@ const DepartmentDetailTable = (props: DepartmentDetailTableProps) => {
         closeText={modalData?.closeText}
         width={modalData?.width}
       />
-      <Row gutter={[0, 0]} style={{marginBottom: '16px', width: '100%'}}>
+      <Row gutter={[0, 0]} style={{ marginBottom: '16px', width: '100%' }}>
         <Col span={24}>
           <AppTableContainer
             isSearchAll={isSearchAll}
@@ -60,7 +60,7 @@ const DepartmentDetailTable = (props: DepartmentDetailTableProps) => {
             setCurrent={setCurrentPage}
             total={total}
             pageSize={pageSize.INVENTORY}
-            scroll={{x: 1000, y: 420}}
+            scroll={{ x: 1000, y: 420 }}
             handleChangePage={handleChangeSearchParam}
             pagination={{
               position: ['topRight'],

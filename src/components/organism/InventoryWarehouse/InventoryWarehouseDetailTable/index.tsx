@@ -1,10 +1,10 @@
-import {AppTableContainer} from '@crema';
-import {pageSize} from 'shared/constants/AppConst';
+import AppTableContainer from '@crema/AppTableContainer';
+import { pageSize } from 'shared/constants/AppConst';
 import useInventoryWarehouseDetailTable from './useInventoryWarehouseDetailTable';
 import AppModal from 'components/molecules/AppModal';
 import InventoryModal from '../InventoryModal';
-import {Col, Row} from 'antd';
-import {useIntl} from 'react-intl';
+import { Col, Row } from 'antd';
+import { useIntl } from 'react-intl';
 import InventoryWarehouseDetailFilter from '../InventoryWarehouseDetailFilter';
 import AppNotFound from 'components/molecules/AppNotFound';
 
@@ -18,7 +18,7 @@ type InventoryWarehouseDetailTableProps = {
 const InventoryWarehouseDetailTable = (
   props: InventoryWarehouseDetailTableProps,
 ) => {
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const {
     currentRecord,
     isRefreshChild,
@@ -70,7 +70,7 @@ const InventoryWarehouseDetailTable = (
         isOpen={isOpenInventoryModal}
         setIsOpen={setIsOpenInventoryModal}
       />
-      <Row gutter={[0, 0]} style={{marginBottom: '16px', width: '100%'}}>
+      <Row gutter={[0, 0]} style={{ marginBottom: '16px', width: '100%' }}>
         {currentRecord && (
           <Col span={24} className='layout_box'>
             <InventoryWarehouseDetailFilter
@@ -93,7 +93,7 @@ const InventoryWarehouseDetailTable = (
             setCurrent={setCurrentPage}
             total={total}
             pageSize={pageSize.INVENTORY}
-            scroll={{x: 1000, y: 420}}
+            scroll={{ x: 1000, y: 420 }}
             handleChangePage={handleChangeSearchParam}
             pagination={{
               position: ['topRight'],

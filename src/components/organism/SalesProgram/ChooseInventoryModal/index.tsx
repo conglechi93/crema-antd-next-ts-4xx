@@ -1,10 +1,10 @@
 import AppModal from 'components/molecules/AppModal';
-import {useState} from 'react';
-import {useIntl} from 'react-intl';
+import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import ChooseInventoryFilter from '../ChooseInventoryFilter';
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import useChooseInventoryModal from './useChooseInventoryModal';
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 
 export enum ChooseInventoryType {
   CHOOSE_INVENTORY = 'CHOOSE_INVENTORY',
@@ -23,9 +23,9 @@ type PropsTypes = {
 };
 
 const ChooseInventoryModal = (props: PropsTypes) => {
-  const {info, isOpen, setIsOpen} = props;
+  const { info, isOpen, setIsOpen } = props;
   const [disabled, setDisabled] = useState(true);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const {
     current,
     setCurrent,
@@ -82,7 +82,7 @@ const ChooseInventoryModal = (props: PropsTypes) => {
               columns={columns}
               dataSource={dataSource}
               handleSelectChange={handleSelectChange}
-              scroll={{x: 500, y: 'calc(100vh - 600px)'}}
+              scroll={{ x: 500, y: 'calc(100vh - 600px)' }}
               handleChangePage={handleChangeSearchParams}
               selectionType='checkbox'
               pagination={{

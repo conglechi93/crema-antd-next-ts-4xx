@@ -1,4 +1,4 @@
-import {AuthUser} from '../../types/models/AuthUser';
+import { AuthUser } from '../../types/models/AuthUser';
 
 export const authRole = {
   admin: ['admin'],
@@ -18,7 +18,7 @@ export const defaultUser: AuthUser = {
   role: 'user',
   photoURL: '/assets/images/avatar/A11.jpg',
 };
-export const initialUrl = '/project-management/inventory-warehouse'; // this url will open after login
+export const initialUrl = '/dashboards/crypto'; // this url will open after login
 
 export const apiTimeout = 20000;
 export const apiHeaders = {

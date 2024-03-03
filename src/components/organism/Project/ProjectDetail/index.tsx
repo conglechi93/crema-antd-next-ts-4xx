@@ -1,13 +1,13 @@
 import IntlMessages from '@crema/utility/IntlMessages';
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppTypo from 'components/atoms/AppTypo';
 import React from 'react';
 import styles from './style.module.scss';
 import useProjectDetail from './useProjectDetail';
 import imgExcel from 'assets/image/Excel.png';
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 import AppNotFound from 'components/molecules/AppNotFound';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 
 type PropsTypes = {
   infoDetail: any;
@@ -15,9 +15,9 @@ type PropsTypes = {
 };
 
 const ProjectDetail = (props: PropsTypes) => {
-  const {messages} = useIntl();
-  const {infoDetail, dataSource} = props;
-  const {columns, onDownloadProject} = useProjectDetail();
+  const { messages } = useIntl();
+  const { infoDetail, dataSource } = props;
+  const { columns, onDownloadProject } = useProjectDetail();
 
   return (
     <>
@@ -27,7 +27,7 @@ const ProjectDetail = (props: PropsTypes) => {
       <Row
         gutter={[16, 16]}
         className={styles.drap_table_content}
-        style={{marginTop: '10px'}}
+        style={{ marginTop: '10px' }}
       >
         <Col xs={24} md={12}>
           <Row gutter={[0, 0]} className={'col_item'}>
@@ -111,15 +111,19 @@ const ProjectDetail = (props: PropsTypes) => {
                 <Row
                   gutter={[8, 8]}
                   align={'middle'}
-                  style={{marginTop: '10px'}}
+                  style={{ marginTop: '10px' }}
                 >
                   <Col>
-                    <img style={{display: 'flex'}} src={imgExcel.src} alt='' />
+                    <img
+                      style={{ display: 'flex' }}
+                      src={imgExcel.src}
+                      alt=''
+                    />
                   </Col>
                   <Col>
                     <span
                       onClick={() => onDownloadProject(item)}
-                      style={{cursor: 'pointer'}}
+                      style={{ cursor: 'pointer' }}
                     >
                       {item?.fileName}
                     </span>

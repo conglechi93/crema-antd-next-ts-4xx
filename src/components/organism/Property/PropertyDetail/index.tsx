@@ -1,9 +1,9 @@
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppTypo from 'components/atoms/AppTypo';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './style.module.scss';
 import AppCheckbox from 'components/atoms/AppCheckbox';
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 import IntlMessages from '@crema/utility/IntlMessages';
 
 type PropsTypes = {
@@ -11,7 +11,7 @@ type PropsTypes = {
 };
 
 const PropertyDetail = (props: PropsTypes) => {
-  const {propertyDetails} = props;
+  const { propertyDetails } = props;
   const [dataSource, setDataSource] = useState<Array<any>>([]);
   useEffect(() => {
     if (propertyDetails) {
@@ -46,7 +46,7 @@ const PropertyDetail = (props: PropsTypes) => {
     <>
       <Row
         gutter={[10, 8]}
-        style={{marginBottom: '10px'}}
+        style={{ marginBottom: '10px' }}
         className={styles.info_property}
       >
         <Col xs={24}>
@@ -211,7 +211,7 @@ const PropertyDetail = (props: PropsTypes) => {
       {propertyDetails?.configPickList && (
         <Row
           gutter={[10, 8]}
-          style={{marginBottom: '10px'}}
+          style={{ marginBottom: '10px' }}
           className={styles.info_property_list}
         >
           <Col xs={24}>

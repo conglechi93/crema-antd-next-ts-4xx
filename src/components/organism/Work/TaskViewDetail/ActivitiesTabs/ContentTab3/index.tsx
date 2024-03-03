@@ -1,7 +1,7 @@
 import React from 'react';
 import useTab3 from './useTab3';
-import {AppTableContainer} from '@crema';
-import {pageSize} from 'shared/constants/AppConst';
+import AppTableContainer from '@crema/AppTableContainer';
+import { pageSize } from 'shared/constants/AppConst';
 type PropsTypes = {
   activeValue: string;
   isLoading: boolean;
@@ -9,7 +9,7 @@ type PropsTypes = {
   record: any;
 };
 const ContentTab3 = (props: PropsTypes) => {
-  const {activeValue, isLoading, setIsLoading, record} = props;
+  const { activeValue, isLoading, setIsLoading, record } = props;
   const {
     isSearchAll,
     total,
@@ -37,7 +37,7 @@ const ContentTab3 = (props: PropsTypes) => {
       setCurrent={setCurrentPage}
       total={total}
       pageSize={pageSize.SALES_TRANSACTIONS}
-      scroll={{x: 1000, y: 250}}
+      scroll={{ x: 1000, y: 250 }}
       pagination={{
         position: ['topRight'],
       }}

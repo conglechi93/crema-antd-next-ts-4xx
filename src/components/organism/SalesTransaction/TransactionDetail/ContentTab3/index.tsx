@@ -1,8 +1,8 @@
-import {AppTableContainer} from '@crema';
-import {Col, Row, Skeleton} from 'antd';
-import {pageSize} from 'shared/constants/AppConst';
+import AppTableContainer from '@crema/AppTableContainer';
+import { Col, Row, Skeleton } from 'antd';
+import { pageSize } from 'shared/constants/AppConst';
 import AppModal from 'components/molecules/AppModal';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import useTransactionDetail from './useTransactionDetail';
 import TransactionDetailFilter from './transactionDetailFilter';
 import ConfirmTransaction from 'components/organism/SalesProgram/ConfirmTransaction';
@@ -15,7 +15,7 @@ type PropsTypes = {
 };
 
 const ContentTab3 = (props: PropsTypes) => {
-  const {record, keyValue, setIsLoading, isLoading} = props;
+  const { record, keyValue, setIsLoading, isLoading } = props;
 
   const {
     isSearchAll,
@@ -33,7 +33,7 @@ const ContentTab3 = (props: PropsTypes) => {
     setIsOpenConfirmTransaction,
     handleChangeSearchParams,
   } = useTransactionDetail(record, keyValue, setIsLoading, isLoading);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   return (
     <div>
       <AppModal
@@ -80,7 +80,7 @@ const ContentTab3 = (props: PropsTypes) => {
             setCurrent={setCurrentPage}
             total={total}
             pageSize={pageSize.SALES_TRANSACTIONS}
-            scroll={{x: 1000, y: 250}}
+            scroll={{ x: 1000, y: 250 }}
             pagination={{
               position: ['topRight'],
             }}

@@ -1,14 +1,14 @@
-import {Avatar, Col, Row, Spin} from 'antd';
+import { Avatar, Col, Row, Spin } from 'antd';
 import AppTypo from 'components/atoms/AppTypo';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../style.module.scss';
 import IntlMessages from '@crema/utility/IntlMessages';
-import {onGetDetailEmployee} from 'redux/actions/Employees';
-import {useDispatch} from 'react-redux';
+import { onGetDetailEmployee } from 'redux/actions/Employees';
+import { useDispatch } from 'react-redux';
 import EmptyAvatar from 'assets/profile/empty-avatar.svg';
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 import AppNotFound from 'components/molecules/AppNotFound';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 
 type PropsTypes = {
   record: any;
@@ -18,9 +18,9 @@ type PropsTypes = {
 };
 
 const ContentTab1 = (props: PropsTypes) => {
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const dispatch = useDispatch();
-  const {record, activeValue, isLoading, setIsLoading} = props;
+  const { record, activeValue, isLoading, setIsLoading } = props;
   const [dataEmployeeInfo, setDataEmployeeInfo] = useState<any>(null);
   const [dataSource, setDataSource] = useState<Array<any>>([]);
 
@@ -73,11 +73,11 @@ const ContentTab1 = (props: PropsTypes) => {
   return (
     <>
       {isLoading ? (
-        <div style={{textAlign: 'center'}}>
+        <div style={{ textAlign: 'center' }}>
           <Spin />
         </div>
       ) : (
-        <Row gutter={[10, 8]} style={{marginBottom: '10px'}}>
+        <Row gutter={[10, 8]} style={{ marginBottom: '10px' }}>
           <Col xs={24}>
             <Avatar
               size={64}
@@ -265,7 +265,7 @@ const ContentTab1 = (props: PropsTypes) => {
               </Col>
             </Row>
           </Col>
-          <Col xs={24} style={{marginTop: '6px'}}>
+          <Col xs={24} style={{ marginTop: '6px' }}>
             <Row gutter={[0, 16]}>
               <Col xs={24}>
                 <AppTypo variant='p-lg-semi'>

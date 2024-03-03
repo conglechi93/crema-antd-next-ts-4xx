@@ -1,0 +1,276 @@
+.pagination_table {
+  text-align: right;
+
+  @media (max-width: 500px) {
+    text-align: center;
+  }
+
+  :global {
+
+    li,
+    li button {
+      border-radius: 50% !important;
+      border: none !important;
+
+      &.ant-pagination-item-active {
+        background-color: #D1132A !important;
+
+        a {
+          color: #fff !important;
+        }
+      }
+
+    }
+
+    .ant-pagination-options {
+      display: none;
+    }
+  }
+}
+
+.table {
+  min-height: 100%;
+  background: #fff;
+  overflow-x: hidden !important;
+  border-radius: 16px;
+
+  // border-radius: 12px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  :global {
+
+    .ant-table-title {
+      position: absolute;
+      top: 6px;
+      left: 16px;
+    }
+
+    .ant-table-body {
+      min-height: 256px;
+      overflow: auto !important;
+    }
+
+    .ant-checkbox-wrapper,
+    .ant-radio-wrapper {
+      &:hover {
+
+        .ant-checkbox-inner,
+        .ant-radio-inner {
+          border-color: #d1132a;
+        }
+      }
+    }
+
+    .ant-table-row.ant-table-row-selected>.ant-table-cell {
+      background: transparent !important;
+    }
+
+    .ant-table-title {
+      padding: 0;
+      border: none !important;
+
+      @media (max-width: 500px) {
+        text-align: center;
+      }
+    }
+
+    .ant-pagination-item-link-icon {
+      color: #d1132a !important;
+    }
+
+    .table-title {
+      padding: 8px 16px;
+      // border-bottom: 1px solid #f0f0f0;
+    }
+
+    .ant-table-placeholder {
+      .ant-table-cell {
+        border-bottom: none !important;
+      }
+    }
+
+    .ant-table-cell {
+      font-weight: 400 !important;
+      padding: 8px 16px !important;
+
+      // border-bottom: none !important;
+      .ant-table-expanded-row-fixed {
+        &::after {
+          display: none;
+        }
+      }
+
+      .ant-checkbox-checked {
+        .ant-checkbox-inner {
+          background-color: #d1132a !important;
+          border-color: #d1132a;
+        }
+      }
+
+      .ant-checkbox-indeterminate {
+        .ant-checkbox-inner {
+          &::after {
+            background-color: #d1132a;
+          }
+        }
+      }
+    }
+
+    .ant-table-thead {
+      .ant-table-cell {
+        background: transparent !important;
+        color: #000 !important;
+        font-weight: 500 !important;
+        padding: 7px 16px !important;
+
+        &.ant-table-cell-fix-right {
+          background-color: #fff !important;
+          right: 0 !important;
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    .ant-table-body {
+      // overflow-y: hidden !important;
+
+      td.ant-table-cell-row-hover {
+        background: #F5F5F5;
+      }
+
+      .selected-row,
+      .selected-row td.ant-table-cell-row-hover {
+        background: #FBF0F2 !important;
+      }
+    }
+
+    .ant-table.ant-table-bordered {
+      .ant-table-container {
+        border-inline-start: none !important; // border-top: none !important;
+        // border-top: none;
+      }
+    }
+
+    .ant-spin-nested-loading,
+    .ant-spin-container,
+    .ant-table {
+      height: 100%;
+    }
+
+
+  }
+}
+
+.empty {
+  :global {
+    .ant-table-title {
+      position: relative;
+      padding: 10px 0;
+      top: 0;
+      // display: none;
+    }
+  }
+}
+
+.hidden_title {
+  :global {
+    // .ant-table-header {
+    //   display: none !important;
+    // }
+
+    .ant-spin-nested-loading {
+      height: 300px;
+    }
+
+    .ant-table-body {
+      min-height: auto;
+      overflow: hidden !important;
+    }
+
+    // .ant-table-body>table {
+    //   margin-top: 32px;
+    // }
+
+    .ant-pagination {
+      display: none;
+    }
+  }
+}
+
+.table_custom_record {
+  :global {
+    .ant-table-title {
+      top: auto;
+      bottom: 4px;
+    }
+  }
+}
+
+.table_custom_record_info {
+  :global {
+    .ant-pagination {
+      margin-top: 0 !important;
+    }
+
+    .ant-table-title {
+      left: 6px;
+      top: 0;
+    }
+  }
+}
+
+.table_custom_record_none {
+  :global {
+    .ant-table-title {
+      display: none;
+    }
+  }
+}
+
+.bottom_right_table {
+  :global {
+    .ant-table-title {
+      top: 0;
+      left: 6px;
+      padding-top: 0;
+      padding-bottom: 16px;
+    }
+
+    .ant-pagination {
+      margin-top: 0 !important;
+    }
+  }
+}
+
+.table_picklist {
+  border: .5px solid #ddd;
+
+  :global {
+    .ant-table-title {
+      display: none !important;
+    }
+  }
+
+  .ant-table-cell {
+    font-weight: 400 !important;
+    padding: 0px 16px !important;
+  }
+
+  button {
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .ant-table-cell {
+    .ant-form-item {
+      height: auto;
+    }
+  }
+}

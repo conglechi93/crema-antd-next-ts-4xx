@@ -1,12 +1,12 @@
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppCheckbox from 'components/atoms/AppCheckbox';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {useIntl} from 'react-intl';
-import {onGetPickLists} from 'redux/actions/PickList';
+import { useIntl } from 'react-intl';
+import { onGetPickLists } from 'redux/actions/PickList';
 import usePickList from './usePickList';
-import {AppTableContainer} from '@crema';
+import AppTableContainer from '@crema/AppTableContainer';
 
 type PropsTypes = {
   disabled: boolean;
@@ -14,8 +14,8 @@ type PropsTypes = {
   setPickListCode: (pickListCode: string) => void;
 };
 const PickListComponent = (props: PropsTypes) => {
-  const {disabled, pickListCode, setPickListCode} = props;
-  const {messages} = useIntl();
+  const { disabled, pickListCode, setPickListCode } = props;
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,

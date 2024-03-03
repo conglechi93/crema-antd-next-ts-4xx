@@ -1,7 +1,8 @@
-import {SelectProps} from 'antd';
+'use client';
+import { SelectProps } from 'antd';
 import AppSelect from '../AppSelect';
-import {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 type AppSelectLoadMoreProps = {
   searchParams: any;
   setSearchParams: (params: any) => void;
@@ -11,10 +12,12 @@ const AppSelectLoadMore: React.FC<SelectProps & AppSelectLoadMoreProps> = (
   props: SelectProps & AppSelectLoadMoreProps,
 ) => {
   const dispatch = useDispatch();
-  const {searchParams, setSearchParams, onGetOptions} = props;
+  const { searchParams, setSearchParams, onGetOptions } = props;
   const [loading, setLoading] = useState(false);
   const [loadmore, setLoadmore] = useState(false);
-  const [options, setOptions] = useState<{label: string; value: string}[]>([]);
+  const [options, setOptions] = useState<{ label: string; value: string }[]>(
+    [],
+  );
   const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     const fetchOptions = async () => {
@@ -25,14 +28,14 @@ const AppSelectLoadMore: React.FC<SelectProps & AppSelectLoadMoreProps> = (
           page: loadmore ? searchParams.page + 1 : searchParams.page,
         }),
       );
-      const optionsAPI: {label: string; value: string}[] = [];
+      const optionsAPI: { label: string; value: string }[] = [];
       res?.elements?.map((item: any) => {
         optionsAPI.push({
           label: item.name,
           value: item.code,
         });
       });
-      const newOption: {label: string; value: string}[] = ([] = loadmore
+      const newOption: { label: string; value: string }[] = ([] = loadmore
         ? [...options, ...optionsAPI]
         : optionsAPI);
 
