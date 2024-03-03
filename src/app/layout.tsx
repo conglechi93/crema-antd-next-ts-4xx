@@ -13,6 +13,11 @@ import 'simplebar-react/dist/simplebar.min.css';
 import '../../public/styles/index.css';
 import { GlobalStyles } from '@crema/core/theme/GlobalStyle';
 import { Normalize } from 'styled-normalize';
+import { RequestInterceptor } from '../api/RequestInterceptor';
+import { Provider } from 'react-redux';
+// import { persistor, store } from '../redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from '../redux/store';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -36,20 +41,26 @@ export default function RootLayout({ children }: any) {
       </head>
       <body>
         <AppContextProvider>
-          <AppThemeProvider>
-            <AppLocaleProvider>
-              <InfoViewContextProvider>
-                <AppAuthProvider>
-                  <AuthRoutes>
-                    <AppPageMeta />
-                    <GlobalStyles />
-                    <Normalize />
-                    {children}
-                  </AuthRoutes>
-                </AppAuthProvider>
-              </InfoViewContextProvider>
-            </AppLocaleProvider>
-          </AppThemeProvider>
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              <AppThemeProvider>
+                <AppLocaleProvider>
+                  <InfoViewContextProvider>
+                    <RequestInterceptor>
+                      <AppAuthProvider>
+                        <AuthRoutes>
+                          <AppPageMeta />
+                          <GlobalStyles />
+                          <Normalize />
+                          {children}
+                        </AuthRoutes>
+                      </AppAuthProvider>
+                    </RequestInterceptor>
+                  </InfoViewContextProvider>
+                </AppLocaleProvider>
+              </AppThemeProvider>
+            </PersistGate>
+          </Provider>
         </AppContextProvider>
       </body>
     </html>

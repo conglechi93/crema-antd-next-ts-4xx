@@ -8,7 +8,6 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-        "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -17,15 +16,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{
+      "name": "next"
+    }],
     "paths": {
       "@crema/*": [
         "./src/@crema/*"
-      ]
+      ],
+      "/*": ["./src/*"],
+      "react": ["./node_modules/@types/react"]
     },
     "strict": false
   },

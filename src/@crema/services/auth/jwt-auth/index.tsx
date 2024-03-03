@@ -15,9 +15,10 @@ jwtAxios.interceptors.response.use(
       // store.dispatch({type: LOGOUT});
     }
     return Promise.reject(err);
-  }
+  },
 );
 export const setAuthToken = (token?: string) => {
+  console.log('setAuthToken', token);
   if (token) {
     jwtAxios.defaults.headers.common.Authorization = `Bearer ${token}`;
     localStorage.setItem('token', token);
