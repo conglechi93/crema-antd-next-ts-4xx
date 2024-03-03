@@ -1,0 +1,43 @@
+.app_dragger {
+  :global {
+    .ant-upload {
+      height: 120px;
+      background-color: #fff;
+      border-color: #BDBDBD;
+      border-radius: 8px;
+      color: #6C6868;
+    }
+
+    .ant-upload-list {
+      display: none;
+    }
+
+
+
+    .ant-upload-disabled {
+      background-color: #F5F5F5;
+    }
+
+    .ant-upload-list-item {
+      height: auto;
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+
+  }
+}
+
+.fileList {
+  :global {
+    .ant-list-item {
+      padding: 0 !important;
+
+      &:not(:last-child) {
+        padding-block-end: 10px !important;
+        margin-block-end: 10px !important;
+      }
+
+    }
+  }
+}

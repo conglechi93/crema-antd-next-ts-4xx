@@ -1,0 +1,14 @@
+.app_collapse {
+  background-color: transparent;
+
+  :global {
+    .ant-collapse-header {
+      padding-left: 0 !important;
+      padding-right: 0;
+    }
+
+    .ant-collapse-content-box {
+      padding-left: 0 !important;
+    }
+  }
+}

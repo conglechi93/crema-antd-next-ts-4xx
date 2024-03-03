@@ -1,0 +1,12 @@
+.app_pop_confirm {
+  :global {
+    .ant-btn-default {
+      padding: 8px !important;
+      background-color: #fff;
+      border: .5px solid #d1132a !important;
+      border: none;
+      width: 36px;
+      min-width: auto !important;
+    }
+  }
+}

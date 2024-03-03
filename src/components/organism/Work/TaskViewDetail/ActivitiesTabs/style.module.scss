@@ -1,0 +1,29 @@
+.app_acties_tab {
+  position: relative;
+
+  :global {
+    .ant-tabs-tab {
+      padding-top: 0;
+      padding-bottom: 16px;
+
+      &:hover {
+        color: #D1132A !important;
+      }
+    }
+
+    .ant-tabs-tab-active {
+      .ant-tabs-tab-btn {
+        color: #D1132A !important;
+      }
+    }
+
+    .ant-tabs-ink-bar {
+      background: #D1132A;
+    }
+  }
+}
+
+.infiniteScroll {
+  overflow: unset !important;
+  // overflow-y: auto !important;
+}

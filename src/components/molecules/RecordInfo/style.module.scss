@@ -1,0 +1,62 @@
+.record_info_card {
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #F5F5F5;
+  border: 1px solid transparent;
+  transition: .3s;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #046CFC;
+    background-color: #EEF5FF;
+  }
+
+  :global {
+    .ant-card-head {
+      padding: 0;
+      border-bottom: none;
+      min-height: auto;
+
+      .ant-card-head-wrapper {
+        text-align: center;
+
+        .ant-card-head-title {
+          color: #181414;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+          margin-bottom: 8;
+        }
+      }
+    }
+
+    .ant-card-body {
+      text-align: center;
+      padding: 0;
+    }
+  }
+}
+
+.success {
+  p {
+    color: #119335 !important;
+  }
+}
+
+.error {
+  p {
+    color: #f96419 !important;
+  }
+}
+
+.duplicate {
+  p {
+    color: #046cfc !important;
+  }
+}
+
+.active {
+  border-color: #046CFC;
+  background-color: #EEF5FF;
+}

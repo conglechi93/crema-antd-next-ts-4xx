@@ -1,0 +1,21 @@
+.app_select {
+  height: 36px;
+
+  :global {
+    .ant-select-selector {
+      border-radius: 8px;
+      padding: 0 12px;
+      border-color: #BDBDBD !important;
+    }
+
+    .ant-select-focused {
+      .ant-select-selector {
+        border-color: #1677ff !important;
+      }
+    }
+
+    .ant-select-selection-placeholder {
+      color: #9B9A9A !important;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.app_form {
+  .ant-row {
+    background-color: red;
+  }
+  :global {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+  }
+}

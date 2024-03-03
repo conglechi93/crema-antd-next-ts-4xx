@@ -29,7 +29,6 @@ const AddInvoicePage = () => {
     true,
   );
 
-
   const [{ apiData: invoiceList }] = useGetDataApi<InvoiceType[]>(
     'invoice',
     [],

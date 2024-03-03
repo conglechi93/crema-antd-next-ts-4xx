@@ -1,0 +1,9 @@
+.drap_table_content {
+  display: block !important;
+
+  :global {
+    .col-item {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.app_search {
+  height: 36px;
+
+  :global {
+    .ant-input-wrapper {
+      border: 0.5px solid #BDBDBD;
+      border-radius: 8px;
+      padding: 0 12px;
+
+      .ant-input-affix-wrapper,
+      button {
+        border: none;
+        outline: none;
+        box-shadow: none;
+        border-radius: 8px;
+        padding: 0;
+
+        &:focus-visible {
+          box-shadow: none;
+          outline: none;
+          border: none;
+        }
+      }
+    }
+
+    .ant-input-group-addon {
+      display: none;
+    }
+
+    .ant-input-affix-wrapper,
+    .ant-input-group-addon button {
+      height: 34px;
+    }
+  }
+}
+
+.ant-input[disabled],
+.ant-select-disabled .ant-select-selector {
+  color: currentColor !important;
+}

@@ -1,0 +1,16 @@
+.board_card {
+  margin-bottom: 10px;
+
+  :global {
+
+    .ant-card-head,
+    .ant-card-body {
+      min-height: auto;
+      padding: 12px;
+    }
+  }
+}
+
+.isExpired {
+  background-color: #FBCDCD;
+}

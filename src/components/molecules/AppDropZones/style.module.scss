@@ -1,0 +1,39 @@
+.app_drop_zone {
+  display: block !important;
+  order: 1;
+
+  :global {
+    .ant-upload-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .ant-upload-list-item-container {
+      box-sizing: border-box;
+      order: 1;
+    }
+
+    .ant-upload-list-item-container:last-child {
+      margin-right: 0 !important;
+    }
+
+    .ant-upload-select,
+    .ant-upload-list-item-container {
+      height: 120px !important;
+    }
+
+    .ant-upload.ant-upload-select {
+      width: 100% !important;
+      flex: 0 0 100%;
+      padding: 16px;
+      margin-right: 0 !important;
+      background-color: #fff !important;
+    }
+
+    .ant-upload-list-item {
+      height: auto;
+      padding: 8px;
+      border-radius: 8px;
+    }
+  }
+}

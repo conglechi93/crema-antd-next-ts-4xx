@@ -1,0 +1,26 @@
+.col_item {
+  border-bottom: .5px dashed #BDBDBD;
+  padding-bottom: 8px;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.col_left {
+  min-width: 200px;
+
+  :global {
+    p {
+      color: #6C6868;
+    }
+  }
+}
+
+.col_right {
+  :global {
+    p {
+      color: #181414;
+    }
+  }
+}

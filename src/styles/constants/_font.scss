@@ -1,0 +1,43 @@
+//user 2 class at the same time: pick 1 from Font-size and 1 from Font-weight
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+//------FONT SIZE
+//styleName: HEADER
+.fs-h1 {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+//styleName: SUB-HEADER
+.fs-h2 {
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+//styleName: BODY1
+.fs-body1 {
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+//styleName: BODY2
+.fs-body2 {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+//styleName: BODY3
+.fs-body3 {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+}

@@ -1,0 +1,58 @@
+.app_progress {
+  :global {
+    .ant-steps-item .ant-steps-item-content {
+      //    width: 150px;
+    }
+
+    .ant-steps-item-content {
+      .ant-steps-item-title::after {
+        background-color: #BDBDBD !important;
+      }
+    }
+
+    .ant-steps-item-finish {
+
+      .ant-steps-item-title::after,
+      .ant-steps-item-tail::after {
+        background-color: #D1132A !important;
+      }
+    }
+
+    .ant-steps-item-wait {
+      .ant-steps-item-icon {
+        background-color: rgba(0, 0, 0, 0.06) !important;
+        border-color: transparent !important;
+
+        .ant-steps-icon {
+          color: #6C6868 !important;
+        }
+      }
+    }
+
+
+    .ant-steps-item-icon {
+      background-color: #D1132A !important;
+      border-color: #D1132A !important;
+      line-height: 20px !important;
+
+      .ant-steps-icon {
+        color: #fff !important;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.app_progress_wrapper {
+  width: 600px; // Tam thoi
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+
+  @media (max-width: 767px) {
+    width: auto;
+  }
+}

@@ -1,0 +1,41 @@
+.col_item {
+  border-bottom: .5px dashed #BDBDBD;
+  padding-bottom: 8px;
+}
+
+.col_left {
+  min-width: 200px;
+
+  :global {
+    p {
+      color: #6C6868;
+    }
+  }
+}
+
+.col_right {
+  :global {
+    p {
+      color: #181414;
+    }
+  }
+}
+
+.table_propery_detail {
+  border: 0.5px solid #ddd;
+  border-radius: 12px;
+
+  :global {
+    .ant-table-wrapper {
+      border-radius: 12px;
+    }
+
+    .ant-table-container {
+      border: none !important;
+    }
+
+    .ant-table-cell {
+      border-inline-end: none !important
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.table_picklist {
+  :global {
+    .ant-table-cell {
+      font-weight: 400 !important;
+      padding: 8px 16px !important;
+    }
+
+    .ant-table-cell {
+      .ant-form-item {
+        height: auto;
+      }
+    }
+  }
+}

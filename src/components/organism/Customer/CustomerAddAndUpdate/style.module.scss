@@ -1,0 +1,17 @@
+.col_upload {
+  :global {
+    .ant-upload-wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 45px;
+    }
+
+    .ant-upload {
+      width: auto !important;
+      height: auto !important;
+      border: none !important;
+      border-radius: 50% !important;
+      margin: 0 !important;
+    }
+  }
+}

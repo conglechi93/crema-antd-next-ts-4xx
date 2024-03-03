@@ -23,7 +23,7 @@
       "@crema/*": [
         "./src/@crema/*"
       ],
-      "/*": ["./src/*"],
+      "*": ["./src/*"],
       "react": ["./node_modules/@types/react"]
     },
     "strict": false

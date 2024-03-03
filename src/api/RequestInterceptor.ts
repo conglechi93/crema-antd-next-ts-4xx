@@ -5,7 +5,6 @@ import axios, {
 } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { axiosInstance } from './Request';
-import { CLEAN_STATE } from '../shared/constants/ActionTypes';
 import { useDispatch, useStore } from 'react-redux';
 const cancelTokens: { [k: string]: CancelTokenSource | null } = {};
 let cancelTokensIndex = 'DEFAULT';

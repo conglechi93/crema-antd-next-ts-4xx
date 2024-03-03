@@ -1,0 +1,27 @@
+.app_transfer {
+  justify-content: space-between;
+  :global {
+    .ant-transfer-list {
+      width: 100%;
+    }
+    .ant-transfer-operation {
+      .ant-btn {
+        padding: 4px;
+        height: auto;
+        border-radius: 6px;
+        // &:hover {
+        //   background-color: $primary-02 !important;
+        //   color: $white;
+        // }
+        &:disabled {
+          // background: $white !important;
+          // color: $neutral-03 !important;
+          // border: 0.5px solid $neutral-03 !important;
+        }
+        .ant-btn-icon {
+          display: none;
+        }
+      }
+    }
+  }
+}

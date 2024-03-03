@@ -1,0 +1,16 @@
+.app_input {
+  height: 36px;
+  border-radius: 8px;
+  border-color: #BDBDBD;
+
+  &.ant-input-status-error {
+    border-color: #ff4d4f !important;
+  }
+}
+
+
+
+.ant-input[disabled],
+.ant-select-disabled .ant-select-selector {
+  color: currentColor !important;
+}

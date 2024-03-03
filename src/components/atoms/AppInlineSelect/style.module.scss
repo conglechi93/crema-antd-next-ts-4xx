@@ -1,0 +1,12 @@
+.app_inline_select {
+  :global {
+    div {
+      margin-top: 0 !important;
+      padding: 0 !important;
+    }
+
+    span {
+      margin: 0;
+    }
+  }
+}

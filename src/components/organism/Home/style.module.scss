@@ -1,0 +1,166 @@
+.home_page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+
+  &::before {
+    content: url('../../../assets/image/left.png');
+    position: absolute;
+    left: 2rem;
+    top: 10rem;
+    animation: moveAnimation 6s infinite alternate;
+    z-index: -1;
+  }
+
+  &::after {
+    content: url('../../../assets/image/right.png');
+    position: absolute;
+    right: 2rem;
+    top: 20rem;
+    animation: moveAnimation 6s infinite alternate;
+    z-index: -1;
+  }
+
+  .logo {
+    position: fixed;
+    top: 24px;
+    left: 80px;
+    right: 80px;
+
+    @media (max-width: 767px) {
+      text-align: center;
+    }
+  }
+
+  @keyframes moveAnimation {
+    0% {
+      transform: translate(10px, 20px);
+    }
+
+    100% {
+      transform: translate(0px, -15px);
+    }
+  }
+}
+
+.box_card {
+  width: 480px;
+  margin: 0 auto;
+  background-color: #fff;
+
+  text-align: center;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0px 3px 10px 2px rgba(34, 33, 33, 0.2);
+
+  @media (max-width: 767px) {
+    padding: 20px;
+  }
+
+  :global {
+    .box_login .img {
+      border-radius: 16px;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    .hotline {
+      font-size: 14px;
+      line-height: 20px;
+      color: #6c6868;
+      background-color: #fff;
+
+      a {
+        color: #6c6868;
+      }
+
+      &::after {
+        content: '';
+        height: 1px;
+        width: calc(50% - 80px);
+        background-color: #6c6868;
+        position: absolute;
+        left: 0;
+        top: 50%;
+      }
+
+      &::before {
+        content: '';
+        height: 1px;
+        width: calc(50% - 80px);
+        background-color: #6c6868;
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+    }
+
+    .ant-radio {
+      display: none;
+    }
+  }
+}
+
+.profiles {
+  :global {
+    label {
+      width: 100%;
+      margin: 0;
+      border: 1px solid transparent;
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+
+      &.ant-radio-wrapper-checked,
+      &:hover {
+        .ant-row {
+          border-color: #d1132a;
+          border-radius: 16px;
+        }
+      }
+
+      span {
+        width: 100%;
+        padding: 0 !important;
+      }
+    }
+  }
+}
+
+.box_wating {
+  :global {
+    .loading-dot {
+      width: 12px;
+      height: 12px;
+      background-color: #d1132a;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      animation: moveLoadingDot 1.5s infinite linear alternate;
+
+      &:nth-child(2) {
+        animation-delay: 0.25s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.5s;
+      }
+    }
+
+    button {
+      width: auto;
+    }
+
+
+  }
+}

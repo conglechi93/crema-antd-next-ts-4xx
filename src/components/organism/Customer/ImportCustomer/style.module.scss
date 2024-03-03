@@ -1,0 +1,19 @@
+.import_inventory_content {
+  height: 400px;
+}
+
+.upload_file_excel {
+  :global {
+    .ant-upload-list {
+      display: none;
+    }
+
+    .ant-list {
+      border: none !important;
+
+      .ant-list-item {
+        padding: 0;
+      }
+    }
+  }
+}

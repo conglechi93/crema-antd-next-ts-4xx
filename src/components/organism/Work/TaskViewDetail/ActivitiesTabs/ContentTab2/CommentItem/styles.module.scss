@@ -1,0 +1,10 @@
+.commentItem {
+  padding: 2px 0 !important;
+
+  :global {
+    p {
+      color: #6C6868 !important;
+      font-size: 13px;
+    }
+  }
+}

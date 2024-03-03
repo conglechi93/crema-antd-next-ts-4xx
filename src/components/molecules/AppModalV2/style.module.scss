@@ -1,0 +1,33 @@
+.modal {
+  .content {
+    padding: 0;
+    box-shadow: 1px 4px 12px 4px rgba(34, 33, 33, 0.24);
+  }
+
+  .header {
+    padding: 16px;
+    border-bottom: 0.5px solid #e1e3e5;
+    margin-bottom: 0;
+
+    :global {
+      .ant-modal-title {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .body {
+    padding: 16px;
+    max-height: 600px;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+
+  .footer {
+    border-top: 0.5px solid #e1e3e5;
+    padding: 16px;
+    margin-top: 0;
+  }
+}
