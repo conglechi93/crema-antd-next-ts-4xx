@@ -1,21 +1,21 @@
 import IntlMessages from '@crema/utility/IntlMessages';
-import {Form, Image, Menu, Popover} from 'antd';
+import { Form, Image, Menu, Popover } from 'antd';
 import AppControlAction from 'components/atoms/AppControlAction';
 import DashBoardIcon from 'assets/icon/Button_option.svg';
 import AssignTags from '../AssignTags';
-import {useIntl} from 'react-intl';
-import {useDispatch} from 'react-redux';
+import { useIntl } from 'react-intl';
+import { useDispatch } from 'react-redux';
 import {
   onAddCustomerEmployeeInCharge,
   onAddMultipleTags,
   onDownloadCustomers,
 } from 'redux/actions/Customer';
 import AssignStaffInCharge from '../AssignEmployee';
-import {CustomerListAction} from 'modules/customerManagement/CustomerList/useFunc';
+import { CustomerListAction } from 'modules/customerManagement/CustomerList/useFunc';
 import ImportCustomer from '../ImportCustomer';
-import {useState} from 'react';
-import {ModalInfoProps} from 'components/molecules/AppModalV2';
-import {FormInstance} from 'antd/lib';
+import { useState } from 'react';
+import { ModalInfoProps } from 'components/molecules/AppModalV2';
+import { FormInstance } from 'antd/lib';
 import MergeCustomer from '../MergeCustomer';
 type CustomerDashboardProps = {
   form: FormInstance;
@@ -37,23 +37,23 @@ const CustomerDashboard = (props: CustomerDashboardProps) => {
     setIsRefresh,
     searchParams,
   } = props;
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const [mergeCustomerOpen, setMergeCustomerOpen] = useState(false);
   const [importCustomerOpen, setImportCustomerOpen] = useState(false);
   const handleAction = async (key: any, record: any) => {
     switch (key) {
       case CustomerListAction.ASSIGN_STAFF_IN_CHARGE: {
         handleChangeModalInfo({
-          title: messages['common.assignStaffToBeInCharge'],
+          title: messages['common.assignStaffToBeInCharge'] as string,
           description: (
             <AssignStaffInCharge
               form={form}
               handleChangeModalInfo={handleChangeModalInfo}
             />
           ),
-          submitText: messages['common.agree'],
+          submitText: messages['common.agree'] as string,
           handleSubmit: async () => {
-            const {employees} = form.getFieldsValue();
+            const { employees } = form.getFieldsValue();
             const payload = {
               customers: selectedRowKeys?.map((key) => {
                 return {
@@ -77,7 +77,7 @@ const CustomerDashboard = (props: CustomerDashboardProps) => {
             }
             setIsRefresh((pre) => !pre);
           },
-          closeText: messages['common.cancel'],
+          closeText: messages['common.cancel'] as string,
           disabled: true,
           width: 480,
         });
@@ -90,16 +90,16 @@ const CustomerDashboard = (props: CustomerDashboardProps) => {
       }
       case CustomerListAction.ASSIGN_TAGS: {
         handleChangeModalInfo({
-          title: messages['common.assignTags'],
+          title: messages['common.assignTags'] as string,
           description: (
             <AssignTags
               form={form}
               handleChangeModalInfo={handleChangeModalInfo}
             />
           ),
-          submitText: messages['common.agree'],
+          submitText: messages['common.agree'] as string,
           handleSubmit: async () => {
-            const {tags} = form.getFieldsValue();
+            const { tags } = form.getFieldsValue();
             const payload = {
               customers: selectedRowKeys.map((key) => {
                 return {
@@ -121,7 +121,7 @@ const CustomerDashboard = (props: CustomerDashboardProps) => {
             }
             setIsRefresh((pre) => !pre);
           },
-          closeText: messages['common.cancel'],
+          closeText: messages['common.cancel'] as string,
           disabled: true,
         });
         setIsOpen(true);
@@ -151,7 +151,7 @@ const CustomerDashboard = (props: CustomerDashboardProps) => {
     }
   };
   let content = (
-    <div style={{display: 'flex'}}>
+    <div style={{ display: 'flex' }}>
       <Menu
         className='popover-menu'
         onClick={(e) => {
@@ -204,7 +204,7 @@ const CustomerDashboard = (props: CustomerDashboardProps) => {
         <Image
           src={DashBoardIcon.src}
           alt=''
-          style={{width: '36px', height: '36px', cursor: 'pointer'}}
+          style={{ width: '36px', height: '36px', cursor: 'pointer' }}
           preview={false}
         />
       </Popover>

@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {Menu, Popover, Tooltip} from 'antd';
+import { useEffect, useState } from 'react';
+import { Menu, Popover, Tooltip } from 'antd';
 import {
   onDeleteInventoryWarehouse,
   onGetInvetoryWarehouseDetailByCode,
@@ -12,11 +12,11 @@ import {
   removeState,
   saveState,
 } from 'utils/LocalStore';
-import {AiOutlineEllipsis} from 'react-icons/ai';
-import {ActionType, DraftStrings} from 'shared/constants/AppVariables';
-import {useDispatch} from 'react-redux';
-import {pageSize} from 'shared/constants/AppConst';
-import {addLeadingZeros} from 'utils/FormUtils';
+import { AiOutlineEllipsis } from 'react-icons/ai';
+import { ActionType, DraftStrings } from 'shared/constants/AppVariables';
+import { useDispatch } from 'react-redux';
+import { pageSize } from 'shared/constants/AppConst';
+import { addLeadingZeros } from 'utils/FormUtils';
 import IntlMessages from '@crema/utility/IntlMessages';
 import AppTag from 'components/atoms/AppTag';
 import AppControlAction from 'components/atoms/AppControlAction';
@@ -26,7 +26,7 @@ const useInventoryWarehouse = () => {
   const [dataSource, setDataSource] = useState<Array<any> | undefined>(
     undefined,
   );
-  const [currentRecord, setCurrenRecord] = useState<any>(null);
+  const [currentRecord, setCurrenRecord] = useState<any>(undefined);
   const [isRefreshChild, setIsRefreshChild] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [total, setTotal] = useState(0);
@@ -209,7 +209,7 @@ const useInventoryWarehouse = () => {
       width: 100,
       render: (_: any, record: any) => {
         let content = (
-          <div style={{display: 'flex'}}>
+          <div style={{ display: 'flex' }}>
             <Menu
               className='popover-menu'
               onClick={(e) => {
@@ -239,7 +239,7 @@ const useInventoryWarehouse = () => {
         return (
           <Popover content={content} placement='topLeft'>
             <AiOutlineEllipsis
-              style={{cursor: 'pointer', fontSize: '22px', display: 'flex'}}
+              style={{ cursor: 'pointer', fontSize: '22px', display: 'flex' }}
             />
           </Popover>
         );

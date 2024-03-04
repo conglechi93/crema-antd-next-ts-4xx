@@ -1,8 +1,8 @@
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppPopConfirm from 'components/atoms/AppPopConfirm';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import SearchImg from 'assets/icon/search.png';
 import AppSearch from 'components/atoms/AppSearch';
 import IntlMessages from '@crema/utility/IntlMessages';
@@ -13,7 +13,7 @@ type JopTypeFilterProps = {
   handleChangeSearchParams: (params: any, resetRecord?: boolean) => void;
 };
 const JopTypesFilter = (props: JopTypeFilterProps) => {
-  const {handleChangeSearchParams} = props;
+  const { handleChangeSearchParams } = props;
   const {
     initialValues,
     form,
@@ -23,7 +23,7 @@ const JopTypesFilter = (props: JopTypeFilterProps) => {
     handleCancelPop,
     statusOptions,
   } = useJopTypeFilter(handleChangeSearchParams);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
@@ -43,14 +43,17 @@ const JopTypesFilter = (props: JopTypeFilterProps) => {
               <AppForm form={form}>
                 <AppFormItem
                   name='searchText'
-                  label={messages['common.search']}
+                  label={messages['common.search'] as string}
                 >
                   <AppSearch
                     placeholder={messages['common.jobTypeSearchHint'] as string}
                     suffix={<img src={SearchImg.src} alt='' />}
                   />
                 </AppFormItem>
-                <AppFormItem name='status' label={messages['common.status']}>
+                <AppFormItem
+                  name='status'
+                  label={messages['common.status'] as string}
+                >
                   <AppSelectAll
                     form={form}
                     fieldName='status'

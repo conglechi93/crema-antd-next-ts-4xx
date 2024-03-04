@@ -1,15 +1,15 @@
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import useFunc from './useFunc';
 import AppFormItem from 'components/atoms/AppFormItem';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import AppSearch from 'components/atoms/AppSearch';
 import AppPopConfirm from 'components/atoms/AppPopConfirm';
 import SearchImg from 'assets/icon/search.png';
 import IntlMessages from '@crema/utility/IntlMessages';
 import AppSelectAll from 'components/atoms/AppSelectAll';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {onGetProjectList} from 'redux/actions/ProjectManagement';
+import { onGetProjectList } from 'redux/actions/ProjectManagement';
 
 type PropsTypes = {
   searchParams: any;
@@ -17,10 +17,10 @@ type PropsTypes = {
 };
 
 const DepartmentFilter = (props: PropsTypes) => {
-  const {onSubmitForm} = props;
-  const {form, openPop, setOpenPop, handleConfirmPop, handleCancelPop} =
+  const { onSubmitForm } = props;
+  const { form, openPop, setOpenPop, handleConfirmPop, handleCancelPop } =
     useFunc(onSubmitForm);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   return (
     <Row gutter={[10, 0]} align={'bottom'} justify={'center'}>
       <Col flex={'none'}>
@@ -34,7 +34,7 @@ const DepartmentFilter = (props: PropsTypes) => {
               <AppForm form={form}>
                 <AppFormItem
                   name='searchText'
-                  label={messages['common.search']}
+                  label={messages['common.search'] as string}
                 >
                   <AppSearch
                     placeholder={

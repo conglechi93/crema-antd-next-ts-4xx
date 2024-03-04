@@ -1,8 +1,8 @@
-import {Col, Form, Row} from 'antd';
+import { Col, Form, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppSearch from 'components/atoms/AppSearch';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import SearchImg from 'assets/icon/search.png';
 import AppPopConfirm from 'components/atoms/AppPopConfirm';
 import AppRangePicker from 'components/atoms/AppRangePicker';
@@ -10,9 +10,9 @@ import AppSelect from 'components/atoms/AppSelect';
 import CalendarImg from 'assets/icon/Calendar.png';
 import ArrowDownImg from 'assets/icon/ArrowDown.png';
 import IntlMessages from '@crema/utility/IntlMessages';
-import {useEffect, useState} from 'react';
-import {AppState} from '@auth0/auth0-react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useEffect, useState } from 'react';
+import { AppState } from '@auth0/auth0-react';
+import { useDispatch, useSelector } from 'react-redux';
 
 type contentTabFilterProps = {
   workFlowStatus: Array<any>;
@@ -21,11 +21,11 @@ type contentTabFilterProps = {
 
 const ContentTabFilter = (props: contentTabFilterProps) => {
   const dispatch = useDispatch();
-  const {workFlowStatus, handleChangeSearchParams} = props;
+  const { workFlowStatus, handleChangeSearchParams } = props;
   const [form] = Form.useForm();
   const [popForm] = Form.useForm();
   const [isOpenPop, setIsOpenPop] = useState(false);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
 
   return (
     <Row gutter={[16, 16]}>

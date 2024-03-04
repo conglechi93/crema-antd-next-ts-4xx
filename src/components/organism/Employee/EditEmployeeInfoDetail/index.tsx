@@ -1,26 +1,26 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './style.module.scss';
-import {Avatar, Col, DatePicker, Row, Upload} from 'antd';
+import { Avatar, Col, DatePicker, Row, Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
 import EmptyAvatar from 'assets/profile/empty-avatar.svg';
 import camera from 'assets/image/camera_upload.png';
 import AppSelect from 'components/atoms/AppSelect';
 import AddressForm from 'components/molecules/AddressForm';
-import {AppState} from '@auth0/auth0-react';
-import {useDispatch, useSelector} from 'react-redux';
-import {onGetDepartments} from 'redux/actions/Departments';
-import {dateTimeFormat} from 'shared/constants/AppConst';
+import { AppState } from '@auth0/auth0-react';
+import { useDispatch, useSelector } from 'react-redux';
+import { onGetDepartments } from 'redux/actions/Departments';
+import { dateTimeFormat } from 'shared/constants/AppConst';
 import Validators from 'shared/validators';
-import {checkValidateForm} from 'utils/FormUtils';
+import { checkValidateForm } from 'utils/FormUtils';
 import PositionDetailTable from '../PositionDetailTable';
-import {any} from 'prop-types';
-import {onUploadFile} from 'redux/actions/UploadCommon';
-import {AttachmentType} from 'shared/constants/AppVariables';
+import { any } from 'prop-types';
+import { onUploadFile } from 'redux/actions/UploadCommon';
+import { AttachmentType } from 'shared/constants/AppVariables';
 
 type PropsTypes = {
   form;
@@ -47,12 +47,12 @@ const EditEmployeeInfoDetail = (props: PropsTypes) => {
     thumbnailAvatar,
   } = props;
   const dispatch = useDispatch();
-  const {categories} = useSelector<AppState, AppState['category']>(
-    ({category}) => category,
+  const { categories } = useSelector<AppState, AppState['category']>(
+    ({ category }) => category,
   );
 
   const [labourContract, setLabourContract] = useState<
-    Array<{label: string; value: string}>
+    Array<{ label: string; value: string }>
   >([]);
 
   const [genderOptions, setGenderOptions] = useState<Array<any>>([]);
@@ -72,7 +72,7 @@ const EditEmployeeInfoDetail = (props: PropsTypes) => {
 
   useEffect(() => {
     const fetchOptions = async () => {
-      const options: Array<{label: string; value: string}> = [];
+      const options: Array<{ label: string; value: string }> = [];
       const labourContract = categories?.labourContractEmployeeShopCat ?? [];
       labourContract?.map((item: any) => {
         options.push({
@@ -101,12 +101,12 @@ const EditEmployeeInfoDetail = (props: PropsTypes) => {
 
   console.log('thumbnailAvatar', thumbnailAvatar);
 
-  const {messages} = useIntl();
-  const {formatRequiredLabelId: frl, formatRequiredMessageId: frm} =
+  const { messages } = useIntl();
+  const { formatRequiredLabelId: frl, formatRequiredMessageId: frm } =
     useFormMessage();
 
   return (
-    <Row gutter={[10, 8]} style={{marginBottom: '10px'}}>
+    <Row gutter={[10, 8]} style={{ marginBottom: '10px' }}>
       <Col xs={24} className={styles.col_upload}>
         <Avatar
           size={64}
@@ -138,7 +138,10 @@ const EditEmployeeInfoDetail = (props: PropsTypes) => {
         <AppForm form={form} onFieldsChange={handleFieldsChange}>
           <Row gutter={[16, 16]}>
             <Col xs={24} md={12}>
-              <AppFormItem name='name' label={messages['common.fullName']}>
+              <AppFormItem
+                name='name'
+                label={messages['common.fullName'] as string}
+              >
                 <AppInput
                   type='text'
                   placeholder={messages['common.fullName'] as string}
@@ -150,7 +153,7 @@ const EditEmployeeInfoDetail = (props: PropsTypes) => {
             <Col xs={24} md={12}>
               <AppFormItem
                 name='phone'
-                label={messages['common.phone']}
+                label={messages['common.phone'] as string}
                 rules={[
                   {
                     required: true,
@@ -170,7 +173,7 @@ const EditEmployeeInfoDetail = (props: PropsTypes) => {
             <Col xs={24} md={12}>
               <AppFormItem
                 name='email'
-                label={messages['common.email']}
+                label={messages['common.email'] as string}
                 rules={[
                   {
                     validator: (_, v) => {
@@ -202,11 +205,11 @@ const EditEmployeeInfoDetail = (props: PropsTypes) => {
             <Col xs={24} md={12}>
               <AppFormItem
                 name='birthday'
-                label={messages['common.dateOfBirth']}
+                label={messages['common.dateOfBirth'] as string}
               >
                 <DatePicker
                   format={dateTimeFormat[0]}
-                  style={{width: '100%', height: '36px'}}
+                  style={{ width: '100%', height: '36px' }}
                   placeholder={messages['common.dateOfBirth'] as string}
                 />
               </AppFormItem>

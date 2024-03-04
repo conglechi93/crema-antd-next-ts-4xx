@@ -1,8 +1,8 @@
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppPopConfirm from 'components/atoms/AppPopConfirm';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import CalendarImg from 'assets/icon/Calendar.png';
 import SearchImg from 'assets/icon/search.png';
 import AppSearch from 'components/atoms/AppSearch';
@@ -14,7 +14,7 @@ type SalesProgramFilterProps = {
   handleChangeSearchParams: (params: any, resetRecord?: boolean) => void;
 };
 const SalesProgramFilter = (props: SalesProgramFilterProps) => {
-  const {handleChangeSearchParams} = props;
+  const { handleChangeSearchParams } = props;
 
   const {
     form,
@@ -26,7 +26,7 @@ const SalesProgramFilter = (props: SalesProgramFilterProps) => {
     handleConfirmPop,
     handleCancelPop,
   } = useSalesProgramsFilter(handleChangeSearchParams);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
 
   return (
     <Row gutter={[16, 0]} align={'bottom'} justify={'center'}>
@@ -41,7 +41,7 @@ const SalesProgramFilter = (props: SalesProgramFilterProps) => {
               <AppForm form={form}>
                 <AppFormItem
                   name='searchText'
-                  label={messages['common.search']}
+                  label={messages['common.search'] as string}
                 >
                   <AppSearch
                     // onSearch={handleSearch}

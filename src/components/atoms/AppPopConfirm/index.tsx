@@ -1,12 +1,13 @@
 import React from 'react';
-import {Popconfirm} from 'antd';
+import { Popconfirm } from 'antd';
 import AppButton from '../AppButton';
-import {TooltipPlacement} from 'antd/es/tooltip';
-import {PopconfirmProps} from 'antd/lib';
+import { TooltipPlacement } from 'antd/es/tooltip';
+import { PopconfirmProps } from 'antd/lib';
 import AppTypo from '../AppTypo';
 import styles from './style.module.scss';
 
 type AppPopconfirmProps = {
+  title: any;
   placement?: TooltipPlacement | undefined;
   icon?: React.ReactNode;
   openPop?: boolean;
@@ -14,7 +15,7 @@ type AppPopconfirmProps = {
 };
 
 const AppPopConfirm = (props: PopconfirmProps & AppPopconfirmProps) => {
-  const {title, placement, icon, openPop, setOpenPop} = props;
+  const { title, placement, icon, openPop, setOpenPop } = props;
   return (
     <div className={styles.app_pop_confirm}>
       <Popconfirm

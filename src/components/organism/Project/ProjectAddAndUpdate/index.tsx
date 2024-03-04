@@ -1,23 +1,23 @@
-import {Button, Col, DatePicker, List, Row} from 'antd';
+import { Button, Col, DatePicker, List, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import AppTextArea from 'components/atoms/AppTextArea';
 import AppTypo from 'components/atoms/AppTypo';
-import React, {useState} from 'react';
-import {useIntl} from 'react-intl';
+import React, { useState } from 'react';
+import { useIntl } from 'react-intl';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
 import styles from './style.module.scss';
 import CalendarImg from 'assets/icon/Calendar.png';
 import AppDraggerUpload from 'components/molecules/AppDraggerUpload';
-import {FormInstance} from 'antd/lib';
-import {dateTimeFormat} from 'shared/constants/AppConst';
+import { FormInstance } from 'antd/lib';
+import { dateTimeFormat } from 'shared/constants/AppConst';
 import useProjectAndUpdate from './useProjectAndUpdate';
 import imgExcel from 'assets/image/Excel.png';
 import imgCheck from 'assets/image/Check.png';
 import EmployeeSelectTable from 'components/organism/Department/EmployeeSelectTable';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {onSearchWorkflow} from 'redux/actions/Workflow';
+import { onSearchWorkflow } from 'redux/actions/Workflow';
 
 type PropsTypes = {
   form: FormInstance;
@@ -31,14 +31,14 @@ type PropsTypes = {
 };
 
 const ProjectAddAndUpdate = (props: PropsTypes) => {
-  const {form, info, handleFieldsChange, fileList, setFileList} = props;
-  const {messages} = useIntl();
+  const { form, info, handleFieldsChange, fileList, setFileList } = props;
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
     formatSelectRequiredMessageId: fsrm,
   } = useFormMessage();
-  const {dataSource, setDataSource} = props;
+  const { dataSource, setDataSource } = props;
   const {
     handleRemoveFile,
     handleCustomRequest,
@@ -61,7 +61,7 @@ const ProjectAddAndUpdate = (props: PropsTypes) => {
           <AppFormItem
             name={'name'}
             label={frl('common.nameProject')}
-            rules={[{required: true, message: frm('common.nameProject')}]}
+            rules={[{ required: true, message: frm('common.nameProject') }]}
           >
             <AppInput
               type='text'
@@ -73,7 +73,7 @@ const ProjectAddAndUpdate = (props: PropsTypes) => {
           <AppFormItem
             name={'workflow'}
             label={frl('common.workFlow')}
-            rules={[{required: true, message: frm('common.workFlow')}]}
+            rules={[{ required: true, message: frm('common.workFlow') }]}
           >
             <AppSelectLoadMore
               // disabled={disabled}
@@ -89,12 +89,12 @@ const ProjectAddAndUpdate = (props: PropsTypes) => {
           <AppFormItem
             name='startDate'
             label={frl('common.startDate')}
-            rules={[{required: true, message: frm('common.startDate')}]}
+            rules={[{ required: true, message: frm('common.startDate') }]}
           >
             <DatePicker
               showTime
               format={dateTimeFormat[1]}
-              style={{width: '100%', height: '36px'}}
+              style={{ width: '100%', height: '36px' }}
               placeholder={dateTimeFormat[1].toLocaleLowerCase()}
               suffixIcon={<img src={CalendarImg.src} alt='' />}
               showNow={false}
@@ -105,12 +105,12 @@ const ProjectAddAndUpdate = (props: PropsTypes) => {
           <AppFormItem
             name='endDate'
             label={frl('common.endDate')}
-            rules={[{required: true, message: frm('common.endDate')}]}
+            rules={[{ required: true, message: frm('common.endDate') }]}
           >
             <DatePicker
               showTime
               format={dateTimeFormat[1]}
-              style={{width: '100%', height: '36px'}}
+              style={{ width: '100%', height: '36px' }}
               placeholder={dateTimeFormat[1].toLocaleLowerCase()}
               suffixIcon={<img src={CalendarImg.src} alt='' />}
               showNow={false}
@@ -120,7 +120,7 @@ const ProjectAddAndUpdate = (props: PropsTypes) => {
         <Col xs={24}>
           <AppFormItem
             name={'description'}
-            label={messages['common.description']}
+            label={messages['common.description'] as string}
           >
             <AppTextArea
               placeholder={messages['common.descriptionHint'] as string}
@@ -132,11 +132,11 @@ const ProjectAddAndUpdate = (props: PropsTypes) => {
             <Col xs={24}>
               <AppFormItem
                 name={'attachedFiles'}
-                label={messages['common.attachedFiles']}
+                label={messages['common.attachedFiles'] as string}
               >
-                <Col xs={24} style={{marginBottom: '10px'}}>
+                <Col xs={24} style={{ marginBottom: '10px' }}>
                   <AppTypo variant='p-md-reg'>
-                    {messages['common.attachedFilesHint']}
+                    {messages['common.attachedFilesHint'] as string}
                   </AppTypo>
                 </Col>
                 <AppDraggerUpload
@@ -150,7 +150,7 @@ const ProjectAddAndUpdate = (props: PropsTypes) => {
               </AppFormItem>
               {fileList.length > 0 && (
                 <List
-                  style={{marginTop: 16}}
+                  style={{ marginTop: 16 }}
                   size='small'
                   bordered
                   dataSource={fileList}
@@ -206,7 +206,7 @@ const ProjectAddAndUpdate = (props: PropsTypes) => {
                       <Row gutter={[8, 8]} align={'middle'}>
                         <Col>
                           <img
-                            style={{display: 'block'}}
+                            style={{ display: 'block' }}
                             src={imgExcel.src}
                             alt=''
                           />
@@ -222,7 +222,7 @@ const ProjectAddAndUpdate = (props: PropsTypes) => {
                             <AppTypo variant='p-md-reg'>{file.name}</AppTypo>
                             <p>
                               <img
-                                style={{display: 'block'}}
+                                style={{ display: 'block' }}
                                 src={imgCheck.src}
                                 alt=''
                               />

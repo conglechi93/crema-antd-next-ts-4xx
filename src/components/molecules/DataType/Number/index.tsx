@@ -1,15 +1,15 @@
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppCheckbox from 'components/atoms/AppCheckbox';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 type PropsTypes = {
   disabled: boolean;
 };
 const NumberComponent = (props: PropsTypes) => {
-  const {disabled} = props;
-  const {messages} = useIntl();
+  const { disabled } = props;
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
@@ -25,7 +25,7 @@ const NumberComponent = (props: PropsTypes) => {
                 name={'minValue'}
                 required
                 label={frl('common.minValue')}
-                rules={[{required: true, message: frm('common.minValue')}]}
+                rules={[{ required: true, message: frm('common.minValue') }]}
               >
                 <AppInput
                   type='text'
@@ -39,7 +39,7 @@ const NumberComponent = (props: PropsTypes) => {
                 name={'maxValue'}
                 required
                 label={frl('common.maxValue')}
-                rules={[{required: true, message: frm('common.maxValue')}]}
+                rules={[{ required: true, message: frm('common.maxValue') }]}
               >
                 <AppInput
                   type='text'
@@ -53,13 +53,13 @@ const NumberComponent = (props: PropsTypes) => {
         <Col>
           <AppFormItem name={'isInteger'} valuePropName='checked'>
             <AppCheckbox
-              label={messages['common.noneDisplayDecimal']}
+              label={messages['common.noneDisplayDecimal'] as string}
               disabled={disabled}
             />
           </AppFormItem>
           <AppFormItem name={'isRequired'} valuePropName='checked'>
             <AppCheckbox
-              label={messages['common.required']}
+              label={messages['common.required'] as string}
               disabled={disabled}
             />
           </AppFormItem>

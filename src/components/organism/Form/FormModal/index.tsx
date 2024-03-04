@@ -126,7 +126,7 @@ const FormModal = (props: PropsTypes) => {
               <Col xs={24}>
                 <AppFormItem
                   name={'description'}
-                  label={messages['common.description']}
+                  label={messages['common.description'] as string}
                 >
                   <AppTextArea
                     placeholder={messages['common.descriptionHint'] as string}

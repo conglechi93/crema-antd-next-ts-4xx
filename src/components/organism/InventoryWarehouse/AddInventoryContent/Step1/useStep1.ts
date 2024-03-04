@@ -1,24 +1,24 @@
-import {loadState} from 'utils/LocalStore';
-import {checkValidateForm} from 'utils/FormUtils';
-import {FormInstance} from 'antd';
-import {useEffect, useState} from 'react';
-import {onGetFormDetail} from 'redux/actions/Form';
-import {useDispatch} from 'react-redux';
-import {ActionType, PropertyType} from 'shared/constants/AppVariables';
-import {onGetInventoryDetailByCode} from 'redux/actions/Inventory';
-import {createImageJson} from 'utils/FileHelper';
+import { loadState } from 'utils/LocalStore';
+import { checkValidateForm } from 'utils/FormUtils';
+import { FormInstance } from 'antd';
+import { useEffect, useState } from 'react';
+import { onGetFormDetail } from 'redux/actions/Form';
+import { useDispatch } from 'react-redux';
+import { ActionType, PropertyType } from 'shared/constants/AppVariables';
+import { onGetInventoryDetailByCode } from 'redux/actions/Inventory';
+import { createImageJson } from 'utils/FileHelper';
 import dayjs from 'dayjs';
-import {dateTimeFormat} from 'shared/constants/AppConst';
-import {onGetDistricts, onGetWards} from 'redux/actions/Categories';
+import { dateTimeFormat } from 'shared/constants/AppConst';
+import { onGetDistricts, onGetWards } from 'redux/actions/Categories';
 
 const useStep1 = (
   info: any,
   form: FormInstance,
   setDisabled: (value: boolean) => void,
-  handleSetFormData: (dataItems: Array<{key: string; value: any}>) => void,
+  handleSetFormData: (dataItems: Array<{ key: string; value: any }>) => void,
 ) => {
   const dispatch = useDispatch();
-  const [editorValue, setEditorValue] = useState('');
+  const [editorValue, setEditorValue] = useState();
   const [selectFields, setSelectFields] = useState<Array<string>>([]);
   const [optionalFields, setOptionalFields] = useState<Array<string>>([]);
   const [propertyList, setPropertyList] = useState<
@@ -31,10 +31,10 @@ const useStep1 = (
   >([]);
 
   const [districtOptions, setDistrictOptions] =
-    useState<{label: string; value: string}[]>();
+    useState<{ label: string; value: string }[]>();
 
   const [wardOptions, setWardOptions] =
-    useState<{label: string; value: string}[]>();
+    useState<{ label: string; value: string }[]>();
 
   const [province, setProvince] = useState('');
   const [district, setDistrict] = useState('');
@@ -89,7 +89,7 @@ const useStep1 = (
           isMultiChoice: item?.isMultiChoice ? true : false,
         },
       };
-      data = {...data, ...propertyJS};
+      data = { ...data, ...propertyJS };
     });
     if (isFisrtRender) {
       handleSetFormData([
@@ -118,7 +118,7 @@ const useStep1 = (
       const fileAttachments: Array<any> = [];
       const files: Array<any> = res?.fileAttachments ?? [];
       files.map((item: any) => {
-        const {id, fileName, type, mimeType, url, extention} = item;
+        const { id, fileName, type, mimeType, url, extention } = item;
         const typeUpload = type;
         const newFile = createImageJson(
           id,
@@ -150,7 +150,7 @@ const useStep1 = (
             isMultiChoice: item?.isMultiChoice ? true : false,
           },
         };
-        data = {...data, ...propertyJS};
+        data = { ...data, ...propertyJS };
         form.setFieldsValue({
           [item?.configProperty?.code]: fieldsValue ? fieldsValue : undefined,
         });
@@ -281,7 +281,7 @@ const useStep1 = (
   };
 
   useEffect(() => {
-    const {draftString, type} = info;
+    const { draftString, type } = info;
     if (draftString && type) {
       const dataSource = loadState(draftString);
       const formCode = dataSource?.form ? dataSource?.form.code : '';
@@ -367,12 +367,12 @@ const useStep1 = (
 
   const handleChangeFormData = async (e: any) => {
     const fieldInfo = e[0];
-    const {name, value} = fieldInfo;
+    const { name, value } = fieldInfo;
     const property: any = propertyList.find((item) => item.code === name[0]);
     const configDataType = property?.configDataType;
     let data: any;
     if (property) {
-      const {draftString} = info;
+      const { draftString } = info;
       const source = loadState(draftString);
       const propertyList: any = source?.submitFormData?.propertyList || [];
       const fieldsValue = await getFieldsValueFormItem(property, value, form);

@@ -1,26 +1,26 @@
 import IntlMessages from '@crema/utility/IntlMessages';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {Col, Row} from 'antd';
-import {FormInstance} from 'antd/lib';
+import { Col, Row } from 'antd';
+import { FormInstance } from 'antd/lib';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import AppTextArea from 'components/atoms/AppTextArea';
 import AppTypo from 'components/atoms/AppTypo';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 
 type PropsTypes = {
   form: FormInstance;
   handleFieldsChange: () => void;
 };
 const RolesAddAndUpdate = (props: PropsTypes) => {
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
     formatSelectRequiredMessageId: fsrm,
   } = useFormMessage();
-  const {form, handleFieldsChange} = props;
+  const { form, handleFieldsChange } = props;
   return (
     <Row gutter={[16, 16]}>
       <Col xs={24}>
@@ -33,7 +33,7 @@ const RolesAddAndUpdate = (props: PropsTypes) => {
           <AppFormItem
             name='name'
             label={frl('common.roleName')}
-            rules={[{required: true, message: frm('common.roleName')}]}
+            rules={[{ required: true, message: frm('common.roleName') }]}
           >
             <AppInput
               type='text'

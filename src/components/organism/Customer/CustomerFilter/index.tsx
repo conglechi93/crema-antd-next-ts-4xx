@@ -1,22 +1,22 @@
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppPopConfirm from 'components/atoms/AppPopConfirm';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import SearchImg from 'assets/icon/search.png';
 import AppSearch from 'components/atoms/AppSearch';
 import IntlMessages from '@crema/utility/IntlMessages';
 import useFunc from './useFunc';
 import AppSelectAll from 'components/atoms/AppSelectAll';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {onGetEmployees} from 'redux/actions/Employees';
-import {onGetTags} from 'redux/actions/Tag';
+import { onGetEmployees } from 'redux/actions/Employees';
+import { onGetTags } from 'redux/actions/Tag';
 import AddressForm from 'components/molecules/AddressForm';
 type CustomerFilterProps = {
   handleChangeSearchParams: (params: any, resetRecord?: boolean) => void;
 };
 const CustomerFilter = (props: CustomerFilterProps) => {
-  const {handleChangeSearchParams} = props;
+  const { handleChangeSearchParams } = props;
 
   const {
     form,
@@ -36,7 +36,7 @@ const CustomerFilter = (props: CustomerFilterProps) => {
     tagsSearchParams,
     setTagsSearchParams,
   } = useFunc(handleChangeSearchParams);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
 
   return (
     <Row gutter={[16, 0]} align={'bottom'} justify={'center'}>
@@ -53,7 +53,7 @@ const CustomerFilter = (props: CustomerFilterProps) => {
                   <Col xs={24} md={12}>
                     <AppFormItem
                       name='searchText'
-                      label={messages['common.search']}
+                      label={messages['common.search'] as string}
                     >
                       <AppSearch
                         placeholder={
@@ -66,7 +66,7 @@ const CustomerFilter = (props: CustomerFilterProps) => {
                   <Col xs={24} md={12}>
                     <AppFormItem
                       name='customerGroup'
-                      label={messages['common.customerGroup']}
+                      label={messages['common.customerGroup'] as string}
                     >
                       <AppSelectAll
                         form={form}
@@ -83,7 +83,7 @@ const CustomerFilter = (props: CustomerFilterProps) => {
                   <Col xs={24} md={12}>
                     <AppFormItem
                       name='customerSource'
-                      label={messages['common.customerSource']}
+                      label={messages['common.customerSource'] as string}
                     >
                       <AppSelectAll
                         form={form}
@@ -100,7 +100,7 @@ const CustomerFilter = (props: CustomerFilterProps) => {
                   <Col xs={24} md={12}>
                     <AppFormItem
                       name='staffInCharges'
-                      label={messages['common.personInCharge']}
+                      label={messages['common.personInCharge'] as string}
                     >
                       <AppSelectLoadMore
                         searchParams={employeeSearchParams}
@@ -123,7 +123,7 @@ const CustomerFilter = (props: CustomerFilterProps) => {
                   <Col xs={24} md={12}>
                     <AppFormItem
                       name='status'
-                      label={messages['common.status']}
+                      label={messages['common.status'] as string}
                     >
                       <AppSelectAll
                         form={form}
@@ -136,7 +136,10 @@ const CustomerFilter = (props: CustomerFilterProps) => {
                     </AppFormItem>
                   </Col>
                   <Col xs={24}>
-                    <AppFormItem name='tags' label={messages['common.tags']}>
+                    <AppFormItem
+                      name='tags'
+                      label={messages['common.tags'] as string}
+                    >
                       <AppSelectLoadMore
                         searchParams={tagsSearchParams}
                         setSearchParams={setTagsSearchParams}

@@ -1,6 +1,6 @@
-import {Form} from 'antd';
+import { Form } from 'antd';
 import styles from './style.module.scss';
-import {FormItemProps} from 'antd/lib';
+import { FormItemProps } from 'antd/lib';
 
 type AppFormItemProps = {
   children?: React.ReactNode;
@@ -8,7 +8,7 @@ type AppFormItemProps = {
 };
 
 const AppFormItem = (props: FormItemProps & AppFormItemProps) => {
-  const {children, label} = props;
+  const { children, label } = props;
   return (
     <Form.Item {...props} className={styles.app_form_item} label={label}>
       {children}

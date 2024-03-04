@@ -1,6 +1,6 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 
-import {Col, Modal, ModalProps, Row, Spin} from 'antd';
+import { Col, Modal, ModalProps, Row, Spin } from 'antd';
 
 import styles from './style.module.scss';
 import AppButton from 'components/atoms/AppButton';
@@ -8,17 +8,17 @@ import AppButton from 'components/atoms/AppButton';
 export type ModalCustomProps = {
   openModal: boolean;
   setOpenModal: (openModal: boolean) => void;
-  title?: string | React.ReactNode;
+  title?: string | React.ReactNode | any;
   description?: string | React.ReactNode;
   handleSubmit: () => void;
   handleClose?: () => void;
-  submitText?: string | React.ReactNode;
-  closeText?: string | React.ReactNode;
+  submitText?: string | React.ReactNode | any;
+  closeText?: string | React.ReactNode | any;
   disabled?: boolean;
   loading?: boolean;
   contentLoading?: boolean;
   width?: number;
-  children?: React.ReactNode;
+  children?: React.ReactNode | any;
   onClosable?: () => void;
   zIndex?: number;
 };

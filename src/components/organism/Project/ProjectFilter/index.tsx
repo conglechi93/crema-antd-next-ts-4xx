@@ -1,8 +1,8 @@
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppPopConfirm from 'components/atoms/AppPopConfirm';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import SearchImg from 'assets/icon/search.png';
 import AppSearch from 'components/atoms/AppSearch';
 import IntlMessages from '@crema/utility/IntlMessages';
@@ -12,7 +12,7 @@ type ProjectFilterProps = {
   handleChangeSearchParams: (params: any) => void;
 };
 const ProjectFilter = (props: ProjectFilterProps) => {
-  const {handleChangeSearchParams} = props;
+  const { handleChangeSearchParams } = props;
   const {
     form,
     initialValues,
@@ -24,7 +24,7 @@ const ProjectFilter = (props: ProjectFilterProps) => {
     statusOptions,
     workFlowOptions,
   } = usePropertyFilter(handleChangeSearchParams);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
 
   return (
     <Row gutter={[16, 0]} align={'bottom'} justify={'center'}>
@@ -39,7 +39,7 @@ const ProjectFilter = (props: ProjectFilterProps) => {
               <AppForm form={form}>
                 <AppFormItem
                   name='searchText'
-                  label={messages['common.search']}
+                  label={messages['common.search'] as string}
                 >
                   <AppSearch
                     placeholder={messages['common.projectSearchHint'] as string}

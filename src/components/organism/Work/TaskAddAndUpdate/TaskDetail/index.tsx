@@ -1,20 +1,20 @@
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import useTaskDetail from './useTaskDetail';
-import {DatePicker, FormInstance, InputNumber} from 'antd';
+import { DatePicker, FormInstance, InputNumber } from 'antd';
 import AppSelect from 'components/atoms/AppSelect';
-import {dateTimeFormat} from 'shared/constants/AppConst';
+import { dateTimeFormat } from 'shared/constants/AppConst';
 import CalendarImg from 'assets/icon/Calendar.png';
-import {memo, useState} from 'react';
+import { memo, useState } from 'react';
 import {
   onGetEmployeeAvailableAssigneeForTask,
   onGetParentTask,
 } from 'redux/actions/Task';
 import AppTypo from 'components/atoms/AppTypo';
 import IntlMessages from '@crema/utility/IntlMessages';
-import {ActionType} from 'shared/constants/AppVariables';
+import { ActionType } from 'shared/constants/AppVariables';
 
 type PropsTypes = {
   form: FormInstance;
@@ -22,8 +22,8 @@ type PropsTypes = {
   info: any;
 };
 const TaskDetail = (props: PropsTypes) => {
-  const {form, record, info} = props;
-  const {messages} = useIntl();
+  const { form, record, info } = props;
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
@@ -63,7 +63,7 @@ const TaskDetail = (props: PropsTypes) => {
         <IntlMessages id='common.titleDetailWork' />
       </AppTypo>
       <AppFormItem
-        rules={[{required: true, message: frm('common.taskName')}]}
+        rules={[{ required: true, message: frm('common.taskName') }]}
         name='project'
         label={frl('common.project')}
       >
@@ -77,7 +77,7 @@ const TaskDetail = (props: PropsTypes) => {
         />
       </AppFormItem>
       <AppFormItem
-        rules={[{required: true, message: frl('common.status')}]}
+        rules={[{ required: true, message: frl('common.status') }]}
         name='workflowStatus'
         label={frl('common.status')}
       >
@@ -87,7 +87,10 @@ const TaskDetail = (props: PropsTypes) => {
           placeholder={messages['common.statusHint'] as string}
         />
       </AppFormItem>
-      <AppFormItem name='parentTask' label={messages['common.parentTask']}>
+      <AppFormItem
+        name='parentTask'
+        label={messages['common.parentTask'] as string}
+      >
         <AppSelectLoadMore
           onGetOptions={onGetParentTask}
           searchParams={{
@@ -100,51 +103,63 @@ const TaskDetail = (props: PropsTypes) => {
           placeholder={messages['common.parentTaskHint'] as string}
         />
       </AppFormItem>
-      <AppFormItem name='startDate' label={messages['common.startDate']}>
+      <AppFormItem
+        name='startDate'
+        label={messages['common.startDate'] as string}
+      >
         <DatePicker
           showTime
           format={dateTimeFormat[1]}
-          style={{width: '100%', height: '36px'}}
+          style={{ width: '100%', height: '36px' }}
           placeholder={dateTimeFormat[1].toLocaleLowerCase()}
           suffixIcon={<img src={CalendarImg.src} alt='' />}
           showNow={false}
         />
       </AppFormItem>
-      <AppFormItem name='endDate' label={messages['common.endDate']}>
+      <AppFormItem name='endDate' label={messages['common.endDate'] as string}>
         <DatePicker
           showTime
           format={dateTimeFormat[1]}
-          style={{width: '100%', height: '36px'}}
+          style={{ width: '100%', height: '36px' }}
           placeholder={dateTimeFormat[1].toLocaleLowerCase()}
           suffixIcon={<img src={CalendarImg.src} alt='' />}
           showNow={false}
         />
       </AppFormItem>
-      <AppFormItem name='progress' label={messages['common.progress']}>
+      <AppFormItem
+        name='progress'
+        label={messages['common.progress'] as string}
+      >
         <InputNumber
           placeholder={'0'}
           min={0}
           max={100}
           maxLength={3}
           suffix={'%'}
-          style={{width: '100%'}}
+          style={{ width: '100%' }}
         />
       </AppFormItem>
-      <AppFormItem name='priority' label={messages['common.priority']}>
+      <AppFormItem
+        name='priority'
+        label={messages['common.priority'] as string}
+      >
         <AppSelect
           options={priorityOptions}
-          placeholder={messages['common.priorityHint']}
+          placeholder={messages['common.priorityHint'] as string}
         />
       </AppFormItem>
-      <AppFormItem name='jobType' label={messages['common.jobType']}>
+      <AppFormItem name='jobType' label={messages['common.jobType'] as string}>
         <AppSelect
           options={jobTypeOptions}
-          placeholder={messages['common.jobTypeHint']}
+          placeholder={messages['common.jobTypeHint'] as string}
         />
       </AppFormItem>
       {projectCode && (
         <>
-          <AppFormItem name='reporters' label={messages['common.reporters']}>
+          <AppFormItem
+            name='reporters'
+            label={messages['common.reporters'] as string}
+          >
             <AppSelectLoadMore
               disabled={disabled}
               searchParams={{
@@ -158,7 +173,10 @@ const TaskDetail = (props: PropsTypes) => {
               mode='multiple'
             />
           </AppFormItem>
-          <AppFormItem name='assignees' label={messages['common.assignees']}>
+          <AppFormItem
+            name='assignees'
+            label={messages['common.assignees'] as string}
+          >
             <AppSelectLoadMore
               disabled={disabled}
               onGetOptions={onGetEmployeeAvailableAssigneeForTask}

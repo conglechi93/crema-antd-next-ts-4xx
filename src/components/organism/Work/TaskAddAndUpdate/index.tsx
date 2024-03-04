@@ -1,20 +1,20 @@
-import {Button, Col, List, Row} from 'antd';
+import { Button, Col, List, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
-import React, {memo, useState} from 'react';
-import {useIntl} from 'react-intl';
+import React, { memo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {FormInstance} from 'antd/lib';
+import { FormInstance } from 'antd/lib';
 import AppCollapse from 'components/molecules/AppCollapse';
-import {CKEditor} from '@ckeditor/ckeditor5-react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
 import Editor from 'ckeditor5-custom-build';
 import WorkDetail from './TaskDetail';
 import AppDraggerUpload from 'components/molecules/AppDraggerUpload';
-import {useDispatch} from 'react-redux';
-import {AttachmentType} from 'shared/constants/AppVariables';
-import {onUploadFile} from 'redux/actions/UploadCommon';
-import {createImageJson} from 'utils/FileHelper';
+import { useDispatch } from 'react-redux';
+import { AttachmentType } from 'shared/constants/AppVariables';
+import { onUploadFile } from 'redux/actions/UploadCommon';
+import { createImageJson } from 'utils/FileHelper';
 import AppTypo from 'components/atoms/AppTypo';
 import useTaskAddAndUpdate from './useTaskAddAndUpdate';
 
@@ -41,7 +41,7 @@ const TaskAddAndUpdate = (props: PropsTypes) => {
     record,
     info,
   } = props;
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
@@ -51,11 +51,11 @@ const TaskAddAndUpdate = (props: PropsTypes) => {
   useTaskAddAndUpdate(form, record, setFileAttachments);
 
   const handleCustomRequest = async (options: any) => {
-    const {onSuccess, onError, file, onProgress} = options;
+    const { onSuccess, onError, file, onProgress } = options;
     const type = AttachmentType.FILE_TASK;
     const res: any = await dispatch(onUploadFile(file, type));
     if (res) {
-      const {id, url, fileName, extention, type} = res;
+      const { id, url, fileName, extention, type } = res;
       const newFile =
         createImageJson(id, url, fileName, extention, type) ?? null;
       const newFileList = [...fileAttachments];
@@ -124,7 +124,7 @@ const TaskAddAndUpdate = (props: PropsTypes) => {
           />
           {fileAttachments.length > 0 && (
             <List
-              style={{marginTop: 16}}
+              style={{ marginTop: 16 }}
               size='small'
               bordered
               dataSource={fileAttachments}
@@ -180,7 +180,7 @@ const TaskAddAndUpdate = (props: PropsTypes) => {
                   <Row gutter={[8, 8]} align={'middle'}>
                     <Col>
                       <img
-                        style={{display: 'block'}}
+                        style={{ display: 'block' }}
                         // src={imgExcel.src}
                         alt=''
                       />
@@ -196,7 +196,7 @@ const TaskAddAndUpdate = (props: PropsTypes) => {
                         <AppTypo variant='p-md-reg'>{file.name}</AppTypo>
                         <p>
                           <img
-                            style={{display: 'block'}}
+                            style={{ display: 'block' }}
                             // src={imgCheck.src}
                             alt=''
                           />
@@ -220,7 +220,7 @@ const TaskAddAndUpdate = (props: PropsTypes) => {
           <Row gutter={[16, 16]}>
             <Col xs={24}>
               <AppFormItem
-                rules={[{required: true, message: frm('common.taskName')}]}
+                rules={[{ required: true, message: frm('common.taskName') }]}
                 name='name'
                 label={frl('common.taskName')}
               >

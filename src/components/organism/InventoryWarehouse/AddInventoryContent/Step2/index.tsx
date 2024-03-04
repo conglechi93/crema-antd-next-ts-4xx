@@ -3,27 +3,27 @@ import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import AppTypo from 'components/atoms/AppTypo';
 import AppDropZones from 'components/molecules/AppDropZones';
-import {AttachmentType} from 'shared/constants/AppVariables';
-import {Col, Form, Row} from 'antd';
-import {useState} from 'react';
+import { AttachmentType } from 'shared/constants/AppVariables';
+import { Col, Form, Row } from 'antd';
+import { useState } from 'react';
 import useStep2 from './useStep2';
 import styles from './style.module.scss';
-import {useIntl} from 'react-intl';
-import {useDispatch} from 'react-redux';
+import { useIntl } from 'react-intl';
+import { useDispatch } from 'react-redux';
 import Validators from 'shared/validators';
 import ModalUploadUrl from '../ModalUploadUrl';
 import IntlMessages from '@crema/utility/IntlMessages';
 type PropsTypes = {
   info: any;
-  handleSetFormData: (dataItems: Array<{key: string; value: any}>) => void;
+  handleSetFormData: (dataItems: Array<{ key: string; value: any }>) => void;
   setDisabled: (value: boolean) => void;
   current: number;
 };
 const Step2 = (props: PropsTypes) => {
   const dispatch = useDispatch();
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const [form] = Form.useForm();
-  const {info, setDisabled, handleSetFormData, current} = props;
+  const { info, setDisabled, handleSetFormData, current } = props;
   const [imageIds, setImageIds] = useState<any>([]);
   const [modalAddUrl, setModalAddUrl] = useState(false);
   const [isValidAddUrl, setIsValidAddUrl] = useState(false);
@@ -74,7 +74,7 @@ const Step2 = (props: PropsTypes) => {
         <Row gutter={[10, 10]} className={styles.app_step_2}>
           <Col span={24}>
             <AppTypo variant='p-md-med'>Hình ảnh</AppTypo>
-            <ul style={{paddingLeft: '20px'}}>
+            <ul style={{ paddingLeft: '20px' }}>
               <AppTypo variant='li'>
                 {messages['common.validUploadImage2'] as string}
               </AppTypo>

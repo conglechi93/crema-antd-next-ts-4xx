@@ -12,6 +12,7 @@ import {
 } from '@crema/context/AppContextProvider/LayoutContextProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import 'react-quill/dist/quill.snow.css';
 
 export default function RootLayout({ children }: any) {
   const { navStyle } = useLayoutContext();

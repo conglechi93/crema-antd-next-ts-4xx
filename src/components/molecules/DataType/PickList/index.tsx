@@ -61,13 +61,13 @@ const PickListComponent = (props: PropsTypes) => {
         <Col span={24}>
           <AppFormItem name={'isMultiChoice'} valuePropName='checked'>
             <AppCheckbox
-              label={messages['common.acceptMultiChoice']}
+              label={messages['common.acceptMultiChoice'] as string}
               disabled={disabled}
             />
           </AppFormItem>
           <AppFormItem name={'isRequired'} valuePropName='checked'>
             <AppCheckbox
-              label={messages['common.required']}
+              label={messages['common.required'] as string}
               disabled={disabled}
             />
           </AppFormItem>

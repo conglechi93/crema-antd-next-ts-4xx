@@ -1,9 +1,9 @@
-import {Checkbox, Col, List, Row} from 'antd';
+import { Checkbox, Col, List, Row } from 'antd';
 import AppTypo from 'components/atoms/AppTypo';
 import AppModal from 'components/molecules/AppModal';
 import useFunc from './useFunc';
 import useFormMessage from '../../../../@crema/utility/hooks/useFormMessage';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppSearch from 'components/atoms/AppSearch';
@@ -18,7 +18,7 @@ type PropsTypes = {
   setIsOpen: (isOpen: boolean) => void;
 };
 const AddEmployeeModal = (props: PropsTypes) => {
-  const {info, isOpen, setIsOpen} = props;
+  const { info, isOpen, setIsOpen } = props;
 
   const {
     listForm,
@@ -37,15 +37,17 @@ const AddEmployeeModal = (props: PropsTypes) => {
     formatRequiredMessageId: frm,
     formatSelectRequiredMessageId: fsrm,
   } = useFormMessage();
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   return (
     <AppModal
       title={
-        <AppTypo variant='p-xl-semi'>{messages['common.addPersonnel']}</AppTypo>
+        <AppTypo variant='p-xl-semi'>
+          {messages['common.addPersonnel'] as string}
+        </AppTypo>
       }
       openModal={isOpen}
-      submitText={messages['common.add']}
-      closeText={messages['common.reset']}
+      submitText={messages['common.add'] as string}
+      closeText={messages['common.reset'] as string}
       setOpenModal={setIsOpen}
       handleSubmit={handleSubmit}
       handleClose={handeClose}
@@ -74,13 +76,13 @@ const AddEmployeeModal = (props: PropsTypes) => {
         <Col xs={24}>
           <AppForm form={listForm} onFieldsChange={handleFieldsChange}>
             <AppFormItem name={'employees'}>
-              <Checkbox.Group style={{width: '100%'}}>
+              <Checkbox.Group style={{ width: '100%' }}>
                 <List
                   className={styles.employees_item}
-                  style={{width: '100%'}}
+                  style={{ width: '100%' }}
                   itemLayout='horizontal'
                   loading={loading}
-                  locale={{emptyText: <AppSearchEmployee />}}
+                  locale={{ emptyText: <AppSearchEmployee /> }}
                   dataSource={dataSource}
                   renderItem={(item: any) => (
                     <EmployeeItem item={item} key={item?.ssoId} />

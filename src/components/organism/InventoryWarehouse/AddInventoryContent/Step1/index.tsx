@@ -1,25 +1,23 @@
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
-import {Col, Form, Row} from 'antd';
+import { Col, Form, Row } from 'antd';
 import useStep1 from './useStep1';
-import RenderAtorms from 'components/molecules/RenderAtorms';
-import {memo} from 'react';
-import {ActionType} from 'shared/constants/AppVariables';
-import {useIntl} from 'react-intl';
+import { memo } from 'react';
+import { ActionType } from 'shared/constants/AppVariables';
+import { useIntl } from 'react-intl';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {CKEditor} from '@ckeditor/ckeditor5-react';
-import Editor from 'ckeditor5-custom-build';
-import IntlMessages from '@crema/utility/IntlMessages';
 import Validators from 'shared/validators';
 import RenderAtormsV2 from 'components/molecules/RenderAtormsV2';
+import ReactQuill, { Quill } from 'react-quill';
+
 type PropsTypes = {
   info: any;
   setDisabled: (value: boolean) => void;
-  handleSetFormData: (dataItems: Array<{key: string; value: any}>) => void;
+  handleSetFormData: (dataItems: Array<{ key: string; value: any }>) => void;
 };
 const Step1 = (props: PropsTypes) => {
-  const {info, setDisabled, handleSetFormData} = props;
+  const { info, setDisabled, handleSetFormData } = props;
   const [form] = Form.useForm();
   const {
     propertyList,
@@ -29,34 +27,39 @@ const Step1 = (props: PropsTypes) => {
     districtOptions,
     wardOptions,
   } = useStep1(info, form, setDisabled, handleSetFormData);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
     formatSelectRequiredMessageId: fsrm,
   } = useFormMessage();
 
-  const editorConfiguration: any = {
-    toolbar: [
-      'heading',
-      '|',
-      'bold',
-      'italic',
-      'link',
-      'bulletedList',
-      'numberedList',
-      '|',
-      'outdent',
-      'indent',
-      '|',
-      'imageUpload',
-      'blockQuote',
-      'insertTable',
-      'mediaEmbed',
-      'undo',
-      'redo',
-    ],
+  const handleChangeEditor = (event: any, editor: any) => {
+    const editorData = editor.getData();
+    const data = {
+      key: 'description',
+      value: editorData,
+    };
+    handleSetFormData([data]);
+    setEditorValue(editorData);
   };
+
+  const formats = [
+    'header',
+    'font',
+    'size',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote',
+    'list',
+    'bullet',
+    'indent',
+    'link',
+    'image',
+    'video',
+  ];
 
   return (
     <div>
@@ -89,25 +92,20 @@ const Step1 = (props: PropsTypes) => {
             dataSource={propertyList}
             districtOptions={districtOptions}
             wardOptions={wardOptions}
-            responsiveCol={{xs: 24, sm: 12, md: 12, xl: 8}}
+            responsiveCol={{ xs: 24, sm: 12, md: 12, xl: 8 }}
           />
           <Col xs={24}>
-            <AppFormItem label={<IntlMessages id='common.description' />}>
-              <CKEditor
-                editor={Editor}
-                config={editorConfiguration}
-                data={editorValue}
-                onChange={(event: any, editor: any) => {
-                  const editorData = editor.getData();
-                  const data = {
-                    key: 'description',
-                    value: editorData,
-                  };
-                  handleSetFormData([data]);
-                  setEditorValue(editorData);
-                }}
-              />
-            </AppFormItem>
+            {/* <AppEditor
+              editorValue={editorValue}
+              setEditorValue={setEditorValue}
+              onChange={handleChangeEditor}
+            /> */}
+            <ReactQuill
+              theme='snow'
+              formats={formats}
+              value={editorValue}
+              onChange={handleChangeEditor}
+            ></ReactQuill>
           </Col>
         </Row>
       </AppForm>

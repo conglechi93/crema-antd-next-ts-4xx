@@ -1,16 +1,16 @@
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppButton from 'components/atoms/AppButton';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import AppTextArea from 'components/atoms/AppTextArea';
 import AppTypo from 'components/atoms/AppTypo';
-import React, {useEffect, useState} from 'react';
-import {useIntl} from 'react-intl';
+import React, { useEffect, useState } from 'react';
+import { useIntl } from 'react-intl';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
 import styles from './style.module.scss';
 import AppDragTable from 'components/molecules/AppDragTable';
-import {FormInstance} from 'antd/lib';
+import { FormInstance } from 'antd/lib';
 
 type PropsTypes = {
   form: FormInstance;
@@ -22,8 +22,8 @@ type PropsTypes = {
 };
 
 const WorkFlowAddAndUpdate = (props: PropsTypes) => {
-  const {form, dataSource, setDataSource, info, handleFieldsChange} = props;
-  const {messages} = useIntl();
+  const { form, dataSource, setDataSource, info, handleFieldsChange } = props;
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
@@ -50,7 +50,7 @@ const WorkFlowAddAndUpdate = (props: PropsTypes) => {
           <AppFormItem
             name={'name'}
             label={frl('common.workflowName')}
-            rules={[{required: true, message: frm('common.workflowName')}]}
+            rules={[{ required: true, message: frm('common.workflowName') }]}
           >
             <AppInput
               type='text'
@@ -61,7 +61,7 @@ const WorkFlowAddAndUpdate = (props: PropsTypes) => {
         <Col xs={24}>
           <AppFormItem
             name={'description'}
-            label={messages['common.description']}
+            label={messages['common.description'] as string}
           >
             <AppTextArea
               placeholder={messages['common.descriptionHint'] as string}

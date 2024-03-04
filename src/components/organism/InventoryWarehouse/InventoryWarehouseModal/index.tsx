@@ -1,20 +1,20 @@
-import {Col, Row, Spin} from 'antd';
+import { Col, Row, Spin } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import AppTypo from 'components/atoms/AppTypo';
 import AppModal from 'components/molecules/AppModal';
 import AppThreeCols from 'components/molecules/AppThreeCols';
-import {useState} from 'react';
+import { useState } from 'react';
 import useInventoryWarehouseModal from './useInventoryWarehouseModal';
 import useFormMessage from '../../../../@crema/utility/hooks/useFormMessage';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import labelImg from 'assets/icon/documents_label.png';
 import Validators from 'shared/validators';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {onSearchForms} from 'redux/actions/Form';
-import {onGetProjectList} from 'redux/actions/ProjectManagement';
-import {ActionType} from 'shared/constants/AppVariables';
+import { onSearchForms } from 'redux/actions/Form';
+import { onGetProjectList } from 'redux/actions/ProjectManagement';
+import { ActionType } from 'shared/constants/AppVariables';
 import AppTitleLable from 'components/atoms/AppTitleLable';
 
 type PropsTypes = {
@@ -26,9 +26,9 @@ type PropsTypes = {
   contentLoading?: boolean;
 };
 const InventoryWarehouseModal = (props: PropsTypes) => {
-  const {info, isOpen, setIsOpen, contentLoading} = props;
+  const { info, isOpen, setIsOpen, contentLoading } = props;
   const [disabled, setDisabled] = useState(true);
-  const {record} = info;
+  const { record } = info;
 
   const {
     loading,
@@ -51,15 +51,15 @@ const InventoryWarehouseModal = (props: PropsTypes) => {
     formatRequiredMessageId: frm,
     formatSelectRequiredMessageId: fsrm,
   } = useFormMessage();
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   return (
     <AppModal
       title={
         <AppTitleLable title={modalConfig?.title} recordTitle={record?.code} />
       }
       openModal={isOpen}
-      submitText={modalConfig?.submitText}
-      closeText={modalConfig?.closeText}
+      submitText={modalConfig?.submitText as string}
+      closeText={modalConfig?.closeText as string}
       setOpenModal={setIsOpen}
       handleSubmit={handleSubmit}
       handleClose={handleClose}
@@ -104,28 +104,30 @@ const InventoryWarehouseModal = (props: PropsTypes) => {
                     name='project'
                     required={true}
                     label={frl('common.project')}
-                    rules={[{required: true, message: fsrm('common.project')}]}
+                    rules={[
+                      { required: true, message: fsrm('common.project') },
+                    ]}
                   >
                     <AppSelectLoadMore
                       disabled={info.type == ActionType.VIEW}
                       onGetOptions={onGetProjectList}
                       searchParams={projectSearchParams}
                       setSearchParams={setProjectSearchParams}
-                      placeholder={messages['common.projectHint']}
+                      placeholder={messages['common.projectHint'] as string}
                     />
                   </AppFormItem>
                   <AppFormItem
                     name='form'
                     required={true}
                     label={frl('common.form')}
-                    rules={[{required: true, message: fsrm('common.form')}]}
+                    rules={[{ required: true, message: fsrm('common.form') }]}
                   >
                     <AppSelectLoadMore
                       disabled={info.type == ActionType.VIEW}
                       onGetOptions={onSearchForms}
                       searchParams={formSearchParams}
                       setSearchParams={setFormSearchParams}
-                      placeholder={messages['common.formHint']}
+                      placeholder={messages['common.formHint'] as string}
                     />
                   </AppFormItem>
                 </AppThreeCols>

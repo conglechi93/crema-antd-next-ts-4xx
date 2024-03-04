@@ -1,40 +1,40 @@
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {Avatar, Button, Col, List, Row, Upload} from 'antd';
-import {FormInstance} from 'antd/lib';
+import { Avatar, Button, Col, List, Row, Upload } from 'antd';
+import { FormInstance } from 'antd/lib';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import AppSelect from 'components/atoms/AppSelect';
 import AppTextArea from 'components/atoms/AppTextArea';
 import RenderAtorms from 'components/molecules/RenderAtorms';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import useCustomerAddAndUpdate from './useFunc';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {onGetEmployees} from 'redux/actions/Employees';
+import { onGetEmployees } from 'redux/actions/Employees';
 import Validators from 'shared/validators';
-import {onGetTags} from 'redux/actions/Tag';
+import { onGetTags } from 'redux/actions/Tag';
 import EmptyAvatar from 'assets/profile/empty-avatar.svg';
 import ImgCrop from 'antd-img-crop';
 import camera from 'assets/image/camera_upload.png';
 import styles from './style.module.scss';
 import AppDraggerUpload from 'components/molecules/AppDraggerUpload';
 import AppTypo from 'components/atoms/AppTypo';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import imgExcel from 'assets/image/Excel.png';
 import imgCheck from 'assets/image/Check.png';
-import {ActionType} from 'shared/constants/AppVariables';
+import { ActionType } from 'shared/constants/AppVariables';
 
 type PropsTypes = {
   form: FormInstance;
   handleFieldsChange: (e: any) => void;
   propertyList: Array<any>;
-  provinceInfo: {code: string; formCode: string};
+  provinceInfo: { code: string; formCode: string };
   setProvinceInfo: (value: any) => void;
-  districtInfo: {code: string; formCode: string};
+  districtInfo: { code: string; formCode: string };
   setDistrictInfo: (value: any) => void;
-  wardInfo: {code: string; formCode: string};
+  wardInfo: { code: string; formCode: string };
   setWardInfo: (value: any) => void;
-  handleSetFormData: (dataItems: Array<{key: string; value: any}>) => void;
+  handleSetFormData: (dataItems: Array<{ key: string; value: any }>) => void;
   info: any;
 
   thumbnailAvatar: any;
@@ -43,7 +43,7 @@ type PropsTypes = {
   setFileList: any;
 };
 const CustomerAddAndUpdate = (props: PropsTypes) => {
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const dispatch = useDispatch();
   const {
     formatRequiredLabelId: frl,
@@ -141,7 +141,7 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
               <AppFormItem
                 name='name'
                 label={frl('common.fullName')}
-                rules={[{required: true, message: frm('common.fullName')}]}
+                rules={[{ required: true, message: frm('common.fullName') }]}
               >
                 <AppInput
                   type='text'
@@ -154,7 +154,7 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
                 name='phone'
                 label={frl('common.phone')}
                 rules={[
-                  {required: true, message: frm('common.phone')},
+                  { required: true, message: frm('common.phone') },
                   {
                     validator: (_, v) => Validators.PhoneNumber(v),
                     message: messages['validator.phone'] as string,
@@ -171,7 +171,7 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
             <Col xs={24} sm={12}>
               <AppFormItem
                 name='customerGroup'
-                label={messages['common.customerGroup']}
+                label={messages['common.customerGroup'] as string}
               >
                 <AppSelect
                   options={customerGroupShopOptions}
@@ -182,7 +182,7 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
             <Col xs={24} sm={12}>
               <AppFormItem
                 name='customerSource'
-                label={messages['common.customerSource']}
+                label={messages['common.customerSource'] as string}
               >
                 <AppSelect
                   options={customerSourceShopOptions}
@@ -191,7 +191,10 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
               </AppFormItem>
             </Col>
             <Col xs={24} sm={12}>
-              <AppFormItem name='tags' label={messages['common.tags']}>
+              <AppFormItem
+                name='tags'
+                label={messages['common.tags'] as string}
+              >
                 <AppSelectLoadMore
                   searchParams={tagSearchParams}
                   setSearchParams={setTagSearchParams}
@@ -205,7 +208,7 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
               <AppFormItem
                 name='status'
                 label={frl('common.status')}
-                rules={[{required: true, message: frm('common.status')}]}
+                rules={[{ required: true, message: frm('common.status') }]}
               >
                 <AppSelect
                   options={customerStatusShopOptions}
@@ -216,7 +219,7 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
             <Col xs={24} sm={12}>
               <AppFormItem
                 name='staffInCharges'
-                label={messages['common.staffInCharge']}
+                label={messages['common.staffInCharge'] as string}
               >
                 <AppSelectLoadMore
                   searchParams={employeeSearchParams}
@@ -235,25 +238,25 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
               setDistrictInfo={setDistrictInfo}
               wardInfo={wardInfo}
               setWardInfo={setWardInfo}
-              responsiveCol={{xs: 24, sm: 12, md: 12, xl: 12}}
+              responsiveCol={{ xs: 24, sm: 12, md: 12, xl: 12 }}
             />
           </Row>
         </Col>
         <AppFormItem
           name='fileAttachments'
-          label={messages['common.attachedFiles']}
-          style={{display: 'none'}}
+          label={messages['common.attachedFiles'] as string}
+          style={{ display: 'none' }}
         ></AppFormItem>
         <Col xs={24}>
           <Row gutter={[4, 4]}>
             <Col xs={24}>
               <AppTypo variant='p-md-semi'>
-                {messages['common.attachedFiles']}
+                {messages['common.attachedFiles'] as string}
               </AppTypo>
             </Col>
             <Col xs={24}>
               <AppTypo variant='p-md-reg'>
-                {messages['common.validUploadFileSize']}
+                {messages['common.validUploadFileSize'] as string}
               </AppTypo>
             </Col>
             <Col xs={24}>
@@ -266,7 +269,7 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
               {fileList?.length > 0 && (
                 <List
                   className={styles.fileList}
-                  style={{marginTop: 16}}
+                  style={{ marginTop: 16 }}
                   size='small'
                   dataSource={fileList}
                   renderItem={(file: any) => (
@@ -321,7 +324,7 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
                       <Row gutter={[8, 8]} align={'middle'}>
                         <Col>
                           <img
-                            style={{display: 'block'}}
+                            style={{ display: 'block' }}
                             src={imgExcel.src}
                             alt=''
                           />
@@ -337,7 +340,7 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
                             <AppTypo variant='p-md-reg'>{file.name}</AppTypo>
                             <p>
                               <img
-                                style={{display: 'block'}}
+                                style={{ display: 'block' }}
                                 src={imgCheck.src}
                                 alt=''
                               />
@@ -353,7 +356,10 @@ const CustomerAddAndUpdate = (props: PropsTypes) => {
           </Row>
         </Col>
         <Col xs={24}>
-          <AppFormItem name='description' label={messages['common.notes']}>
+          <AppFormItem
+            name='description'
+            label={messages['common.notes'] as string}
+          >
             <AppTextArea placeholder={messages['common.notesHint'] as string} />
           </AppFormItem>
         </Col>

@@ -1,33 +1,33 @@
-import {Col, Form, Menu, Popover, Row, Tag, Tooltip} from 'antd';
-import {AiOutlineEllipsis} from 'react-icons/ai';
+import { Col, Form, Menu, Popover, Row, Tag, Tooltip } from 'antd';
+import { AiOutlineEllipsis } from 'react-icons/ai';
 import IntlMessages from '@crema/utility/IntlMessages';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import AppTag from 'components/atoms/AppTag';
-import {pageSize} from 'shared/constants/AppConst';
-import {useDispatch} from 'react-redux';
+import { pageSize } from 'shared/constants/AppConst';
+import { useDispatch } from 'react-redux';
 import {
   onAdminApproveRequest,
   onApproveRequestSalesProgram,
   onDeleteSalesProgram,
   onSearchSalesPrograms,
 } from 'redux/actions/SalesPrograms';
-import {addLeadingZeros} from 'utils/FormUtils';
+import { addLeadingZeros } from 'utils/FormUtils';
 import {
   ActionType,
   DraftStrings,
   SalesProgramStatus,
 } from 'shared/constants/AppVariables';
-import {saveState} from 'utils/LocalStore';
+import { saveState } from 'utils/LocalStore';
 import AppTypo from 'components/atoms/AppTypo';
 import AppControlAction from 'components/atoms/AppControlAction';
 import ObjectHelper from 'utils/ObjectHelper';
 import RejectSalesProgram from 'components/organism/AdminVars/RejectSalesProgram';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import AppTitleLable from 'components/atoms/AppTitleLable';
-import {ChooseInventoryType} from 'components/organism/SalesProgram/ChooseInventoryModal';
+import { ChooseInventoryType } from 'components/organism/SalesProgram/ChooseInventoryModal';
 
 const useSalesProgram = () => {
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const dispatch = useDispatch();
   const [form] = Form.useForm();
   const [isOpen, setIsOpen] = useState(false);
@@ -218,7 +218,7 @@ const useSalesProgram = () => {
         // if (record?.actionsEnable?.length === 0) return <> </>;
         const actionsEnable: Array<string> = record?.actionsEnable ?? [];
         let content = (
-          <div style={{display: 'flex'}}>
+          <div style={{ display: 'flex' }}>
             <Menu
               className='popover-menu'
               onClick={(e) => {
@@ -292,7 +292,7 @@ const useSalesProgram = () => {
         return (
           <Popover content={content} placement='topLeft'>
             <AiOutlineEllipsis
-              style={{cursor: 'pointer', fontSize: '22px', display: 'flex'}}
+              style={{ cursor: 'pointer', fontSize: '22px', display: 'flex' }}
             />
           </Popover>
         );
@@ -369,8 +369,8 @@ const useSalesProgram = () => {
           title: (
             <AppTitleLable title={'common.edit'} recordTitle={record?.code} />
           ),
-          submitText: messages['common.save'],
-          closeText: messages['common.cancel'],
+          submitText: messages['common.save'] as string,
+          closeText: messages['common.cancel'] as string,
         });
         saveState(DraftStrings.salesProgram, record);
         setSalesProgramInfo(info);
@@ -643,7 +643,7 @@ const useSalesProgram = () => {
             setIsOpen(false);
           },
           handleSubmit: async () => {
-            const {reason} = form.getFieldsValue();
+            const { reason } = form.getFieldsValue();
             const salesProgramCode = record?.code;
             const action = SalesProgramStatus.ADMIN_REJECT;
             const payload = {

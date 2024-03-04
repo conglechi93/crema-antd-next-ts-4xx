@@ -1,15 +1,15 @@
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {Col, Row} from 'antd';
-import {FormInstance} from 'antd/lib';
+import { Col, Row } from 'antd';
+import { FormInstance } from 'antd/lib';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import Validators from 'shared/validators';
 import useDepartmentAddAndUpdate from './useDepartmentAddAndUpdate';
-import {onGetEmployees} from 'redux/actions/Employees';
-import {onGetRoles} from 'redux/actions/Roles';
+import { onGetEmployees } from 'redux/actions/Employees';
+import { onGetRoles } from 'redux/actions/Roles';
 import AppTextArea from 'components/atoms/AppTextArea';
 
 type PropsTypes = {
@@ -18,13 +18,13 @@ type PropsTypes = {
 };
 
 const DepartmentAddAndUpdate = (props: PropsTypes) => {
-  const {form, setDisabled} = props;
+  const { form, setDisabled } = props;
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
     formatSelectRequiredMessageId: fsrm,
   } = useFormMessage();
-  const {messages} = useIntl();
+  const { messages } = useIntl();
 
   const {
     handleFieldsChange,
@@ -68,13 +68,15 @@ const DepartmentAddAndUpdate = (props: PropsTypes) => {
               <AppFormItem
                 name='employee'
                 required={true}
-                label={messages['common.managementPersonnel']}
+                label={messages['common.managementPersonnel'] as string}
               >
                 <AppSelectLoadMore
                   onGetOptions={onGetEmployees}
                   searchParams={employeeSearchParams}
                   setSearchParams={setEmployeeSearchParams}
-                  placeholder={messages['common.managementPersonnelHint']}
+                  placeholder={
+                    messages['common.managementPersonnelHint'] as string
+                  }
                 />
               </AppFormItem>
             </Col>
@@ -82,13 +84,13 @@ const DepartmentAddAndUpdate = (props: PropsTypes) => {
               <AppFormItem
                 name='position'
                 required={true}
-                label={messages['common.position']}
+                label={messages['common.position'] as string}
               >
                 <AppSelectLoadMore
                   searchParams={positionSearchParams}
                   setSearchParams={setPositionSearchParams}
                   onGetOptions={onGetRoles}
-                  placeholder={messages['common.positionHint']}
+                  placeholder={messages['common.positionHint'] as string}
                 />
               </AppFormItem>
             </Col>
@@ -97,7 +99,7 @@ const DepartmentAddAndUpdate = (props: PropsTypes) => {
         <Col xs={24}>
           <AppFormItem
             name='description'
-            label={messages['common.description']}
+            label={messages['common.description'] as string}
           >
             <AppTextArea
               placeholder={messages['common.descriptionHint'] as string}

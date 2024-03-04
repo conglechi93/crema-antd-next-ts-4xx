@@ -1,11 +1,11 @@
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {Button, Col, List, Row} from 'antd';
+import { Button, Col, List, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppSelect from 'components/atoms/AppSelect';
 import AppModal from 'components/molecules/AppModal';
-import {useState} from 'react';
-import {useIntl} from 'react-intl';
+import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import useInventoryWarehouseModal from './useConfirmTransaction';
 import ArrowDownImg from 'assets/icon/ArrowDown.png';
 import AppTypo from 'components/atoms/AppTypo';
@@ -26,7 +26,7 @@ type PropsTypes = {
 };
 
 const ConfirmTransaction = (props: PropsTypes) => {
-  const {info, setInfo, isOpen, setIsOpen} = props;
+  const { info, setInfo, isOpen, setIsOpen } = props;
   const [disabled, setDisabled] = useState(true);
 
   const {
@@ -48,7 +48,7 @@ const ConfirmTransaction = (props: PropsTypes) => {
     formatSelectRequiredMessageId: fsrm,
   } = useFormMessage();
 
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   return (
     <AppModal
       title={<IntlMessages id='common.confirmTransaction' />}
@@ -89,7 +89,7 @@ const ConfirmTransaction = (props: PropsTypes) => {
             >
               <Row gutter={[4, 4]}>
                 <Col xs={24}>
-                  <ul style={{paddingLeft: '20px'}}>
+                  <ul style={{ paddingLeft: '20px' }}>
                     <AppTypo variant='li'>
                       {messages['common.supportMultiFile'] as string}
                     </AppTypo>
@@ -110,7 +110,7 @@ const ConfirmTransaction = (props: PropsTypes) => {
                   />
                   {fileList?.length > 0 && (
                     <List
-                      style={{marginTop: 16}}
+                      style={{ marginTop: 16 }}
                       className='fileList'
                       size='small'
                       dataSource={fileList}
@@ -166,7 +166,7 @@ const ConfirmTransaction = (props: PropsTypes) => {
                           <Row gutter={[8, 8]} align={'middle'}>
                             <Col>
                               <img
-                                style={{display: 'block'}}
+                                style={{ display: 'block' }}
                                 src={imgExcel.src}
                                 alt=''
                               />
@@ -184,7 +184,7 @@ const ConfirmTransaction = (props: PropsTypes) => {
                                 </AppTypo>
                                 <p>
                                   <img
-                                    style={{display: 'block'}}
+                                    style={{ display: 'block' }}
                                     src={imgCheck.src}
                                     alt=''
                                   />

@@ -1,12 +1,12 @@
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {Col, ColorPicker, FormInstance, Row} from 'antd';
-import {Color} from 'antd/es/color-picker';
+import { Col, ColorPicker, FormInstance, Row } from 'antd';
+import { Color } from 'antd/es/color-picker';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import AppTextArea from 'components/atoms/AppTextArea';
-import {useEffect, useState} from 'react';
-import {useIntl} from 'react-intl';
+import { useEffect, useState } from 'react';
+import { useIntl } from 'react-intl';
 import useTagsAddAndUpdate from './useFunc';
 import AppTypo from 'components/atoms/AppTypo';
 import IntlMessages from '@crema/utility/IntlMessages';
@@ -17,8 +17,8 @@ type PropsType = {
   setModalInfo: (modalInfo: any) => void;
 };
 const TagsAddAndUpdate = (props: PropsType) => {
-  const {form, record, setModalInfo} = props;
-  const {messages} = useIntl();
+  const { form, record, setModalInfo } = props;
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
@@ -49,7 +49,7 @@ const TagsAddAndUpdate = (props: PropsType) => {
     }
   }, [record]);
 
-  const {handleFieldsChange} = useTagsAddAndUpdate(form, setModalInfo);
+  const { handleFieldsChange } = useTagsAddAndUpdate(form, setModalInfo);
 
   return (
     <>
@@ -66,7 +66,7 @@ const TagsAddAndUpdate = (props: PropsType) => {
                 <AppFormItem
                   label={frl('common.tagName')}
                   name='name'
-                  rules={[{required: true, message: frm('common.tagName')}]}
+                  rules={[{ required: true, message: frm('common.tagName') }]}
                 >
                   <AppInput
                     type='text'
@@ -78,7 +78,7 @@ const TagsAddAndUpdate = (props: PropsType) => {
                 <AppFormItem
                   label={frl('common.color')}
                   name='color'
-                  rules={[{required: true, message: frm('common.color')}]}
+                  rules={[{ required: true, message: frm('common.color') }]}
                 >
                   <ColorPicker
                     format={formatHex}
@@ -92,7 +92,7 @@ const TagsAddAndUpdate = (props: PropsType) => {
           </Col>
           <Col xs={24}>
             <AppFormItem
-              label={messages['common.description']}
+              label={messages['common.description'] as string}
               name='description'
             >
               <AppTextArea

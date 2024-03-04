@@ -1,14 +1,12 @@
 import AppModal from 'components/molecules/AppModal';
-import {useEffect, useState} from 'react';
-import {loadState} from 'utils/LocalStore';
-import {ActionType} from 'shared/constants/AppVariables';
-import {useDispatch} from 'react-redux';
-import {onCreateInventory, onUpdateInventory} from 'redux/actions/Inventory';
-import {Col, Row} from 'antd';
+import { useEffect, useState } from 'react';
+import { loadState } from 'utils/LocalStore';
+import { ActionType } from 'shared/constants/AppVariables';
+import { useDispatch } from 'react-redux';
+import { onCreateInventory, onUpdateInventory } from 'redux/actions/Inventory';
 import AppTypo from 'components/atoms/AppTypo';
 import AddInventoryContent from '../AddInventoryContent';
-import {useIntl} from 'react-intl';
-import labelImg from 'assets/icon/documents_label.png';
+import { useIntl } from 'react-intl';
 import AppTitleLable from 'components/atoms/AppTitleLable';
 
 type PropsTypes = {
@@ -23,22 +21,21 @@ type PropsTypes = {
 
 const InventoryModal = (props: PropsTypes) => {
   const dispatch = useDispatch();
-  const {messages} = useIntl();
-  const {info, isOpen, setIsOpen} = props;
+  const { messages } = useIntl();
+  const { info, isOpen, setIsOpen } = props;
   const [disabled, setDisabled] = useState(false);
   const [submitText, setSubmitText] = useState<any>();
   const [closeText, setCloseText] = useState<any>();
   const [current, setCurrent] = useState(0);
   const [loading, setLoading] = useState(false);
-  const {record} = info;
+  const { record } = info;
 
   const handleRemoveState = (): void => {
     setCurrent(0);
   };
   const handleSubmit = async (): Promise<void> => {
     if (current === 1) {
-      const {draftString, type} = info;
-
+      const { draftString, type } = info;
       setLoading(true);
       let res: any = null;
       switch (type) {
@@ -73,7 +70,8 @@ const InventoryModal = (props: PropsTypes) => {
   };
 
   useEffect(() => {
-    const {type} = info;
+    const { type } = info;
+    if (!type) return;
     let closeText = '';
     let continueText = '';
     if (current == 0) {
@@ -95,7 +93,8 @@ const InventoryModal = (props: PropsTypes) => {
   }, [current, info]);
 
   const getTitle = () => {
-    const {type} = info;
+    const { type } = info;
+    if (!type) return;
     switch (type) {
       case ActionType.ADD: {
         return messages['common.addInventory'] as string;
@@ -111,8 +110,8 @@ const InventoryModal = (props: PropsTypes) => {
       <AppModal
         title={<AppTitleLable title={getTitle()} recordTitle={record?.code} />}
         openModal={isOpen}
-        submitText={submitText}
-        closeText={closeText}
+        submitText={submitText as string}
+        closeText={closeText as string}
         setOpenModal={setIsOpen}
         handleSubmit={handleSubmit}
         handleClose={handleClose}

@@ -1,16 +1,16 @@
 import IntlMessages from '@crema/utility/IntlMessages';
-import {Form, Menu, Popover, Tooltip} from 'antd';
+import { Form, Menu, Popover, Tooltip } from 'antd';
 import AppControlAction from 'components/atoms/AppControlAction';
 import AppTag from 'components/atoms/AppTag';
-import {ModalInfoProps} from 'components/molecules/AppModalV2';
+import { ModalInfoProps } from 'components/molecules/AppModalV2';
 import AssignStaffInCharge from 'components/organism/Customer/AssignEmployee';
 import AssignTags from 'components/organism/Customer/AssignTags';
 import UpdateCustomerStatus from 'components/organism/Customer/UpdateCustomerStatus';
-import {ChooseInventoryType} from 'components/organism/SalesProgram/ChooseInventoryModal';
-import {useEffect, useState} from 'react';
-import {AiOutlineEllipsis} from 'react-icons/ai';
-import {useIntl} from 'react-intl';
-import {useDispatch} from 'react-redux';
+import { ChooseInventoryType } from 'components/organism/SalesProgram/ChooseInventoryModal';
+import { useEffect, useState } from 'react';
+import { AiOutlineEllipsis } from 'react-icons/ai';
+import { useIntl } from 'react-intl';
+import { useDispatch } from 'react-redux';
 import {
   onAddCustomerEmployeeInCharge,
   onAddMultipleTags,
@@ -19,7 +19,7 @@ import {
   onGetCustomerList,
   onUpdateCustomerStatus,
 } from 'redux/actions/Customer';
-import {pageSize} from 'shared/constants/AppConst';
+import { pageSize } from 'shared/constants/AppConst';
 import {
   ActionType,
   CustomerAction,
@@ -42,7 +42,7 @@ export enum CustomerListAction {
 }
 const useCustomerList = () => {
   const dispatch = useDispatch();
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const [form] = Form.useForm();
   const [total, setTotal] = useState(0);
   const [current, setCurrent] = useState(1);
@@ -138,7 +138,7 @@ const useCustomerList = () => {
                 code: code,
               },
             ];
-            const {employees} = form.getFieldsValue();
+            const { employees } = form.getFieldsValue();
             const payload = {
               customers: customers,
               employee: employees,
@@ -149,7 +149,7 @@ const useCustomerList = () => {
             if (res) {
               setIsOpen(false);
               form.resetFields();
-              handleChangeSearchParams({...searchParams});
+              handleChangeSearchParams({ ...searchParams });
             }
           },
           closeText: messages['common.cancel'] as string,
@@ -168,7 +168,7 @@ const useCustomerList = () => {
           submitText: messages['common.agree'] as string,
           handleSubmit: async () => {
             const code = record?.code;
-            const {status} = form.getFieldsValue();
+            const { status } = form.getFieldsValue();
             const payload = {
               code: code,
               status: status,
@@ -177,7 +177,7 @@ const useCustomerList = () => {
             if (res) {
               setIsOpen(false);
               form.resetFields();
-              handleChangeSearchParams({...searchParams});
+              handleChangeSearchParams({ ...searchParams });
             }
           },
           closeText: messages['common.cancel'] as string,
@@ -200,7 +200,7 @@ const useCustomerList = () => {
               </p>
             </>
           ),
-          submitText: messages['common.agree'],
+          submitText: messages['common.agree'] as string,
           handleSubmit: async () => {
             await dispatch(onDeleteCustomer(record.code));
             setIsOpen(false);
@@ -208,7 +208,7 @@ const useCustomerList = () => {
               ...searchParams,
             });
           },
-          closeText: messages['common.cancel'],
+          closeText: messages['common.cancel'] as string,
           width: 512,
         });
         setIsOpen(true);
@@ -220,7 +220,7 @@ const useCustomerList = () => {
           type: ChooseInventoryType.ADD_INVETORY_INTEREST,
           action: () => {
             form.resetFields();
-            handleChangeSearchParams({...searchParams});
+            handleChangeSearchParams({ ...searchParams });
           },
           record: record,
         };
@@ -231,7 +231,7 @@ const useCustomerList = () => {
       case CustomerAction.ATTACH_TAGS: {
         const currentTags: Array<any> = record?.tags ?? [];
         handleChangeModalInfo({
-          title: messages['common.assignTags'],
+          title: messages['common.assignTags'] as string,
           description: (
             <AssignTags
               form={form}
@@ -239,14 +239,14 @@ const useCustomerList = () => {
               currentTags={currentTags}
             />
           ),
-          submitText: messages['common.agree'],
+          submitText: messages['common.agree'] as string,
           handleSubmit: async () => {
             const customers = [
               {
                 code: record?.code,
               },
             ];
-            const {tags} = form.getFieldsValue();
+            const { tags } = form.getFieldsValue();
             const payload = {
               customers,
               tags: tags,
@@ -262,9 +262,9 @@ const useCustomerList = () => {
               form.resetFields();
               setIsOpen(false);
             }
-            handleChangeSearchParams({...searchParams});
+            handleChangeSearchParams({ ...searchParams });
           },
-          closeText: messages['common.cancel'],
+          closeText: messages['common.cancel'] as string,
           disabled: true,
         });
         setIsOpen(true);
@@ -445,7 +445,7 @@ const useCustomerList = () => {
         if (record?.actionsEnable?.length === 0) return <> </>;
         const actionsEnable: Array<string> = record?.actionsEnable ?? [];
         let content = (
-          <div style={{display: 'flex'}}>
+          <div style={{ display: 'flex' }}>
             <Menu
               className='popover-menu'
               onClick={(e) => {
@@ -503,7 +503,7 @@ const useCustomerList = () => {
         return (
           <Popover content={content} placement='bottom'>
             <AiOutlineEllipsis
-              style={{cursor: 'pointer', fontSize: '22px', display: 'flex'}}
+              style={{ cursor: 'pointer', fontSize: '22px', display: 'flex' }}
             />
           </Popover>
         );
@@ -517,7 +517,7 @@ const useCustomerList = () => {
       draftString: DraftStrings.customer,
       type: type,
       action: () => {
-        handleChangeSearchParams({...searchParams});
+        handleChangeSearchParams({ ...searchParams });
       },
       record: record,
     };

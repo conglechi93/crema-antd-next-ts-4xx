@@ -3,13 +3,13 @@ import AppModal from 'components/molecules/AppModal';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import AppTextArea from 'components/atoms/AppTextArea';
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import usePropertyModal from './usePropertyModal';
 import AppSelect from 'components/atoms/AppSelect';
 import DataType from 'components/molecules/DataType';
-import {ActionType} from 'shared/constants/AppVariables';
+import { ActionType } from 'shared/constants/AppVariables';
 import PropertyDetail from '../PropertyDetail';
 
 type PropsTypes = {
@@ -20,14 +20,14 @@ type PropsTypes = {
   zIndex?: number;
 };
 const PropertyModal = (props: PropsTypes) => {
-  const {info, isOpen, setIsOpen} = props;
-  const {type} = info;
+  const { info, isOpen, setIsOpen } = props;
+  const { type } = info;
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
     formatSelectRequiredMessageId: fsrm,
   } = useFormMessage();
-  const {messages} = useIntl();
+  const { messages } = useIntl();
 
   const {
     form,
@@ -100,7 +100,10 @@ const PropertyModal = (props: PropsTypes) => {
                           name={'configDataType'}
                           label={frl('common.dataType')}
                           rules={[
-                            {required: true, message: fsrm('common.dataType')},
+                            {
+                              required: true,
+                              message: fsrm('common.dataType'),
+                            },
                           ]}
                         >
                           <AppSelect
@@ -118,7 +121,7 @@ const PropertyModal = (props: PropsTypes) => {
                   <Col xs={24}>
                     <AppFormItem
                       name={'description'}
-                      label={messages['common.description']}
+                      label={messages['common.description'] as string}
                     >
                       <AppTextArea
                         placeholder={

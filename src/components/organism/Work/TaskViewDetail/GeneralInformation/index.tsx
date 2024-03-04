@@ -1,8 +1,8 @@
 import IntlMessages from '@crema/utility/IntlMessages';
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppProgressPercent from 'components/atoms/AppProgressPercent';
 import AppTypo from 'components/atoms/AppTypo';
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 import useGeneralInformation from './useFunc';
 import AppInlineSelect from 'components/atoms/AppInlineSelect';
 
@@ -11,7 +11,7 @@ type PropsTypes = {
 };
 
 const GeneralInformation = (props: PropsTypes) => {
-  const {detailInfo} = props;
+  const { detailInfo } = props;
   const {
     project,
     handleChangeProject,

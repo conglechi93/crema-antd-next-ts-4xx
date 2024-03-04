@@ -1,11 +1,11 @@
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {Col, FormInstance, Row} from 'antd';
+import { Col, FormInstance, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppInput from 'components/atoms/AppInput';
 import AppTextArea from 'components/atoms/AppTextArea';
-import {useEffect} from 'react';
-import {useIntl} from 'react-intl';
+import { useEffect } from 'react';
+import { useIntl } from 'react-intl';
 import useJobTypesAddAndUpdate from './useFunc';
 import AppTypo from 'components/atoms/AppTypo';
 import IntlMessages from '@crema/utility/IntlMessages';
@@ -16,8 +16,8 @@ type PropsType = {
   setModalInfo: (modalInfo: any) => void;
 };
 const JobTypesAddAndUpdate = (props: PropsType) => {
-  const {form, record, setModalInfo} = props;
-  const {messages} = useIntl();
+  const { form, record, setModalInfo } = props;
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
@@ -32,7 +32,7 @@ const JobTypesAddAndUpdate = (props: PropsType) => {
     }
   }, [record]);
 
-  const {handleFieldsChange} = useJobTypesAddAndUpdate(form, setModalInfo);
+  const { handleFieldsChange } = useJobTypesAddAndUpdate(form, setModalInfo);
 
   return (
     <>
@@ -47,7 +47,7 @@ const JobTypesAddAndUpdate = (props: PropsType) => {
             <AppFormItem
               label={frl('common.jobTypeName')}
               name='name'
-              rules={[{required: true, message: frm('common.jobTypeName')}]}
+              rules={[{ required: true, message: frm('common.jobTypeName') }]}
             >
               <AppInput
                 type='text'
@@ -57,7 +57,7 @@ const JobTypesAddAndUpdate = (props: PropsType) => {
           </Col>
           <Col xs={24}>
             <AppFormItem
-              label={messages['common.description']}
+              label={messages['common.description'] as string}
               name='description'
             >
               <AppTextArea

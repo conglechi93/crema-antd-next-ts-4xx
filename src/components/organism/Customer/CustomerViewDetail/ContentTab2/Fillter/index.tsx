@@ -1,5 +1,5 @@
-import React, {memo} from 'react';
-import {useIntl} from 'react-intl';
+import React, { memo } from 'react';
+import { useIntl } from 'react-intl';
 import AppPopConfirm from 'components/atoms/AppPopConfirm';
 import IntlMessages from '@crema/utility/IntlMessages';
 import AppForm from 'components/atoms/AppForm';
@@ -9,13 +9,13 @@ import AppSelectAll from 'components/atoms/AppSelectAll';
 import SearchImg from 'assets/icon/search.png';
 import AppSearch from 'components/atoms/AppSearch';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {onSearchInventoryWarehouseV2} from 'redux/actions/InventoryWarehouse';
+import { onSearchInventoryWarehouseV2 } from 'redux/actions/InventoryWarehouse';
 
 type PropsTypes = {
   handleChangeSearchParams: (params: any) => void;
 };
 const FilterTab2 = (props: PropsTypes) => {
-  const {handleChangeSearchParams} = props;
+  const { handleChangeSearchParams } = props;
   const {
     form,
     statusOptions,
@@ -26,7 +26,7 @@ const FilterTab2 = (props: PropsTypes) => {
     inventoriesTableSearchParams,
     setInventoriesTableSearchParams,
   } = useFunc(handleChangeSearchParams);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   return (
     <AppPopConfirm
       openPop={openPop}
@@ -36,7 +36,10 @@ const FilterTab2 = (props: PropsTypes) => {
       description={
         <>
           <AppForm form={form}>
-            <AppFormItem name='searchText' label={messages['common.search']}>
+            <AppFormItem
+              name='searchText'
+              label={messages['common.search'] as string}
+            >
               <AppSearch
                 placeholder={messages['common.inventoriesSearchHint'] as string}
                 suffix={<img src={SearchImg.src} alt='' />}

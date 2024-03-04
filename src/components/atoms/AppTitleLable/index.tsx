@@ -1,4 +1,4 @@
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import React from 'react';
 import AppTypo from '../AppTypo';
 import IntlMessages from '@crema/utility/IntlMessages';
@@ -6,11 +6,11 @@ import labelImg from 'assets/icon/documents_label.png';
 
 type AppTitleLableProps = {
   recordTitle?: string;
-  title: React.ReactNode | string;
+  title: React.ReactNode | string | any;
 };
 
 const AppTitleLable = (props: AppTitleLableProps) => {
-  const {title, recordTitle} = props;
+  const { title, recordTitle } = props;
   return (
     <Row gutter={[12, 12]} align={'middle'}>
       {recordTitle && (

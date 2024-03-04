@@ -1,24 +1,24 @@
-import {Col, DatePicker, Row} from 'antd';
+import { Col, DatePicker, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppPopConfirm from 'components/atoms/AppPopConfirm';
-import {useIntl} from 'react-intl';
+import { useIntl } from 'react-intl';
 import SearchImg from 'assets/icon/search.png';
 import AppSearch from 'components/atoms/AppSearch';
 import IntlMessages from '@crema/utility/IntlMessages';
 import useTaskFilter from './useTaskFilter';
 import AppSelectAll from 'components/atoms/AppSelectAll';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {onGetEmployees} from 'redux/actions/Employees';
-import {dateTimeFormat} from 'shared/constants/AppConst';
+import { onGetEmployees } from 'redux/actions/Employees';
+import { dateTimeFormat } from 'shared/constants/AppConst';
 import CalendarImg from 'assets/icon/Calendar.png';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
 type TaskFilterProps = {
   handleChangeSearchParams: (params: any) => void;
 };
 const TaskFilter = (props: TaskFilterProps) => {
-  const {handleChangeSearchParams} = props;
-  const {RangePicker} = DatePicker;
+  const { handleChangeSearchParams } = props;
+  const { RangePicker } = DatePicker;
   const {
     form,
     initialValues,
@@ -33,7 +33,7 @@ const TaskFilter = (props: TaskFilterProps) => {
     priorityOptions,
     jobTypeOptions,
   } = useTaskFilter(handleChangeSearchParams);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
@@ -53,7 +53,7 @@ const TaskFilter = (props: TaskFilterProps) => {
               <AppForm form={form}>
                 <AppFormItem
                   name='searchText'
-                  label={messages['common.search']}
+                  label={messages['common.search'] as string}
                 >
                   <AppSearch
                     // onSearch={(e) => handleSearch(e)}
@@ -75,32 +75,38 @@ const TaskFilter = (props: TaskFilterProps) => {
                 </AppFormItem>
                 <AppFormItem
                   name='priorities'
-                  label={messages['common.priority']}
+                  label={messages['common.priority'] as string}
                 >
                   <AppSelectAll
                     initialValues={initialValues?.priorities}
                     form={form}
                     fieldName='priorities'
                     options={priorityOptions}
-                    placeholder={messages['common.priorityHint']}
+                    placeholder={messages['common.priorityHint'] as string}
                     mode='multiple'
                   />
                 </AppFormItem>
-                <AppFormItem name='jobTypes' label={messages['common.jobType']}>
+                <AppFormItem
+                  name='jobTypes'
+                  label={messages['common.jobType'] as string}
+                >
                   <AppSelectAll
                     initialValues={initialValues?.jobTypes}
                     form={form}
                     fieldName='jobTypes'
                     options={jobTypeOptions}
-                    placeholder={messages['common.jobTypeHint']}
+                    placeholder={messages['common.jobTypeHint'] as string}
                     mode='multiple'
                   />
                 </AppFormItem>
-                <AppFormItem name='time' label={messages['common.time']}>
+                <AppFormItem
+                  name='time'
+                  label={messages['common.time'] as string}
+                >
                   <RangePicker
                     showTime
                     format={dateTimeFormat[1]}
-                    style={{width: '100%', height: '36px'}}
+                    style={{ width: '100%', height: '36px' }}
                     suffixIcon={<img src={CalendarImg.src} alt='' />}
                     placeholder={[
                       dateTimeFormat[1].toString().toLowerCase(),

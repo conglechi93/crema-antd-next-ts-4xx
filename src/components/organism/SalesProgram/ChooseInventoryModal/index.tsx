@@ -46,8 +46,8 @@ const ChooseInventoryModal = (props: PropsTypes) => {
       <AppModal
         title={
           info?.type === ChooseInventoryType.CHOOSE_INVENTORY
-            ? messages['common.chooseInventory']
-            : messages['common.addInventoryInterested']
+            ? (messages['common.chooseInventory'] as string)
+            : (messages['common.addInventoryInterested'] as string)
         }
         openModal={isOpen}
         submitText={messages['common.add'] as string}

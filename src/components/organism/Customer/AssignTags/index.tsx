@@ -1,24 +1,24 @@
-import {Col, Row} from 'antd';
+import { Col, Row } from 'antd';
 import AppForm from 'components/atoms/AppForm';
 import AppTypo from 'components/atoms/AppTypo';
 import useAssignTags from './useFunc';
 import AppFormItem from 'components/atoms/AppFormItem';
 import AppSelectLoadMore from 'components/atoms/AppSelectLoadMore';
-import {onGetTags} from 'redux/actions/Tag';
-import {useIntl} from 'react-intl';
+import { onGetTags } from 'redux/actions/Tag';
+import { useIntl } from 'react-intl';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
-import {ModalInfoProps} from 'components/molecules/AppModalV2';
-import {FormInstance} from 'antd/lib';
+import { ModalInfoProps } from 'components/molecules/AppModalV2';
+import { FormInstance } from 'antd/lib';
 type AssignTagsProps = {
   form: FormInstance;
   handleChangeModalInfo: (data: ModalInfoProps) => void;
   currentTags?: Array<any>;
 };
 const AssignTags = (props: AssignTagsProps) => {
-  const {form, handleChangeModalInfo, currentTags} = props;
-  const {tagsSearchParams, setTagsSearchParams, handleFieldsChange} =
+  const { form, handleChangeModalInfo, currentTags } = props;
+  const { tagsSearchParams, setTagsSearchParams, handleFieldsChange } =
     useAssignTags(form, handleChangeModalInfo, currentTags);
-  const {messages} = useIntl();
+  const { messages } = useIntl();
   const {
     formatRequiredLabelId: frl,
     formatRequiredMessageId: frm,
@@ -36,14 +36,14 @@ const AssignTags = (props: AssignTagsProps) => {
           <AppFormItem
             name='tags'
             label={frl('common.tags')}
-            rules={[{required: true, message: fsrm('common.tags')}]}
+            rules={[{ required: true, message: fsrm('common.tags') }]}
           >
             <AppSelectLoadMore
               allowClear
               searchParams={tagsSearchParams}
               setSearchParams={setTagsSearchParams}
               onGetOptions={onGetTags}
-              placeholder={messages['common.tagsHint']}
+              placeholder={messages['common.tagsHint'] as string}
               mode='tags'
             />
           </AppFormItem>
