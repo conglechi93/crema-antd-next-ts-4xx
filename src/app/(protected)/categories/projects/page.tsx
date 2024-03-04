@@ -1,9 +1,9 @@
 'use client';
-import Form from 'modules/categoryManagement/Form';
+import Project from 'modules/categories/Project';
 import React from 'react';
 
 const Page = () => {
-  return <Form />;
+  return <Project />;
 };
 
 export default Page;

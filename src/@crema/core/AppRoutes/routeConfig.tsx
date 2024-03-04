@@ -103,7 +103,7 @@ const routesConfig = [
     ],
   },
   {
-    id: 'category-management',
+    id: 'categories',
     title: 'Quản lý danh mục',
     messageId: 'navbar.catetoryManagement',
     type: 'group',
@@ -113,7 +113,7 @@ const routesConfig = [
         title: 'Danh sách biểu mẫu',
         messageId: 'common.formList',
         type: 'item',
-        path: '/category-management/form',
+        path: '/categories/forms',
         icon: <MdOutlineDns />,
       },
       {
@@ -121,7 +121,7 @@ const routesConfig = [
         title: 'Danh sách dự án',
         messageId: 'common.projectList',
         type: 'item',
-        path: '/category-management/project',
+        path: '/categories/projects',
         icon: <MdOutlineDns />,
       },
     ],
@@ -133,19 +133,19 @@ const routesConfig = [
     type: 'group',
     children: [
       {
-        id: 'department',
+        id: 'departments',
         title: 'Định nghĩa phòng ban',
         messageId: 'common.departmentDefine',
         type: 'item',
-        path: '/configuration/department',
+        path: '/configuration/departments',
         icon: <MdOutlineDns />,
       },
       {
-        id: 'property',
+        id: 'properties',
         title: 'Định nghĩa thuộc tính',
         messageId: 'common.propertyDefine',
         type: 'item',
-        path: '/configuration/property',
+        path: '/configuration/properties',
         icon: <MdOutlineDns />,
       },
       {
@@ -165,11 +165,11 @@ const routesConfig = [
         icon: <MdOutlineDns />,
       },
       {
-        id: 'work-flow',
+        id: 'work-flows',
         title: 'Định nghĩa QT công việc',
         messageId: 'common.workFlowDefine',
         type: 'item',
-        path: '/configuration/work-flow',
+        path: '/configuration/work-flows',
         icon: <MdOutlineDns />,
       },
       {
