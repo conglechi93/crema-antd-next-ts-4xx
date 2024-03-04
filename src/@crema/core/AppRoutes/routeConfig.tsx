@@ -109,7 +109,7 @@ const routesConfig = [
     type: 'group',
     children: [
       {
-        id: 'form',
+        id: 'forms',
         title: 'Danh sách biểu mẫu',
         messageId: 'common.formList',
         type: 'item',
@@ -117,7 +117,7 @@ const routesConfig = [
         icon: <MdOutlineDns />,
       },
       {
-        id: 'project',
+        id: 'projects',
         title: 'Danh sách dự án',
         messageId: 'common.projectList',
         type: 'item',

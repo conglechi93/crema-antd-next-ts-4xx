@@ -60,7 +60,7 @@ export default function RootLayout({ children }: any) {
                             <AppAuthProvider>
                               <AuthRoutes>
                                 <AppPageMeta />
-                                <GlobalStyles />
+                                {/* <GlobalStyles /> */}
                                 <Normalize />
                                 {children}
                               </AuthRoutes>
