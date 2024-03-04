@@ -127,7 +127,7 @@ const routesConfig = [
     ],
   },
   {
-    id: 'configuration-management',
+    id: 'configuration',
     title: 'Quản lý cấu hình',
     messageId: 'navbar.configManagement',
     type: 'group',
@@ -137,7 +137,7 @@ const routesConfig = [
         title: 'Định nghĩa phòng ban',
         messageId: 'common.departmentDefine',
         type: 'item',
-        path: '/configuration-management/department',
+        path: '/configuration/department',
         icon: <MdOutlineDns />,
       },
       {
@@ -145,7 +145,7 @@ const routesConfig = [
         title: 'Định nghĩa thuộc tính',
         messageId: 'common.propertyDefine',
         type: 'item',
-        path: '/configuration-management/property',
+        path: '/configuration/property',
         icon: <MdOutlineDns />,
       },
       {
@@ -153,7 +153,7 @@ const routesConfig = [
         title: 'Định nghĩa thuộc tính',
         messageId: 'common.rolesDefine',
         type: 'item',
-        path: '/configuration-management/roles',
+        path: '/configuration/roles',
         icon: <MdOutlineDns />,
       },
       {
@@ -161,7 +161,7 @@ const routesConfig = [
         title: 'Dữ liệu danh sách',
         messageId: 'common.pickLists',
         type: 'item',
-        path: '/configuration-management/pick-lists',
+        path: '/configuration/pick-lists',
         icon: <MdOutlineDns />,
       },
       {
@@ -169,7 +169,7 @@ const routesConfig = [
         title: 'Định nghĩa QT công việc',
         messageId: 'common.workFlowDefine',
         type: 'item',
-        path: '/configuration-management/work-flow',
+        path: '/configuration/work-flow',
         icon: <MdOutlineDns />,
       },
       {
@@ -177,7 +177,7 @@ const routesConfig = [
         title: 'Định nghĩa tags',
         messageId: 'common.tagsDefine',
         type: 'item',
-        path: '/configuration-management/tags',
+        path: '/configuration/tags',
         icon: <MdOutlineDns />,
       },
       {
@@ -185,7 +185,7 @@ const routesConfig = [
         title: 'Định nghĩa loại công việc',
         messageId: 'common.jobTypeDefine',
         type: 'item',
-        path: '/configuration-management/job-types',
+        path: '/configuration/job-types',
         icon: <MdOutlineDns />,
       },
     ],
