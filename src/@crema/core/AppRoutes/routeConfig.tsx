@@ -3,36 +3,36 @@ import { MdOutlineDns } from 'react-icons/md';
 import { BsCurrencyBitcoin } from 'react-icons/bs';
 
 const routesConfig = [
-  {
-    id: 'dashboardss',
-    title: 'Application',
-    messageId: 'common.edit',
-    type: 'group',
-    children: [
-      {
-        id: 'crypto',
-        title: 'Crypto',
-        messageId: 'sidebar.app.dashboard.crypto',
-        icon: <BsCurrencyBitcoin />,
-        path: '/dashboards/crypto',
-      },
-    ],
-  },
-  {
-    id: 'apps',
-    title: 'Apps',
-    messageId: 'common.add',
-    type: 'group',
-    children: [
-      {
-        id: 'scrum-board',
-        title: 'Scrum Board',
-        messageId: 'sidebar.apps.scrumboard',
-        icon: <MdOutlineDns />,
-        path: '/apps/scrum-board',
-      },
-    ],
-  },
+  // {
+  //   id: 'dashboardss',
+  //   title: 'Application',
+  //   messageId: 'common.edit',
+  //   type: 'group',
+  //   children: [
+  //     {
+  //       id: 'crypto',
+  //       title: 'Crypto',
+  //       messageId: 'sidebar.app.dashboard.crypto',
+  //       icon: <BsCurrencyBitcoin />,
+  //       path: '/dashboards/crypto',
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 'apps',
+  //   title: 'Apps',
+  //   messageId: 'common.add',
+  //   type: 'group',
+  //   children: [
+  //     {
+  //       id: 'scrum-board',
+  //       title: 'Scrum Board',
+  //       messageId: 'sidebar.apps.scrumboard',
+  //       icon: <MdOutlineDns />,
+  //       path: '/apps/scrum-board',
+  //     },
+  //   ],
+  // },
   {
     id: 'product-management',
     title: 'Product Management',

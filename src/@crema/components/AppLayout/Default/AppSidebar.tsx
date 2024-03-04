@@ -1,13 +1,13 @@
-import React from "react";
-import UserInfo from "../components/UserInfo";
-import clsx from "clsx";
-import AppVerticalMenu from "../components/AppVerticalNav";
+import React from 'react';
+import UserInfo from '../components/UserInfo';
+import clsx from 'clsx';
+import AppVerticalMenu from '../components/AppVerticalNav';
 import {
   StyledAppMainSidebar,
   StyledAppSidebarScrollbar,
-} from "./index.styled";
-import { useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
-import { RouterConfigData } from "@crema/types/models/Apps";
+} from './index.styled';
+import { useSidebarContext } from '@crema/context/AppContextProvider/SidebarContextProvider';
+import { RouterConfigData } from '@crema/types/models/Apps';
 
 type AppSidebarProps = {
   routesConfig: RouterConfigData[];
@@ -23,10 +23,10 @@ const AppSidebar: React.FC<AppSidebarProps> = ({
   return (
     <StyledAppMainSidebar
       className={clsx({
-        "sidebar-img-background": allowSidebarBgImage,
+        'sidebar-img-background': allowSidebarBgImage,
       })}
       collapsible
-      breakpoint="xl"
+      breakpoint='xl'
       collapsed={isCollapsed}
     >
       <UserInfo hasColor />

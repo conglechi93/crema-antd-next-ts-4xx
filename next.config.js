@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   env: {
-    NEXT_PUBLIC_INITIAL_URL: '/dashboards/crypto',
+    NEXT_PUBLIC_INITIAL_URL: '/project-management/inventory-warehouse',
     NEXT_PUBLIC_STATE_TYPE: 'context',
     NEXT_PUBLIC_FILESTACK_KEY: 'Ach6MsgoQHGK6tCaq5uJgz',
     NEXT_PUBLIC_LAYOUT: 'default',
