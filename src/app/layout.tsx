@@ -27,9 +27,8 @@ const inter = Inter({ subsets: ['latin'] });
 export default function RootLayout({ children }: any) {
   const [isBrowser, setIsBrowser] = React.useState(false);
   React.useEffect(() => {
-    setIsBrowser(true);
+    setIsBrowser(typeof window !== 'undefined');
   }, []);
-  console.log('isBrowser', isBrowser);
   return (
     <html lang='en'>
       <head>

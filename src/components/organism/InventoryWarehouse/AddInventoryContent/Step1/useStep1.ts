@@ -18,7 +18,7 @@ const useStep1 = (
   handleSetFormData: (dataItems: Array<{ key: string; value: any }>) => void,
 ) => {
   const dispatch = useDispatch();
-  const [editorValue, setEditorValue] = useState();
+  const [editorValue, setEditorValue] = useState<string>('');
   const [selectFields, setSelectFields] = useState<Array<string>>([]);
   const [optionalFields, setOptionalFields] = useState<Array<string>>([]);
   const [propertyList, setPropertyList] = useState<
@@ -114,7 +114,7 @@ const useStep1 = (
       form.setFieldsValue({
         name: res?.name,
       });
-      setEditorValue(res?.description || '');
+      setEditorValue(res?.description ?? '');
       const fileAttachments: Array<any> = [];
       const files: Array<any> = res?.fileAttachments ?? [];
       files.map((item: any) => {
@@ -222,7 +222,7 @@ const useStep1 = (
     form.setFieldsValue({
       name: dataSource.name,
     });
-    setEditorValue(dataSource.description || '');
+    setEditorValue(dataSource.description ?? '');
     const propertyList: any = dataSource?.propertyList || {};
     let provinceCode;
     let districtCode;

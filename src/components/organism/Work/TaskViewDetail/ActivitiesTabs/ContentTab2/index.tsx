@@ -1,12 +1,11 @@
-import {Col, List, Row, Skeleton} from 'antd';
+import { Col, List, Row, Skeleton } from 'antd';
 import React from 'react';
-import {CKEditor} from '@ckeditor/ckeditor5-react';
-import Editor from 'ckeditor5-custom-build';
 import useContentTab2 from './useContentTab2';
 import AppButton from 'components/atoms/AppButton';
 import CommentItem from './CommentItem';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import styles from '../style.module.scss';
+import AppEditor from 'components/atoms/AppEditor';
 
 type PropsTypes = {
   activeValue: string;
@@ -14,28 +13,7 @@ type PropsTypes = {
 };
 
 const ContentTab2 = (props: PropsTypes) => {
-  const {activeValue, record} = props;
-  const editorConfiguration: any = {
-    toolbar: [
-      'heading',
-      '|',
-      'bold',
-      'italic',
-      'link',
-      'bulletedList',
-      'numberedList',
-      '|',
-      'outdent',
-      'indent',
-      '|',
-      'imageUpload',
-      'blockQuote',
-      'insertTable',
-      'mediaEmbed',
-      'undo',
-      'redo',
-    ],
-  };
+  const { activeValue, record } = props;
   const {
     content,
     setContent,
@@ -61,7 +39,9 @@ const ContentTab2 = (props: PropsTypes) => {
             dataLength={commentList.length}
             next={handleLoadMoreData}
             hasMore={false}
-            loader={loading && <Skeleton avatar paragraph={{rows: 1}} active />}
+            loader={
+              loading && <Skeleton avatar paragraph={{ rows: 1 }} active />
+            }
             scrollableTarget='scrollableDiv'
           >
             <List
@@ -69,7 +49,7 @@ const ContentTab2 = (props: PropsTypes) => {
               renderItem={(item: any, index: number) => (
                 <CommentItem item={item} index={index} />
               )}
-              locale={{emptyText: <p>Chưa có bình luận nào</p>}}
+              locale={{ emptyText: <p>Chưa có bình luận nào</p> }}
               // loadMore
             />
           </InfiniteScroll>
@@ -80,17 +60,15 @@ const ContentTab2 = (props: PropsTypes) => {
       <Col xs={24}>
         <Row gutter={[10, 10]}>
           <Col xs={24}>
-            <CKEditor
-              editor={Editor}
-              config={editorConfiguration}
-              data={content}
+            <AppEditor
+              value={content}
               onChange={(event: any, editor: any) => {
                 const editorData = editor.getData();
                 setContent(editorData);
               }}
             />
           </Col>
-          <Col flex={'auto'} style={{textAlign: 'right'}}>
+          <Col flex={'auto'} style={{ textAlign: 'right' }}>
             <AppButton type='primary' onClick={handleCreateComment}>
               {/* <AppControlAction variant='send' /> */}
               Bình luận

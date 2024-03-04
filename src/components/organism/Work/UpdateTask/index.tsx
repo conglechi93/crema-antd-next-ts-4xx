@@ -7,8 +7,6 @@ import { useIntl } from 'react-intl';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
 import { FormInstance } from 'antd/lib';
 import AppCollapse from 'components/molecules/AppCollapse';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import Editor from 'ckeditor5-custom-build';
 import TaskDetail from './TaskDetail';
 import AppDraggerUpload from 'components/molecules/AppDraggerUpload';
 import { useDispatch } from 'react-redux';
@@ -16,6 +14,7 @@ import { AttachmentType } from 'shared/constants/AppVariables';
 import { onUploadFile } from 'redux/actions/UploadCommon';
 import { createImageJson } from 'utils/FileHelper';
 import AppTypo from 'components/atoms/AppTypo';
+import AppEditor from 'components/atoms/AppEditor';
 
 type PropsTypes = {
   form: FormInstance;
@@ -48,40 +47,16 @@ const UpdateTask = (props: PropsTypes) => {
       onError('error');
     }
   };
-
-  const editorConfiguration: any = {
-    toolbar: [
-      'heading',
-      '|',
-      'bold',
-      'italic',
-      'link',
-      'bulletedList',
-      'numberedList',
-      '|',
-      'outdent',
-      'indent',
-      '|',
-      'imageUpload',
-      'blockQuote',
-      'insertTable',
-      'mediaEmbed',
-      'undo',
-      'redo',
-    ],
-  };
   const itemsCollapse = [
     {
       key: '1',
       label: 'Mô tả',
       children: (
-        <CKEditor
-          editor={Editor}
-          config={editorConfiguration}
-          data={''}
+        <AppEditor
+          value={'content'}
           onChange={(event: any, editor: any) => {
             const editorData = editor.getData();
-            // setDescription(editorData);
+            // setD(editorData);
           }}
         />
       ),

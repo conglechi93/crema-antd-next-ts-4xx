@@ -9,7 +9,8 @@ import { useIntl } from 'react-intl';
 import useFormMessage from '@crema/utility/hooks/useFormMessage';
 import Validators from 'shared/validators';
 import RenderAtormsV2 from 'components/molecules/RenderAtormsV2';
-import ReactQuill, { Quill } from 'react-quill';
+import TextArea from 'antd/es/input/TextArea';
+import AppEditor from 'components/atoms/AppEditor';
 
 type PropsTypes = {
   info: any;
@@ -34,32 +35,15 @@ const Step1 = (props: PropsTypes) => {
     formatSelectRequiredMessageId: fsrm,
   } = useFormMessage();
 
-  const handleChangeEditor = (event: any, editor: any) => {
-    const editorData = editor.getData();
+  const handleChangeEditor = (event, editor) => {
+    const value = editor.getData();
     const data = {
       key: 'description',
-      value: editorData,
+      value: value,
     };
     handleSetFormData([data]);
-    setEditorValue(editorData);
+    setEditorValue(value);
   };
-
-  const formats = [
-    'header',
-    'font',
-    'size',
-    'bold',
-    'italic',
-    'underline',
-    'strike',
-    'blockquote',
-    'list',
-    'bullet',
-    'indent',
-    'link',
-    'image',
-    'video',
-  ];
 
   return (
     <div>
@@ -95,17 +79,7 @@ const Step1 = (props: PropsTypes) => {
             responsiveCol={{ xs: 24, sm: 12, md: 12, xl: 8 }}
           />
           <Col xs={24}>
-            {/* <AppEditor
-              editorValue={editorValue}
-              setEditorValue={setEditorValue}
-              onChange={handleChangeEditor}
-            /> */}
-            <ReactQuill
-              theme='snow'
-              formats={formats}
-              value={editorValue}
-              onChange={handleChangeEditor}
-            ></ReactQuill>
+            <AppEditor value={editorValue} onChange={handleChangeEditor} />
           </Col>
         </Row>
       </AppForm>
